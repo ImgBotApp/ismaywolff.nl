@@ -15,7 +15,6 @@ exports[`<Status /> renders correctly with browser router 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": undefined,
           "pathname": "blank",
           "search": "",
           "state": undefined,
