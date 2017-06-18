@@ -114,7 +114,7 @@
     "jest": "^20.0.0",
     "jest-serializer-enzyme": "^1.0.0",
     "jest-styled-components": "^3.0.0",
-    "lint-staged": "^3.6.1",
+    "lint-staged": "^4.0.0",
     "lintspaces-cli": "^0.6.0",
     "nock": "^9.0.13",
     "prettier": "^1.4.4",
