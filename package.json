@@ -128,7 +128,7 @@
     "stylelint-no-unsupported-browser-features": "^1.0.0",
     "stylelint-order": "^0.5.0",
     "stylelint-processor-styled-components": "^0.1.0",
-    "webpack": "^2.3.0",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.2.1",
     "webpack-md5-hash": "^0.0.5",
     "webpack-node-externals": "^1.5.4",
