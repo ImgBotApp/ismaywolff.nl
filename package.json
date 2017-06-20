@@ -76,6 +76,7 @@
   },
   "greenkeeper": {
     "ignore": [
+      "react-loadable",
       "eslint",
       "eslint-plugin-import",
       "eslint-plugin-react",
