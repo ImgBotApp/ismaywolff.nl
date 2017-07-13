@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LayoutFooter /> renders correctly 1`] = `
+.hZNgEM {
+  background: var(--color-gray);
+  box-shadow: var(--box-shadow-inset);
+  font-size: var(--size-small);
+  grid-row-end: 3;
+  grid-row-start: 2;
+  padding: var(--size-large) 0;
+}
+
+<div
+  className="sc-bdVaJa hZNgEM"
+/>
+`;

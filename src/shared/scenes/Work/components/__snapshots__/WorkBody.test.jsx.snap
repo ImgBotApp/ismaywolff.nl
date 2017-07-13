@@ -1,36 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<WorkBody /> renders a loading state 1`] = `<styled.div />`;
+exports[`<WorkBody /> renders a loading state for images 1`] = `<styled.div />`;
+
+exports[`<WorkBody /> renders a loading state for works 1`] = `<styled.div />`;
 
 exports[`<WorkBody /> renders correctly 1`] = `
-<styled.div
-  gutter="0.5rem"
->
-  <styled.div
-    gutter="0.5rem"
-    lgBreak="40em"
-    lgSize={0.3333333333333333}
-    mdBreak="25em"
-    mdSize={0.5}
-    smSize={1}
-  >
-    <WorkItem
-      work={
-        Object {
-          "description": "description",
-          "slug": "slug",
-          "summary": "summary",
-          "thumbnail": "thumbnail",
-          "title": "title",
-        }
+<styled.div>
+  <Thumbnail
+    image={
+      Object {
+        "height": 100,
+        "title": "title",
+        "url": "https://url.com",
+        "width": 100,
       }
-    />
-  </styled.div>
+    }
+    work={
+      Object {
+        "featured": true,
+        "hero": true,
+        "images": Array [
+          "imageId",
+        ],
+        "published": "10-01-2010",
+        "slug": "slug",
+        "summary": "summary",
+        "thumbnail": "imageId",
+        "title": "title",
+        "type": "type",
+      }
+    }
+  />
 </styled.div>
 `;
 
-exports[`<WorkBody /> renders errors 1`] = `
+exports[`<WorkBody /> renders image errors 1`] = `
 <AppError
-  errorMessage="Something went wrong"
+  errorMessage="Error while fetching images"
+/>
+`;
+
+exports[`<WorkBody /> renders work errors 1`] = `
+<AppError
+  errorMessage="Error while fetching works"
 />
 `;

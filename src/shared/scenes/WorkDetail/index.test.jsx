@@ -2,33 +2,29 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DumbWorkDetail } from './index'
 
-describe('<WorkDetail />', () => {
+describe('<DumbWorkDetail />', () => {
   it('renders correctly', () => {
-    const match = { params: { id: 'one' } }
-    const entities = {
-      one: {
-        title: 'title',
-        slug: 'slug',
-        type: 'type',
-        published: '2011-04-01',
-        summary: 'summary',
-        images: ['one'],
-        thumbnail: 'thumbnail'
-      }
+    const match = { params: { id: 'workId' } }
+    const images = {
+      didFetch: true,
+      errorMessage: '',
+      isFetching: false,
+      result: ['imageId']
     }
     const works = {
-      result: ['one'],
-      isFetching: false,
       didFetch: true,
-      errorMessage: ''
+      errorMessage: '',
+      isFetching: false,
+      result: ['workId']
     }
 
     const wrapper = shallow(
       <DumbWorkDetail
         match={match}
-        entities={entities}
+        workEntities={{}}
+        imageEntities={{}}
         works={works}
-        hasWorks
+        images={images}
         fetchWorksIfNeeded={() => {}}
         fetchImagesIfNeeded={() => {}}
       />
@@ -45,19 +41,26 @@ describe('<WorkDetail />', () => {
     const spyImages = jest.fn()
     const spyWorks = jest.fn()
     const match = { params: { id: 'one' } }
-    const works = {
-      result: [],
-      isFetching: true,
+    const images = {
       didFetch: false,
-      errorMessage: ''
+      errorMessage: '',
+      isFetching: false,
+      result: []
+    }
+    const works = {
+      didFetch: false,
+      errorMessage: '',
+      isFetching: false,
+      result: []
     }
 
     mount(
       <DumbWorkDetail
         match={match}
-        entities={{}}
+        workEntities={{}}
+        imageEntities={{}}
         works={works}
-        hasWorks={false}
+        images={images}
         fetchWorksIfNeeded={spyWorks}
         fetchImagesIfNeeded={spyImages}
       />
@@ -65,69 +68,5 @@ describe('<WorkDetail />', () => {
 
     expect(spyWorks).toHaveBeenCalled()
     expect(spyImages).toHaveBeenCalled()
-  })
-
-  it('renders a loading state', () => {
-    const match = { params: { id: 'one' } }
-    const works = {
-      result: [],
-      isFetching: true,
-      didFetch: false,
-      errorMessage: ''
-    }
-    const wrapper = shallow(
-      <DumbWorkDetail
-        match={match}
-        entities={{}}
-        works={works}
-        hasWorks={false}
-        fetchWorksIfNeeded={() => {}}
-        fetchImagesIfNeeded={() => {}}
-      />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renders a missing page error', () => {
-    const match = { params: { id: 'one' } }
-    const entities = { two: { title: 'title' } }
-    const works = {
-      result: ['two'],
-      isFetching: false,
-      didFetch: true,
-      errorMessage: ''
-    }
-    const wrapper = shallow(
-      <DumbWorkDetail
-        match={match}
-        entities={entities}
-        works={works}
-        hasWorks
-        fetchWorksIfNeeded={() => {}}
-        fetchImagesIfNeeded={() => {}}
-      />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renders api errors', () => {
-    const match = { params: { id: 'one' } }
-    const works = {
-      result: [],
-      isFetching: false,
-      didFetch: true,
-      errorMessage: 'Something went wrong'
-    }
-    const wrapper = shallow(
-      <DumbWorkDetail
-        match={match}
-        entities={{}}
-        works={works}
-        hasWorks={false}
-        fetchWorksIfNeeded={() => {}}
-        fetchImagesIfNeeded={() => {}}
-      />
-    )
-    expect(wrapper).toMatchSnapshot()
   })
 })

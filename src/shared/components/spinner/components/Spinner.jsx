@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import { colors } from '../../../styles'
 
 const scale = keyframes`
   from {
@@ -14,7 +13,7 @@ const scale = keyframes`
 
 const Spinner = styled.div`
   animation: ${scale} 1s infinite ease-in-out;
-  background-color: ${colors.black};
+  background-color: var(--color-black);
   border-radius: 100%;
   height: 2rem;
   margin: 2rem auto;

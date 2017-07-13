@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from '../../link'
-import { colors } from '../../../styles'
-import ErrorContainer from './ErrorContainer'
-import ErrorTitle from './ErrorTitle'
+import { Title } from '../../text'
+import ErrorWrapper from './ErrorWrapper'
 
 /**
  * Shown for missing pages.
  */
 
 const MissingPageError = () =>
-  <ErrorContainer background={colors.lightBlue} color={colors.darkBlue}>
-    <ErrorTitle>Oops, that page can{"'"}t be found!</ErrorTitle>
+  <ErrorWrapper type="info">
+    <Title tag="h2" margin="0" center>Oops, that page can{"'"}t be found!</Title>
     <p>
       The page you{"'"}re trying to view doesn{"'"}t exist. If you entered the url manually
       check whether it{"'"}s correct. If you clicked a link then either I made a mistake, or the
@@ -26,6 +25,6 @@ const MissingPageError = () =>
       owned by an old webmaster who just kept it on a server in his garage. I even still have
       the original manual!
     </p>
-  </ErrorContainer>
+  </ErrorWrapper>
 
 export default MissingPageError

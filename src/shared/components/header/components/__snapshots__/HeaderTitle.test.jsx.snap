@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HeaderTitle /> renders correctly 1`] = `
-.drbUwD {
-  font-family: Bitter, serif;
+.ehORbv {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   margin-top: 0;
@@ -12,7 +11,7 @@ exports[`<HeaderTitle /> renders correctly 1`] = `
 }
 
 @media (min-width: 30em) {
-  .drbUwD {
+  .ehORbv {
     margin-bottom: 0;
     -webkit-text-align: left;
     text-align: left;
@@ -20,6 +19,6 @@ exports[`<HeaderTitle /> renders correctly 1`] = `
 }
 
 <h1
-  className="sc-bdVaJa drbUwD"
+  className="sc-bdVaJa ehORbv"
 />
 `;

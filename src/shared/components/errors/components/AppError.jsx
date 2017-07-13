@@ -1,17 +1,16 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { Link } from '../../link'
-import { colors } from '../../../styles'
-import ErrorContainer from './ErrorContainer'
-import ErrorTitle from './ErrorTitle'
+import { Title } from '../../text'
+import ErrorWrapper from './ErrorWrapper'
 
 /**
  * Shown for api errors and async component errors.
  */
 
 const AppError = ({ errorMessage }) =>
-  <ErrorContainer background={colors.lightRed} color={colors.darkRed}>
-    <ErrorTitle>Oops, something went wrong!</ErrorTitle>
+  <ErrorWrapper type="error">
+    <Title tag="h2" margin="0" center>Oops, something went wrong!</Title>
     <p>
       Something went wrong while loading this page. Try refreshing the page and check if your
       browser extensions aren{"'"}t blocking anything critical.
@@ -25,7 +24,7 @@ const AppError = ({ errorMessage }) =>
       .
     </p>
     <p>The error was: {'"'}{errorMessage}{'"'}.</p>
-  </ErrorContainer>
+  </ErrorWrapper>
 
 AppError.propTypes = {
   errorMessage: string.isRequired

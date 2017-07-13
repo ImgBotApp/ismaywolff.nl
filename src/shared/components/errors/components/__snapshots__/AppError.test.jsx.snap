@@ -2,12 +2,16 @@
 
 exports[`<AppError /> renders correctly 1`] = `
 <styled.div
-  background="rgb(239,141,141)"
-  color="rgb(195,35,35)"
+  type="error"
 >
-  <styled.h2>
+  <TitleFactory
+    center={true}
+    margin="0"
+    size="1rem"
+    tag="h2"
+  >
     Oops, something went wrong!
-  </styled.h2>
+  </TitleFactory>
   <p>
     Something went wrong while loading this page. Try refreshing the page and check if your browser extensions aren
     '

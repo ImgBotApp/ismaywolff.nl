@@ -1,11 +1,12 @@
 import React from 'react'
 import NavLink from './NavLink'
-import NavContainer from './NavContainer'
+import NavWrapper from './NavWrapper'
 
 const Navigation = () =>
-  <NavContainer>
-    <NavLink to="/work">work</NavLink>
-    <NavLink to="/writing">writing</NavLink>
-  </NavContainer>
+  <NavWrapper>
+    <NavLink to="/" exact>Home</NavLink>
+    <NavLink to="/work">Work</NavLink>
+    <NavLink to="/about">About</NavLink>
+  </NavWrapper>
 
 export default Navigation

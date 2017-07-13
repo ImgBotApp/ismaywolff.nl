@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Thumbnail /> renders correctly 1`] = `
+<styled.div>
+  <Link
+    to="/work/slug"
+  >
+    <styled.picture
+      height={0.6666666666666666}
+      width={1}
+    >
+      <img
+        alt="title"
+        sizes="
+          (min-width: 30em) 15rem,
+          100vw
+        "
+        src="https://image.com?fit=fill&w=250&h=166&fl=progressive"
+        srcSet="
+          https://image.com?fit=fill&w=1000&h=666&fl=progressive 1000w,
+          https://image.com?fit=fill&w=750&h=500&fl=progressive 750w,
+          https://image.com?fit=fill&w=500&h=333&fl=progressive 500w,
+          https://image.com?fit=fill&w=250&h=166&fl=progressive 250w,
+          https://image.com?fit=fill&w=100&h=66&fl=progressive 100w
+        "
+      />
+    </styled.picture>
+    <styled.div>
+      <styled.span
+        dark={true}
+      >
+        View work →
+      </styled.span>
+    </styled.div>
+  </Link>
+</styled.div>
+`;

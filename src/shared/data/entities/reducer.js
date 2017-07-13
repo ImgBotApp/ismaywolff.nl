@@ -1,7 +1,5 @@
 const initialState = {
-  articles: {},
   images: {},
-  pages: {},
   works: {}
 }
 
@@ -16,16 +14,8 @@ const mergeEntities = (action, entityKey, state) => {
 }
 
 const entities = (state = initialState, action) => {
-  if (hasEntities(action, 'articles')) {
-    return mergeEntities(action, 'articles', state)
-  }
-
   if (hasEntities(action, 'images')) {
     return mergeEntities(action, 'images', state)
-  }
-
-  if (hasEntities(action, 'pages')) {
-    return mergeEntities(action, 'pages', state)
   }
 
   if (hasEntities(action, 'works')) {

@@ -1,11 +1,9 @@
 const path = require('path')
-const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SentryPlugin = require('webpack-sentry-plugin')
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
-const WebpackMd5Hash = require('webpack-md5-hash')
 const webpack = require('webpack')
 
 /**
@@ -93,6 +91,12 @@ module.exports = {
     }),
 
     /**
+     * Enable scope hoisting.
+     */
+
+    new webpack.optimize.ModuleConcatenationPlugin(),
+
+    /**
      * Add all the necessary environment variables.
      */
 
@@ -135,19 +139,10 @@ module.exports = {
     }),
 
     /**
-     * Enable deterministic builds, to prevent needless cache-busting
-     *
-     * - hash module ids so the module identifiers won't change across builds
-     * - hash file contents with md5, so the hashes are based on the actual file contents
-     * - export json that maps chunk ids to their resulting asset files, means that the manifest
-     *   doesn't have to change if a chunk changes and inline the result in the html
+     * Hash module ids so the module identifiers won't change across builds
      */
 
     new webpack.HashedModuleIdsPlugin(),
-    new WebpackMd5Hash(),
-    new ChunkManifestPlugin({
-      manifestVariable: '__WEBPACK_MANIFEST__'
-    }),
 
     /**
      * Parse the webpack stats object and output a json file with the assets grouped by type

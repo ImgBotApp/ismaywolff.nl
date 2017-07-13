@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from '../../link'
 import { Navigation } from '../../navigation'
 import HeaderTitle from './HeaderTitle'
-import HeaderContainer from './HeaderContainer'
+import HeaderWrapper from './HeaderWrapper'
 
 const Header = () =>
-  <HeaderContainer>
+  <HeaderWrapper>
     <HeaderTitle>
       <Link to="/" clean>Ismay Wolff</Link>
     </HeaderTitle>
     <Navigation />
-  </HeaderContainer>
+  </HeaderWrapper>
 
 export default Header

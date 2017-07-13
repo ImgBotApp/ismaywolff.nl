@@ -19,11 +19,7 @@ exports[`<Routes /> renders correctly 1`] = `
   <Route
     component={[Function]}
     exact={true}
-    path="/writing"
-  />
-  <Route
-    component={[Function]}
-    path="/writing/:id"
+    path="/about"
   />
   <Route
     component={[Function]}

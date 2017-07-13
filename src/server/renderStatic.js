@@ -1,6 +1,5 @@
 import { minify } from 'html-minifier'
 import inlineStore from './templates/inlineStore'
-import inlineManifest from './templates/inlineManifest'
 import preloadDynamic from './templates/preloadDynamic'
 import scripts from './templates/scripts'
 import head from './templates/head'
@@ -18,7 +17,6 @@ const renderStatic = (
         ${title}
         ${meta}
         ${catchErrors}
-        ${inlineManifest}
         ${preloadDynamic}
         ${globalCss}
         ${criticalCss}

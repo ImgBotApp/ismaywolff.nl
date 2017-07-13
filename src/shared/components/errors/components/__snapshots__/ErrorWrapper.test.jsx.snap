@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorWrapper /> accepts an error type 1`] = `
+.dKKZCJ {
+  background: var(--color-red-light);
+  color: var(--color-red-dark);
+  fill: var(--color-red-dark);
+  padding: var(--size-small) var(--size-regular);
+}
+
+<div
+  className="sc-bdVaJa dKKZCJ"
+  type="error"
+/>
+`;
+
+exports[`<ErrorWrapper /> accepts an info type 1`] = `
+.gEOivq {
+  background: var(--color-blue-light);
+  color: var(--color-blue-dark);
+  fill: var(--color-blue-dark);
+  padding: var(--size-small) var(--size-regular);
+}
+
+<div
+  className="sc-bdVaJa gEOivq"
+  type="info"
+/>
+`;

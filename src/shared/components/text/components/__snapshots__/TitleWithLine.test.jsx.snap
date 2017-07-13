@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleWithLine /> accepts a center property 1`] = `
+<styled.div>
+  <styled.h1
+    center={true}
+    margin="unset"
+    size="1rem"
+  >
+    Title
+  </styled.h1>
+</styled.div>
+`;
+
+exports[`<TitleWithLine /> accepts a margin property 1`] = `
+<styled.div>
+  <styled.h1
+    center={false}
+    margin="1rem"
+    size="1rem"
+  >
+    Title
+  </styled.h1>
+</styled.div>
+`;
+
+exports[`<TitleWithLine /> accepts a size property 1`] = `
+<styled.div>
+  <styled.h1
+    center={false}
+    margin="unset"
+    size="2rem"
+  >
+    Title
+  </styled.h1>
+</styled.div>
+`;
+
+exports[`<TitleWithLine /> renders correctly 1`] = `
+<styled.div>
+  <styled.h1
+    center={false}
+    margin="unset"
+    size="1rem"
+  >
+    Title
+  </styled.h1>
+</styled.div>
+`;
