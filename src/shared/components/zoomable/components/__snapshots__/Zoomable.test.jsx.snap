@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Zoomable /> renders correctly 1`] = `
+<styled.div>
+  <styled.picture
+    height={1}
+    width={1}
+  >
+    <ImageZoom
+      defaultStyles={
+        Object {
+          "image": Object {},
+          "overlay": Object {},
+          "zoomContainer": Object {},
+          "zoomImage": Object {},
+        }
+      }
+      image={
+        Object {
+          "alt": "title",
+          "sizes": "
+            (min-width: 40em) 10rem,
+            (min-width: 30em) 15rem,
+            100vw
+          ",
+          "src": "https://image.com?w=250&fl=progressive",
+          "srcSet": "
+            https://image.com?w=1500&fl=progressive 1500w,
+            https://image.com?w=1250&fl=progressive 1250w,
+            https://image.com?w=1000&fl=progressive 1000w,
+            https://image.com?w=750&fl=progressive 750w,
+            https://image.com?w=500&fl=progressive 500w,
+            https://image.com?w=250&fl=progressive 250w
+          ",
+        }
+      }
+      isZoomed={false}
+      onUnzoom={[Function]}
+      onZoom={[Function]}
+      shouldHandleZoom={[Function]}
+      shouldReplaceImage={true}
+      shouldRespectMaxDimension={false}
+      zoomImage={
+        Object {
+          "alt": "title",
+          "sizes": "75vw",
+          "src": "https://image.com?w=250&fl=progressive",
+          "srcSet": "
+            https://image.com?w=1500&fl=progressive 1500w,
+            https://image.com?w=1250&fl=progressive 1250w,
+            https://image.com?w=1000&fl=progressive 1000w,
+            https://image.com?w=750&fl=progressive 750w,
+            https://image.com?w=500&fl=progressive 500w,
+            https://image.com?w=250&fl=progressive 250w
+          ",
+        }
+      }
+      zoomMargin={40}
+    />
+  </styled.picture>
+</styled.div>
+`;

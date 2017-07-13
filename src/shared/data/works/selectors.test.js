@@ -1,4 +1,11 @@
-import { getWorkEntities, getWorkState, checkHasWorks, shouldFetchWorks } from './selectors'
+import {
+  getWorkEntities,
+  getWorkState,
+  checkHasWorks,
+  shouldFetchWorks,
+  getHero,
+  getFeatured
+} from './selectors'
 
 describe('getWorkEntities', () => {
   it('should return work entities', () => {
@@ -49,5 +56,70 @@ describe('shouldFetchWorks', () => {
     const actual = shouldFetchWorks(state)
 
     expect(actual).toEqual(false)
+  })
+
+  describe('getHero', () => {
+    it("should return the id's of entities that are heros", () => {
+      const state = {
+        works: { result: ['work', 'working'] },
+        entities: {
+          works: {
+            work: { hero: true },
+            working: { hero: false }
+          }
+        }
+      }
+      const actual = getHero(state)
+
+      expect(actual).toEqual(['work'])
+    })
+
+    it('should return undefined if there is no work', () => {
+      const state = { works: { result: [] } }
+      const actual = getHero(state)
+
+      expect(actual).toEqual([])
+    })
+
+    it('should return undefined if there is work but no hero entities', () => {
+      const state = { works: { result: ['work'] }, entities: { works: { work: { hero: false } } } }
+      const actual = getHero(state)
+
+      expect(actual).toEqual([])
+    })
+  })
+
+  describe('getFeatured', () => {
+    it("should return the id's of entities that are featured", () => {
+      const state = {
+        works: { result: ['work', 'working'] },
+        entities: {
+          works: {
+            work: { featured: true },
+            working: { featured: false }
+          }
+        }
+      }
+      const actual = getFeatured(state)
+
+      expect(actual).toEqual(['work'])
+    })
+
+    it('should return an empty array if there is no work', () => {
+      const state = { works: { result: [] } }
+      const actual = getFeatured(state)
+
+      expect(actual).toEqual([])
+    })
+
+    it('should return an empty array if there is work but no featured entities', () => {
+      const state = {
+        works: { result: ['work'] },
+        entities: { works: { work: { featured: false } } }
+      }
+      const actual = getFeatured(state)
+
+      expect(actual).toEqual([])
+    })
   })
 })

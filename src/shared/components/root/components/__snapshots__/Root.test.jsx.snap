@@ -2,7 +2,80 @@
 
 exports[`<Root /> renders correctly 1`] = `
 <styled.div>
-  <Header />
-  <Routes />
+  <styled.div>
+    <styled.div>
+      <Header />
+      <Routes />
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <styled.div>
+      <TitleFactory
+        center={false}
+        margin="unset"
+        size="1rem"
+        tag="h3"
+      >
+        Prints and support
+      </TitleFactory>
+      <p>
+        All my work can be downloaded for free
+         
+        <Link
+          href="https://github.com/ismay/images"
+        >
+          here
+        </Link>
+        . However if you want to support my work you can buy prints I
+        '
+        ve made and signed from
+         
+        <Link
+          href="https://www.saatchiart.com/ismay"
+        >
+          Saatchi Art
+        </Link>
+         or support me on
+         
+        <Link
+          href="https://www.patreon.com/ismay"
+        >
+          Patreon
+        </Link>
+        .
+      </p>
+      <TitleFactory
+        center={false}
+        margin="unset"
+        size="1rem"
+        tag="h3"
+      >
+        Get in touch
+      </TitleFactory>
+      <p>
+        My code, including the code for this website, is open source on
+         
+        <Link
+          href="https://github.com/ismay"
+        >
+          Github
+        </Link>
+         and I publish my articles on
+         
+        <Link
+          href="https://medium.com/@ismay"
+        >
+          Medium
+        </Link>
+        . Feel free to send me difficult questions at 
+        <Link
+          href="mailto:hello@ismaywolff.nl"
+        >
+          hello@ismaywolff.nl
+        </Link>
+         and hope to see you again!
+      </p>
+    </styled.div>
+  </styled.div>
 </styled.div>
 `;

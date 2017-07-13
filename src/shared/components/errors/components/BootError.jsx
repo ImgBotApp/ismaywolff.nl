@@ -1,17 +1,16 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { Link } from '../../link'
-import { colors } from '../../../styles'
-import ErrorContainer from './ErrorContainer'
-import ErrorTitle from './ErrorTitle'
+import { Title } from '../../text'
+import ErrorWrapper from './ErrorWrapper'
 
 /**
  * Shown for errors that occur while booting / polyfilling.
  */
 
 const BootError = ({ errorMessage }) =>
-  <ErrorContainer background={colors.lightRed} color={colors.darkRed}>
-    <ErrorTitle>Oops, something went wrong!</ErrorTitle>
+  <ErrorWrapper type="error">
+    <Title tag="h2" margin="0" center>Oops, something went wrong!</Title>
     <p>
       This page uses modern javascript that your browser doesn{"'"}t support and patching it
       has failed. Make sure that your browser extensions are not blocking the polyfill.io
@@ -29,7 +28,7 @@ const BootError = ({ errorMessage }) =>
       .
     </p>
     <p>The error was: {'"'}{errorMessage}{'"'}.</p>
-  </ErrorContainer>
+  </ErrorWrapper>
 
 BootError.propTypes = {
   errorMessage: string.isRequired

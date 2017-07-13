@@ -1,24 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NavLink /> renders correctly 1`] = `
-.fxQWWt {
-  color: currentColor;
-  font-family: Bitter, serif;
-  font-size: 0.75rem;
-  margin-right: 1rem;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.fxQWWt:last-of-type {
-  margin-right: 0;
-}
-
-<Link
-  className="sc-bdVaJa fxQWWt"
-  replace={false}
+<Styled(NavLink)
   to="/url"
 >
   Text
-</Link>
+</Styled(NavLink)>
 `;

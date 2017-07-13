@@ -1,38 +1,46 @@
 import React from 'react'
-import { object, objectOf, shape, bool, string, arrayOf } from 'prop-types'
-import { connect } from 'react-redux'
-import { gutter } from '../../../styles'
-import { selectors } from '../../../data/works'
-import { Cell, Grid } from '../../../components/grid'
+import { shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
 import { Spinner } from '../../../components/spinner'
 import { AppError } from '../../../components/errors'
-import WorkItem from './WorkItem'
+import { Thumbnail, ThumbnailGrid } from '../../../components/thumbnail'
 
-export const DumbWorkBody = ({ entities, works }) => {
-  // If fetching or hasn't fetched yet
-  if (works.isFetching || !works.didFetch) {
+const WorkBody = ({ images, works, imageEntities, workEntities }) => {
+  const fetchingWorks = works.isFetching || !works.didFetch
+  const fetchingImages = images.isFetching || !images.didFetch
+  const worksError = works.errorMessage
+  const imagesError = images.errorMessage
+
+  if (fetchingWorks || fetchingImages) {
     return <Spinner />
   }
 
-  // If there's an error
-  if (works.errorMessage) {
-    return <AppError errorMessage={works.errorMessage} />
+  if (worksError || imagesError) {
+    return <AppError errorMessage={worksError || imagesError} />
   }
 
   return (
-    <Grid gutter={gutter}>
+    <ThumbnailGrid>
       {works.result.map(id =>
-        <Cell gutter={gutter} smSize={1 / 1} mdSize={1 / 2} lgSize={1 / 3} key={id}>
-          <WorkItem work={entities[id]} />
-        </Cell>
+        <Thumbnail
+          work={workEntities[id]}
+          image={imageEntities[workEntities[id].thumbnail]}
+          key={id}
+        />
       )}
-    </Grid>
+    </ThumbnailGrid>
   )
 }
 
-DumbWorkBody.propTypes = {
-  entities: objectOf(object).isRequired,
+WorkBody.propTypes = {
+  workEntities: objectOf(object).isRequired,
+  imageEntities: objectOf(object).isRequired,
   works: shape({
+    didFetch: bool.isRequired,
+    errorMessage: string.isRequired,
+    isFetching: bool.isRequired,
+    result: arrayOf(string).isRequired
+  }).isRequired,
+  images: shape({
     didFetch: bool.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
@@ -40,9 +48,4 @@ DumbWorkBody.propTypes = {
   }).isRequired
 }
 
-const mapStateToProps = state => ({
-  entities: selectors.getWorkEntities(state),
-  works: selectors.getWorkState(state)
-})
-
-export default connect(mapStateToProps)(DumbWorkBody)
+export default WorkBody

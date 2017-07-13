@@ -1,62 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<WorkDetailBody /> renders a loading state for images 1`] = `<styled.div />`;
+
+exports[`<WorkDetailBody /> renders a loading state for works 1`] = `<styled.div />`;
+
+exports[`<WorkDetailBody /> renders a missing page error for missing work 1`] = `<MissingPageError />`;
+
 exports[`<WorkDetailBody /> renders correctly 1`] = `
 <div>
-  <DetailTitle
-    main="title"
-    sub="type - April 2011"
-  />
+  <HelmetWrapper
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      title • Ismay Wolff
+    </title>
+    <meta
+      content="Detailed view of title"
+      name="description"
+    />
+  </HelmetWrapper>
+  <styled.div
+    center={false}
+    margin="var(--size-large) 0"
+    size="unset"
+  >
+    <TitleFactory
+      center={true}
+      margin="0"
+      size="var(--size-large)"
+      tag="h2"
+    >
+      title
+    </TitleFactory>
+    <styled.div
+      center={true}
+      margin="0"
+      size="unset"
+    >
+      type - October 2010
+    </styled.div>
+  </styled.div>
   <p>
     summary
   </p>
-  <styled.div
-    gutter="0.5rem"
-  >
-    <styled.div
-      gutter="0.5rem"
-      lgBreak="40em"
-      lgSize={0.3333333333333333}
-      mdBreak="25em"
-      mdSize={0.5}
-      smSize={1}
-    >
-      <Connect(Component)
-        id="one"
-      />
-    </styled.div>
+  <styled.div>
+    <Zoomable
+      image={
+        Object {
+          "height": 100,
+          "title": "title",
+          "url": "https://url.com",
+          "width": 100,
+        }
+      }
+    />
   </styled.div>
 </div>
 `;
 
-exports[`<WorkDetailBody /> renders text correctly 1`] = `
+exports[`<WorkDetailBody /> renders image errors 1`] = `
+<AppError
+  errorMessage="Error while fetching images"
+/>
+`;
+
+exports[`<WorkDetailBody /> renders optional work text correctly 1`] = `
 <div>
-  <DetailTitle
-    main="title"
-    sub="type - April 2011"
-  />
+  <HelmetWrapper
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      title • Ismay Wolff
+    </title>
+    <meta
+      content="Detailed view of title"
+      name="description"
+    />
+  </HelmetWrapper>
+  <styled.div
+    center={false}
+    margin="var(--size-large) 0"
+    size="unset"
+  >
+    <TitleFactory
+      center={true}
+      margin="0"
+      size="var(--size-large)"
+      tag="h2"
+    >
+      title
+    </TitleFactory>
+    <styled.div
+      center={true}
+      margin="0"
+      size="unset"
+    >
+      type - October 2010
+    </styled.div>
+  </styled.div>
   <p>
     summary
   </p>
-  <styled.div
-    gutter="0.5rem"
-  >
-    <styled.div
-      gutter="0.5rem"
-      lgBreak="40em"
-      lgSize={0.3333333333333333}
-      mdBreak="25em"
-      mdSize={0.5}
-      smSize={1}
-    >
-      <Connect(Component)
-        id="one"
-      />
-    </styled.div>
-  </styled.div>
   <styled.div>
-    <Loadable
-      source="text"
+    <Zoomable
+      image={
+        Object {
+          "height": 100,
+          "title": "title",
+          "url": "https://url.com",
+          "width": 100,
+        }
+      }
     />
   </styled.div>
+  <Loadable
+    source="text"
+  />
 </div>
+`;
+
+exports[`<WorkDetailBody /> renders work errors 1`] = `
+<AppError
+  errorMessage="Error while fetching works"
+/>
 `;

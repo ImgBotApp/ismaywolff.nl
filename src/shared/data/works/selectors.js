@@ -18,3 +18,29 @@ export const shouldFetchWorks = state => {
 
   return false
 }
+
+/**
+ * Factory for selectors that filter work by a property
+ */
+
+const getByProperty = property => state => {
+  const hasWorks = checkHasWorks(state)
+
+  // Return early if there is no work
+  if (!hasWorks) return []
+
+  const entities = getWorkEntities(state)
+  return Object.keys(entities).filter(entity => entities[entity][property])
+}
+
+/**
+ * Returns an array of id's of the works that have a `hero = true` property
+ */
+
+export const getHero = getByProperty('hero')
+
+/**
+ * Returns an array of id's of the works that have a `featured = true` property
+ */
+
+export const getFeatured = getByProperty('featured')

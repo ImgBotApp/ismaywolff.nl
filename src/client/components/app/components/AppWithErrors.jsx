@@ -1,12 +1,12 @@
 import React from 'react'
 import { string } from 'prop-types'
-import { Container } from '../../../../shared/components/container'
+import { Wrapper } from '../../../../shared/components/wrapper'
 import { BootError } from '../../../../shared/components/errors'
 
 const AppWithErrors = ({ errorMessage }) =>
-  <Container>
+  <Wrapper>
     <BootError errorMessage={errorMessage} />
-  </Container>
+  </Wrapper>
 
 AppWithErrors.propTypes = {
   errorMessage: string.isRequired

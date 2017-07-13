@@ -1,47 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<WorkDetail /> has server side data needs defined 1`] = `
+exports[`<DumbWorkDetail /> has server side data needs defined 1`] = `
 Array [
   [Function],
   [Function],
 ]
 `;
 
-exports[`<WorkDetail /> renders a loading state 1`] = `<styled.div />`;
-
-exports[`<WorkDetail /> renders a missing page error 1`] = `<MissingPageError />`;
-
-exports[`<WorkDetail /> renders api errors 1`] = `
-<AppError
-  errorMessage="Something went wrong"
-/>
-`;
-
-exports[`<WorkDetail /> renders correctly 1`] = `
+exports[`<DumbWorkDetail /> renders correctly 1`] = `
 <div>
-  <HelmetWrapper
-    encodeSpecialCharacters={true}
-  >
-    <title>
-      title • Ismay Wolff
-    </title>
-    <meta
-      content="Detailed view of title"
-      name="description"
-    />
-  </HelmetWrapper>
   <WorkDetailBody
-    work={
+    id="workId"
+    imageEntities={Object {}}
+    images={
       Object {
-        "images": Array [
-          "one",
+        "didFetch": true,
+        "errorMessage": "",
+        "isFetching": false,
+        "result": Array [
+          "imageId",
         ],
-        "published": "2011-04-01",
-        "slug": "slug",
-        "summary": "summary",
-        "thumbnail": "thumbnail",
-        "title": "title",
-        "type": "type",
+      }
+    }
+    workEntities={Object {}}
+    works={
+      Object {
+        "didFetch": true,
+        "errorMessage": "",
+        "isFetching": false,
+        "result": Array [
+          "workId",
+        ],
       }
     }
   />

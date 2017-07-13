@@ -1,14 +1,13 @@
+import Home from './scenes/Home'
 import About from './scenes/About'
 import Work from './scenes/Work'
 import WorkDetail from './scenes/WorkDetail'
-import Writing from './scenes/Writing'
-import WritingDetail from './scenes/WritingDetail'
 import Missing from './scenes/Missing'
 
 const routes = [
   {
     path: '/',
-    component: About,
+    component: Home,
     exact: true
   },
   {
@@ -21,13 +20,9 @@ const routes = [
     component: WorkDetail
   },
   {
-    path: '/writing',
-    component: Writing,
+    path: '/about',
+    component: About,
     exact: true
-  },
-  {
-    path: '/writing/:id',
-    component: WritingDetail
   },
   {
     component: Missing

@@ -1,50 +1,74 @@
 import React from 'react'
-import { shape, string, arrayOf } from 'prop-types'
+import { shape, string, arrayOf, objectOf, object, bool } from 'prop-types'
 import dateformat from 'dateformat'
-import { gutter } from '../../../styles'
-import { DetailTitle } from '../../../components/title'
-import { Cell, Grid } from '../../../components/grid'
-import { Zoomable } from '../../../components/images'
+import { Helmet } from 'react-helmet'
+import { Title } from '../../../components/text'
+import { Spinner } from '../../../components/spinner'
+import { Box } from '../../../components/box'
+import { AppError, MissingPageError } from '../../../components/errors'
+import { Zoomable, ZoomableGrid } from '../../../components/zoomable'
 import { AsyncReactMarkdown } from '../../../components/async'
-import { Markdown } from '../../../components/markdown'
 
-const WorkDetailBody = ({ work }) =>
-  <div>
-    {/* Header */}
-    <DetailTitle
-      main={work.title}
-      sub={`${work.type} - ${dateformat(work.published, 'mmmm yyyy')}`}
-    />
+const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
+  const fetchingWorks = works.isFetching || !works.didFetch
+  const fetchingImages = images.isFetching || !images.didFetch
+  const worksError = works.errorMessage
+  const imagesError = images.errorMessage
 
-    {/* Summary */}
-    <p>{work.summary}</p>
+  if (fetchingWorks || fetchingImages) {
+    return <Spinner />
+  }
 
-    {/* Gallery */}
-    <Grid gutter={gutter}>
-      {work.images.map(id =>
-        <Cell gutter={gutter} smSize={1 / 1} mdSize={1 / 2} lgSize={1 / 3} key={id}>
-          <Zoomable id={id} />
-        </Cell>
-      )}
-    </Grid>
+  if (worksError || imagesError) {
+    return <AppError errorMessage={worksError || imagesError} />
+  }
 
-    {/* Optional further text */}
-    {!!work.text &&
-      <Markdown>
-        <AsyncReactMarkdown source={work.text} />
-      </Markdown>}
-  </div>
+  const requestedWork = workEntities[id]
+
+  // If there's work but not the requested one
+  if (works.result.length > 0 && !requestedWork) {
+    return <MissingPageError />
+  }
+
+  return (
+    <div>
+      <Helmet>
+        <title>{`${requestedWork.title} • Ismay Wolff`}</title>
+        <meta name="description" content={`Detailed view of ${requestedWork.title}`} />
+      </Helmet>
+      <Box margin="var(--size-large) 0">
+        <Title size="var(--size-large)" margin="0" tag="h2" center>{requestedWork.title}</Title>
+        <Box margin="0" center>{`${requestedWork.type} - ${dateformat(
+          requestedWork.published,
+          'mmmm yyyy'
+        )}`}</Box>
+      </Box>
+      <p>{requestedWork.summary}</p>
+      <ZoomableGrid>
+        {requestedWork.images.map(imageId =>
+          <Zoomable image={imageEntities[imageId]} key={imageId} />
+        )}
+      </ZoomableGrid>
+      {!!requestedWork.text && <AsyncReactMarkdown source={requestedWork.text} />}
+    </div>
+  )
+}
 
 WorkDetailBody.propTypes = {
-  work: shape({
-    title: string.isRequired,
-    slug: string.isRequired,
-    type: string.isRequired,
-    published: string.isRequired,
-    summary: string.isRequired,
-    images: arrayOf(string).isRequired,
-    thumbnail: string.isRequired,
-    text: string
+  id: string.isRequired,
+  workEntities: objectOf(object).isRequired,
+  imageEntities: objectOf(object).isRequired,
+  works: shape({
+    didFetch: bool.isRequired,
+    errorMessage: string.isRequired,
+    isFetching: bool.isRequired,
+    result: arrayOf(string).isRequired
+  }).isRequired,
+  images: shape({
+    didFetch: bool.isRequired,
+    errorMessage: string.isRequired,
+    isFetching: bool.isRequired,
+    result: arrayOf(string).isRequired
   }).isRequired
 }
 

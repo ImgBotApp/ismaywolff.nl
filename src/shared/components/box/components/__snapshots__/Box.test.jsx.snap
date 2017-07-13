@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Box /> accepts a center prop 1`] = `
+.dMsszQ {
+  font-size: unset;
+  margin: unset;
+  -webkit-text-align: center;
+  text-align: center;
+}
+
+<div
+  className="sc-bdVaJa dMsszQ"
+  size="unset"
+/>
+`;
+
+exports[`<Box /> accepts a margin prop 1`] = `
+.knubHR {
+  font-size: unset;
+  margin: 0;
+  -webkit-text-align: left;
+  text-align: left;
+}
+
+<div
+  className="sc-bdVaJa knubHR"
+  size="unset"
+/>
+`;
+
+exports[`<Box /> accepts a size prop 1`] = `
+.AZKcL {
+  font-size: 12px;
+  margin: unset;
+  -webkit-text-align: left;
+  text-align: left;
+}
+
+<div
+  className="sc-bdVaJa AZKcL"
+  size="12px"
+/>
+`;
+
+exports[`<Box /> renders correctly 1`] = `
+.QsaMi {
+  font-size: unset;
+  margin: unset;
+  -webkit-text-align: left;
+  text-align: left;
+}
+
+<div
+  className="sc-bdVaJa QsaMi"
+  size="unset"
+/>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeroDetail /> renders correctly 1`] = `
+.ehDiQx {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: var(--color-transparent-black);
+  bottom: 0;
+  color: var(--color-white);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  padding: var(--size-small);
+  position: absolute;
+  right: 0;
+}
+
+<div
+  className="sc-bdVaJa ehDiQx"
+/>
+`;

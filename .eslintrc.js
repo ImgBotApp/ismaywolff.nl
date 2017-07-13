@@ -9,6 +9,7 @@ module.exports = {
     "semi": 0,
     "no-mixed-operators": 0,
     "react/jsx-wrap-multilines": 0,
+    "react/no-unescaped-entities": 0,
 
     // Enforce the consistent use of functions
     "func-style": ["error", "expression"],

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const HeaderTitle = styled.h1`
-  font-family: Bitter, serif;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   margin-top: 0;

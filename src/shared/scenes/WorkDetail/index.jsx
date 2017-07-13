@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { object, objectOf, bool, func, shape, string, arrayOf } from 'prop-types'
-import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
-import { selectors, actions as workActions } from '../../data/works'
-import { actions as imageActions } from '../../components/images'
-import { Spinner } from '../../components/spinner'
-import { AppError, MissingPageError } from '../../components/errors'
+import { actions as workActions, selectors as workSelectors } from '../../data/works'
+import { actions as imageActions, selectors as imageSelectors } from '../../data/images'
 import WorkDetailBody from './components/WorkDetailBody'
 
 export class DumbWorkDetail extends Component {
@@ -19,31 +16,15 @@ export class DumbWorkDetail extends Component {
   }
 
   render() {
-    const { entities, works, hasWorks, match } = this.props
-    const requestedWork = entities[match.params.id]
-
-    // If fetching or hasn't fetched yet
-    if (works.isFetching || !works.didFetch) {
-      return <Spinner />
-    }
-
-    // If there's an error
-    if (works.errorMessage) {
-      return <AppError errorMessage={works.errorMessage} />
-    }
-
-    // If there's work but not the requested one
-    if (hasWorks && !requestedWork) {
-      return <MissingPageError />
-    }
-
     return (
       <div>
-        <Helmet>
-          <title>{`${requestedWork.title} • Ismay Wolff`}</title>
-          <meta name="description" content={`Detailed view of ${requestedWork.title}`} />
-        </Helmet>
-        <WorkDetailBody work={requestedWork} />
+        <WorkDetailBody
+          id={this.props.match.params.id}
+          images={this.props.images}
+          works={this.props.works}
+          workEntities={this.props.workEntities}
+          imageEntities={this.props.imageEntities}
+        />
       </div>
     )
   }
@@ -52,23 +33,30 @@ export class DumbWorkDetail extends Component {
 DumbWorkDetail.propTypes = {
   fetchImagesIfNeeded: func.isRequired,
   fetchWorksIfNeeded: func.isRequired,
-  entities: objectOf(object).isRequired,
-  hasWorks: bool.isRequired,
-  match: shape({
-    params: object.isRequired
-  }).isRequired,
+  workEntities: objectOf(object).isRequired,
+  imageEntities: objectOf(object).isRequired,
   works: shape({
     didFetch: bool.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
+  }).isRequired,
+  images: shape({
+    didFetch: bool.isRequired,
+    errorMessage: string.isRequired,
+    isFetching: bool.isRequired,
+    result: arrayOf(string).isRequired
+  }).isRequired,
+  match: shape({
+    params: object.isRequired
   }).isRequired
 }
 
 const mapStateToProps = state => ({
-  entities: selectors.getWorkEntities(state),
-  hasWorks: selectors.checkHasWorks(state),
-  works: selectors.getWorkState(state)
+  imageEntities: imageSelectors.getImageEntities(state),
+  images: imageSelectors.getImageState(state),
+  workEntities: workSelectors.getWorkEntities(state),
+  works: workSelectors.getWorkState(state)
 })
 
 const actions = {

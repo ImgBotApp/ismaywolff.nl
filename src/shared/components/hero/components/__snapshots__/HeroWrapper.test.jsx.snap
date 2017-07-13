@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeroWrapper /> renders correctly 1`] = `
+.cmPlAe {
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+<div
+  className="sc-bdVaJa cmPlAe"
+/>
+`;

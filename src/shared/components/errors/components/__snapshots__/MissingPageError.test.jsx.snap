@@ -2,14 +2,18 @@
 
 exports[`<MissingPageError /> renders correctly 1`] = `
 <styled.div
-  background="rgb(141,171,239)"
-  color="rgb(35,67,195)"
+  type="info"
 >
-  <styled.h2>
+  <TitleFactory
+    center={true}
+    margin="0"
+    size="1rem"
+    tag="h2"
+  >
     Oops, that page can
     '
     t be found!
-  </styled.h2>
+  </TitleFactory>
   <p>
     The page you
     '

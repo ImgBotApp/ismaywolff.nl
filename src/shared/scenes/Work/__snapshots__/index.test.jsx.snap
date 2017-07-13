@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Work /> has server side data needs defined 1`] = `
+exports[`<DumbWork /> has server side data needs defined 1`] = `
 Array [
   [Function],
   [Function],
 ]
 `;
 
-exports[`<Work /> renders correctly 1`] = `
+exports[`<DumbWork /> renders correctly 1`] = `
 <div>
   <HelmetWrapper
     encodeSpecialCharacters={true}
@@ -20,6 +20,37 @@ exports[`<Work /> renders correctly 1`] = `
       name="description"
     />
   </HelmetWrapper>
-  <Connect(Component) />
+  <Component
+    imageEntities={
+      Object {
+        "imageId": Object {},
+      }
+    }
+    images={
+      Object {
+        "didFetch": true,
+        "errorMessage": "",
+        "isFetching": false,
+        "result": Array [
+          "imageId",
+        ],
+      }
+    }
+    workEntities={
+      Object {
+        "workId": Object {},
+      }
+    }
+    works={
+      Object {
+        "didFetch": true,
+        "errorMessage": "",
+        "isFetching": false,
+        "result": Array [
+          "workId",
+        ],
+      }
+    }
+  />
 </div>
 `;
