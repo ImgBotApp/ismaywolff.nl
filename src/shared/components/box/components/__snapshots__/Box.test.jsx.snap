@@ -1,57 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Box /> accepts a center prop 1`] = `
-.dMsszQ {
+.hFAqso {
+  color: unset;
   font-size: unset;
   margin: unset;
-  -webkit-text-align: center;
   text-align: center;
 }
 
 <div
-  className="sc-bdVaJa dMsszQ"
+  className="sc-bdVaJa hFAqso"
+  color="unset"
   size="unset"
 />
 `;
 
 exports[`<Box /> accepts a margin prop 1`] = `
-.knubHR {
+.iiuGpn {
+  color: unset;
   font-size: unset;
   margin: 0;
-  -webkit-text-align: left;
   text-align: left;
 }
 
 <div
-  className="sc-bdVaJa knubHR"
+  className="sc-bdVaJa iiuGpn"
+  color="unset"
   size="unset"
 />
 `;
 
 exports[`<Box /> accepts a size prop 1`] = `
-.AZKcL {
+.cIyoJg {
+  color: unset;
   font-size: 12px;
   margin: unset;
-  -webkit-text-align: left;
   text-align: left;
 }
 
 <div
-  className="sc-bdVaJa AZKcL"
+  className="sc-bdVaJa cIyoJg"
+  color="unset"
   size="12px"
 />
 `;
 
 exports[`<Box /> renders correctly 1`] = `
-.QsaMi {
+.cUSeWp {
+  color: unset;
   font-size: unset;
   margin: unset;
-  -webkit-text-align: left;
   text-align: left;
 }
 
 <div
-  className="sc-bdVaJa QsaMi"
+  className="sc-bdVaJa cUSeWp"
+  color="unset"
   size="unset"
 />
 `;

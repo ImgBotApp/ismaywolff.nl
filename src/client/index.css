@@ -39,6 +39,7 @@
   --color-transparent-black: rgba(0, 0, 0, 0.25);
   --color-black: rgb(0, 0, 0);
   --color-gray: rgb(230, 230, 230);
+  --color-gray-dark: rgb(155, 155, 155);
   --color-white: rgb(255, 255, 255);
   --color-red-light: rgb(239, 141, 141);
   --color-red-dark: rgb(195, 35, 35);

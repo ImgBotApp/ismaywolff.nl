@@ -6,8 +6,7 @@ exports[`<Hero /> renders correctly 1`] = `
     to="/work/slug"
   >
     <styled.picture
-      height={0.5714285714285714}
-      width={1}
+      ratio={0.5714285714285714}
     >
       <img
         alt="title"
@@ -37,6 +36,7 @@ exports[`<Hero /> renders correctly 1`] = `
         </TitleFactory>
         <styled.div
           center={false}
+          color="unset"
           margin="unset"
           size="var(--size-small)"
         >
@@ -45,6 +45,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </div>
       <styled.div
         center={false}
+        color="unset"
         margin="0 0 0 auto"
         size="unset"
       >

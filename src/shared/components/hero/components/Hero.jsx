@@ -76,12 +76,14 @@ const Hero = ({ work, image }) => {
   return (
     <HeroWrapper>
       <Link to={`/work/${work.slug}`}>
-        <Placeholder width={1} height={1 * ratio}>
+        <Placeholder ratio={ratio}>
           <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
         </Placeholder>
         <HeroDetail>
           <div>
-            <Title tag="h2" margin="0">{textUtils.truncate(work.title, 30)}</Title>
+            <Title tag="h2" margin="0">
+              {textUtils.truncate(work.title, 30)}
+            </Title>
             <Box size="var(--size-small)">
               {textUtils.truncate(`${work.type} - ${dateformat(work.published, 'mmmm yyyy')}`, 60)}
             </Box>

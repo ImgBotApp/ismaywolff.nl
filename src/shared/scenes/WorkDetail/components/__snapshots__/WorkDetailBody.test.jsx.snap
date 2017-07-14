@@ -21,6 +21,7 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
   </HelmetWrapper>
   <styled.div
     center={false}
+    color="unset"
     margin="var(--size-large) 0"
     size="unset"
   >
@@ -34,6 +35,7 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
     </TitleFactory>
     <styled.div
       center={true}
+      color="unset"
       margin="0"
       size="unset"
     >
@@ -54,6 +56,14 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
         }
       }
     />
+  </styled.div>
+  <styled.div
+    center={true}
+    color="var(--color-gray-dark)"
+    margin="var(--size-regular) 0"
+    size="var(--size-small)"
+  >
+    Click the images to zoom
   </styled.div>
 </div>
 `;
@@ -62,61 +72,6 @@ exports[`<WorkDetailBody /> renders image errors 1`] = `
 <AppError
   errorMessage="Error while fetching images"
 />
-`;
-
-exports[`<WorkDetailBody /> renders optional work text correctly 1`] = `
-<div>
-  <HelmetWrapper
-    encodeSpecialCharacters={true}
-  >
-    <title>
-      title • Ismay Wolff
-    </title>
-    <meta
-      content="Detailed view of title"
-      name="description"
-    />
-  </HelmetWrapper>
-  <styled.div
-    center={false}
-    margin="var(--size-large) 0"
-    size="unset"
-  >
-    <TitleFactory
-      center={true}
-      margin="0"
-      size="var(--size-large)"
-      tag="h2"
-    >
-      title
-    </TitleFactory>
-    <styled.div
-      center={true}
-      margin="0"
-      size="unset"
-    >
-      type - October 2010
-    </styled.div>
-  </styled.div>
-  <p>
-    summary
-  </p>
-  <styled.div>
-    <Zoomable
-      image={
-        Object {
-          "height": 100,
-          "title": "title",
-          "url": "https://url.com",
-          "width": 100,
-        }
-      }
-    />
-  </styled.div>
-  <Loadable
-    source="text"
-  />
-</div>
 `;
 
 exports[`<WorkDetailBody /> renders work errors 1`] = `

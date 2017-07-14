@@ -33,6 +33,7 @@ exports[`<HomeBody /> renders correctly 1`] = `
   />
   <styled.div
     center={false}
+    color="unset"
     margin="var(--size-larger) 0 var(--size-larger) 0"
     size="unset"
   >
@@ -49,6 +50,7 @@ exports[`<HomeBody /> renders correctly 1`] = `
     </p>
     <styled.div
       center={true}
+      color="unset"
       margin="unset"
       size="unset"
     >
@@ -62,6 +64,7 @@ exports[`<HomeBody /> renders correctly 1`] = `
   </styled.div>
   <styled.div
     center={false}
+    color="unset"
     margin="var(--size-larger) 0 0 0"
     size="unset"
   >
@@ -75,6 +78,7 @@ exports[`<HomeBody /> renders correctly 1`] = `
     </TitleWithLineFactory>
     <styled.div
       center={false}
+      color="unset"
       margin="var(--size-regular) 0 var(--size-regular) 0"
       size="unset"
     >
@@ -108,6 +112,7 @@ exports[`<HomeBody /> renders correctly 1`] = `
     </styled.div>
     <styled.div
       center={true}
+      color="unset"
       margin="unset"
       size="unset"
     >

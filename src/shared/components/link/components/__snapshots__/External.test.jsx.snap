@@ -8,7 +8,6 @@ exports[`<External /> renders clean correctly 1`] = `
   background-size: 2px 0.1em;
   color: currentColor;
   font-size: unset;
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -29,7 +28,6 @@ exports[`<External /> renders correctly 1`] = `
   background-size: 2px 0.1em;
   color: currentColor;
   font-size: unset;
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -50,7 +48,6 @@ exports[`<External /> renders size correctly 1`] = `
   background-size: 2px 0.1em;
   color: currentColor;
   font-size: 16px;
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 

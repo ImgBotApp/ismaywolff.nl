@@ -73,7 +73,7 @@ const Thumbnail = ({ work, image }) => {
   return (
     <ThumbnailGridItem>
       <Link to={`/work/${work.slug}`}>
-        <Placeholder width={1} height={1 * ratio}>
+        <Placeholder ratio={ratio}>
           <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
         </Placeholder>
         <ThumbnailButtonWrapper>

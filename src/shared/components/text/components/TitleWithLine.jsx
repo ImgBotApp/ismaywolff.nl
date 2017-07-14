@@ -32,7 +32,9 @@ const TitleWithLineFactory = ({ tag, size, children, center, margin }) => {
   const TitleWithLine = TitleWithLineTemplate.withComponent(tag)
   return (
     <Wrapper>
-      <TitleWithLine size={size} center={center} margin={margin}>{children}</TitleWithLine>
+      <TitleWithLine size={size} center={center} margin={margin}>
+        {children}
+      </TitleWithLine>
     </Wrapper>
   )
 }

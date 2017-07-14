@@ -14,12 +14,20 @@ describe('<External />', () => {
   })
 
   it('renders clean correctly', () => {
-    const wrapper = shallow(<External href="/url" clean>Text</External>)
+    const wrapper = shallow(
+      <External href="/url" clean>
+        Text
+      </External>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('renders size correctly', () => {
-    const wrapper = shallow(<External href="/url" size="16px">Text</External>)
+    const wrapper = shallow(
+      <External href="/url" size="16px">
+        Text
+      </External>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 })

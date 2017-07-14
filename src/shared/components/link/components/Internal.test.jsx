@@ -14,12 +14,20 @@ describe('<Internal />', () => {
   })
 
   it('renders clean correctly', () => {
-    const wrapper = shallow(<Internal to="/url" clean>Text</Internal>)
+    const wrapper = shallow(
+      <Internal to="/url" clean>
+        Text
+      </Internal>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('renders size correctly', () => {
-    const wrapper = shallow(<Internal to="/url" size="16px">Text</Internal>)
+    const wrapper = shallow(
+      <Internal to="/url" size="16px">
+        Text
+      </Internal>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 })

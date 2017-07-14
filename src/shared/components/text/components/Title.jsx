@@ -11,7 +11,11 @@ const TitleTemplate = styled.h1`
 
 const TitleFactory = ({ tag, size, children, center, margin }) => {
   const Title = TitleTemplate.withComponent(tag)
-  return <Title size={size} center={center} margin={margin}>{children}</Title>
+  return (
+    <Title size={size} center={center} margin={margin}>
+      {children}
+    </Title>
+  )
 }
 
 TitleFactory.propTypes = {
