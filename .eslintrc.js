@@ -21,7 +21,7 @@ module.exports = {
     "import/prefer-default-export": 0,
 
     // Comment settings
-    "capitalized-comments": ["error", "always"],
+    "capitalized-comments": ["error", "always", { "ignorePattern": "prettier-ignore" }],
     "no-warning-comments": ["error", { "terms": ["todo", "fixme"], "location": "anywhere" }],
     "spaced-comment": ["error", "always"],
     "lines-around-comment": ["error", {

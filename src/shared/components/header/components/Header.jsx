@@ -7,7 +7,9 @@ import HeaderWrapper from './HeaderWrapper'
 const Header = () =>
   <HeaderWrapper>
     <HeaderTitle>
-      <Link to="/" clean>Ismay Wolff</Link>
+      <Link to="/" clean>
+        Ismay Wolff
+      </Link>
     </HeaderTitle>
     <Navigation />
   </HeaderWrapper>

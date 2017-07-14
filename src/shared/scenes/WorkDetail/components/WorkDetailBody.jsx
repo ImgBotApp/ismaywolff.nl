@@ -37,13 +37,17 @@ const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
         <meta name="description" content={`Detailed view of ${requestedWork.title}`} />
       </Helmet>
       <Box margin="var(--size-large) 0">
-        <Title size="var(--size-large)" margin="0" tag="h2" center>{requestedWork.title}</Title>
+        <Title size="var(--size-large)" margin="0" tag="h2" center>
+          {requestedWork.title}
+        </Title>
         <Box margin="0" center>{`${requestedWork.type} - ${dateformat(
           requestedWork.published,
           'mmmm yyyy'
         )}`}</Box>
       </Box>
-      <p>{requestedWork.summary}</p>
+      <p>
+        {requestedWork.summary}
+      </p>
       <ZoomableGrid>
         {requestedWork.images.map(imageId =>
           <Zoomable image={imageEntities[imageId]} key={imageId} />

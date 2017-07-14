@@ -81,7 +81,9 @@ const Hero = ({ work, image }) => {
         </Placeholder>
         <HeroDetail>
           <div>
-            <Title tag="h2" margin="0">{textUtils.truncate(work.title, 30)}</Title>
+            <Title tag="h2" margin="0">
+              {textUtils.truncate(work.title, 30)}
+            </Title>
             <Box size="var(--size-small)">
               {textUtils.truncate(`${work.type} - ${dateformat(work.published, 'mmmm yyyy')}`, 60)}
             </Box>

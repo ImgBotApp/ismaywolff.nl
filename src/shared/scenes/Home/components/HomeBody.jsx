@@ -36,11 +36,15 @@ const HomeBody = ({ works, images, workEntities, imageEntities, featured, hero }
           moves or inspires me.
         </p>
         <Box center>
-          <Link size="var(--size-small)" to="/about">Learn more</Link>
+          <Link size="var(--size-small)" to="/about">
+            Learn more
+          </Link>
         </Box>
       </Box>
       <Box margin="var(--size-larger) 0 0 0">
-        <TitleWithLine tag="h2" size="var(--size-small)">Featured work</TitleWithLine>
+        <TitleWithLine tag="h2" size="var(--size-small)">
+          Featured work
+        </TitleWithLine>
         <Box margin="var(--size-regular) 0 var(--size-regular) 0">
           <ThumbnailGrid>
             {featured.map(id =>
@@ -53,7 +57,9 @@ const HomeBody = ({ works, images, workEntities, imageEntities, featured, hero }
           </ThumbnailGrid>
         </Box>
         <Box center>
-          <Link size="var(--size-small)" to="/work">See all work</Link>
+          <Link size="var(--size-small)" to="/work">
+            See all work
+          </Link>
         </Box>
       </Box>
     </div>

@@ -14,17 +14,29 @@ describe('<Title />', () => {
   })
 
   it('accepts a center prop', () => {
-    const wrapper = shallow(<Title tag="h2" center>Title</Title>)
+    const wrapper = shallow(
+      <Title tag="h2" center>
+        Title
+      </Title>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('accepts a margin prop', () => {
-    const wrapper = shallow(<Title tag="h2" margin="0">Title</Title>)
+    const wrapper = shallow(
+      <Title tag="h2" margin="0">
+        Title
+      </Title>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('accepts a size prop', () => {
-    const wrapper = shallow(<Title tag="h2" size="10rem">Title</Title>)
+    const wrapper = shallow(
+      <Title tag="h2" size="10rem">
+        Title
+      </Title>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 })

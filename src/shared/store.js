@@ -7,9 +7,10 @@ import rootReducer from './rootReducer'
 import logErrors from './data/errors'
 
 // Initialize devtools if on the client
-const devTools = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION__
-  ? window.__REDUX_DEVTOOLS_EXTENSION__()
-  : f => f
+const devTools =
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : f => f
 
 // Returns a store and accepts an initial state
 const configureStore = preloadedState => {

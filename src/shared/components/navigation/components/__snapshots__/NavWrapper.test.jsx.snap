@@ -2,13 +2,11 @@
 
 exports[`<NavWrapper /> renders correctly 1`] = `
 .wHCsq {
-  -webkit-text-align: center;
   text-align: center;
 }
 
 @media (min-width: 30em) {
   .wHCsq {
-    -webkit-text-align: left;
     text-align: left;
   }
 }

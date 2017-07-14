@@ -22,8 +22,7 @@ exports[`<AppError /> renders correctly 1`] = `
     '
     ll be notified automatically that something went wrong and I
     '
-    ll make sure to fix it as soon as possible. If you want to report this error you can do so on the issues tab of my
-     
+    ll make sure to fix it as soon as possible. If you want to report this error you can do so on the issues tab of my 
     <Link
       href="https://github.com/ismay/ismaywolff.nl"
     >

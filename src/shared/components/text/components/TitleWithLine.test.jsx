@@ -14,17 +14,29 @@ describe('<TitleWithLine />', () => {
   })
 
   it('accepts a center property', () => {
-    const wrapper = shallow(<TitleWithLine tag="h1" center>Title</TitleWithLine>)
+    const wrapper = shallow(
+      <TitleWithLine tag="h1" center>
+        Title
+      </TitleWithLine>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('accepts a margin property', () => {
-    const wrapper = shallow(<TitleWithLine tag="h1" margin="1rem">Title</TitleWithLine>)
+    const wrapper = shallow(
+      <TitleWithLine tag="h1" margin="1rem">
+        Title
+      </TitleWithLine>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 
   it('accepts a size property', () => {
-    const wrapper = shallow(<TitleWithLine tag="h1" size="2rem">Title</TitleWithLine>)
+    const wrapper = shallow(
+      <TitleWithLine tag="h1" size="2rem">
+        Title
+      </TitleWithLine>
+    )
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 })
