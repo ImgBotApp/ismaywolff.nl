@@ -6,8 +6,7 @@ exports[`<Hero /> renders correctly 1`] = `
     to="/work/slug"
   >
     <styled.picture
-      height={0.5714285714285714}
-      width={1}
+      ratio={0.5714285714285714}
     >
       <img
         alt="title"

@@ -61,7 +61,7 @@ const Zoomable = ({ image }) => {
 
   return (
     <ZoomableGridItem>
-      <Placeholder height={1} width={image.width / image.height}>
+      <Placeholder ratio={image.height / image.width}>
         <ImageZoom
           image={{
             src,

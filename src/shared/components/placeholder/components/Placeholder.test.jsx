@@ -9,7 +9,7 @@ import Placeholder from './Placeholder'
 
 describe('<Placeholder />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<Placeholder width={1} height={2} />)
+    const wrapper = shallow(<Placeholder ratio={0.5} />)
     expect(wrapper).toMatchStyledComponentsSnapshot()
   })
 })

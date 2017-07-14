@@ -3,8 +3,7 @@
 exports[`<Zoomable /> renders correctly 1`] = `
 <styled.div>
   <styled.picture
-    height={1}
-    width={1}
+    ratio={1}
   >
     <ImageZoom
       defaultStyles={

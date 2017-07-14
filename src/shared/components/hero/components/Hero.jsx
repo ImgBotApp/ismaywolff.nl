@@ -76,7 +76,7 @@ const Hero = ({ work, image }) => {
   return (
     <HeroWrapper>
       <Link to={`/work/${work.slug}`}>
-        <Placeholder width={1} height={1 * ratio}>
+        <Placeholder ratio={ratio}>
           <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
         </Placeholder>
         <HeroDetail>

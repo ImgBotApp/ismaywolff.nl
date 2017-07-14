@@ -6,8 +6,7 @@ exports[`<Thumbnail /> renders correctly 1`] = `
     to="/work/slug"
   >
     <styled.picture
-      height={0.6666666666666666}
-      width={1}
+      ratio={0.6666666666666666}
     >
       <img
         alt="title"

@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Placeholder /> renders correctly 1`] = `
-.bTNQRI {
+.ibAjNA {
   background: var(--color-gray);
   display: block;
   height: 0;
-  padding-top: calc(2 * 100%);
+  padding-top: calc(0.5 * 100%);
   position: relative;
   width: 100%;
 }
 
-.bTNQRI img {
+.ibAjNA img {
   height: 100%;
   left: 0;
   position: absolute;
@@ -19,8 +19,6 @@ exports[`<Placeholder /> renders correctly 1`] = `
 }
 
 <picture
-  className="sc-bdVaJa bTNQRI"
-  height={2}
-  width={1}
+  className="sc-bdVaJa ibAjNA"
 />
 `;
