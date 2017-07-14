@@ -51,55 +51,6 @@ describe('<WorkDetailBody />', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('renders optional work text correctly', () => {
-    const id = 'workId'
-    const images = {
-      didFetch: true,
-      errorMessage: '',
-      isFetching: false,
-      result: ['imageId']
-    }
-    const works = {
-      didFetch: true,
-      errorMessage: '',
-      isFetching: false,
-      result: ['workId']
-    }
-    const workEntities = {
-      workId: {
-        title: 'title',
-        slug: 'slug',
-        thumbnail: 'imageId',
-        type: 'type',
-        published: '10-01-2010',
-        summary: 'summary',
-        images: ['imageId'],
-        hero: true,
-        featured: true,
-        text: 'text'
-      }
-    }
-    const imageEntities = {
-      imageId: {
-        title: 'title',
-        url: 'https://url.com',
-        width: 100,
-        height: 100
-      }
-    }
-
-    const wrapper = shallow(
-      <WorkDetailBody
-        id={id}
-        images={images}
-        works={works}
-        imageEntities={imageEntities}
-        workEntities={workEntities}
-      />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
   it('renders a loading state for works', () => {
     const id = 'workId'
     const images = {

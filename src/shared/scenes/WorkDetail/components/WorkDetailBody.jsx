@@ -7,7 +7,6 @@ import { Spinner } from '../../../components/spinner'
 import { Box } from '../../../components/box'
 import { AppError, MissingPageError } from '../../../components/errors'
 import { Zoomable, ZoomableGrid } from '../../../components/zoomable'
-import { AsyncReactMarkdown } from '../../../components/async'
 
 const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
   const fetchingWorks = works.isFetching || !works.didFetch
@@ -53,7 +52,6 @@ const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
           <Zoomable image={imageEntities[imageId]} key={imageId} />
         )}
       </ZoomableGrid>
-      {!!requestedWork.text && <AsyncReactMarkdown source={requestedWork.text} />}
     </div>
   )
 }
