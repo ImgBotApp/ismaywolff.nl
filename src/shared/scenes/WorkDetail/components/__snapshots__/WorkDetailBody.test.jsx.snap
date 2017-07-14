@@ -21,6 +21,7 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
   </HelmetWrapper>
   <styled.div
     center={false}
+    color="unset"
     margin="var(--size-large) 0"
     size="unset"
   >
@@ -34,6 +35,7 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
     </TitleFactory>
     <styled.div
       center={true}
+      color="unset"
       margin="0"
       size="unset"
     >
@@ -54,6 +56,14 @@ exports[`<WorkDetailBody /> renders correctly 1`] = `
         }
       }
     />
+  </styled.div>
+  <styled.div
+    center={true}
+    color="var(--color-gray-dark)"
+    margin="var(--size-regular) 0"
+    size="var(--size-small)"
+  >
+    Click the images to zoom
   </styled.div>
 </div>
 `;

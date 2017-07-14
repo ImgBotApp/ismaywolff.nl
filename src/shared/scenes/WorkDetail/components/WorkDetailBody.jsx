@@ -52,6 +52,14 @@ const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
           <Zoomable image={imageEntities[imageId]} key={imageId} />
         )}
       </ZoomableGrid>
+      <Box
+        color="var(--color-gray-dark)"
+        size="var(--size-small)"
+        margin="var(--size-regular) 0"
+        center
+      >
+        Click the images to zoom
+      </Box>
     </div>
   )
 }
