@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Spinner /> renders correctly 1`] = `
-.iHiOPe {
+.c0 {
   -webkit-animation: dxVQNZ 1s infinite ease-in-out;
   animation: dxVQNZ 1s infinite ease-in-out;
   background-color: var(--color-black);
@@ -12,6 +12,6 @@ exports[`<Spinner /> renders correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa iHiOPe"
+  className="c0"
 />
 `;

@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ThumbnailGrid /> renders correctly 1`] = `
-.cRhthm {
+.c0 {
   display: grid;
   grid-gap: var(--grid-gutter) var(--grid-gutter);
   grid-template-columns: 1fr 1fr;
 }
 
 <div
-  className="sc-bdVaJa cRhthm"
+  className="c0"
 />
 `;

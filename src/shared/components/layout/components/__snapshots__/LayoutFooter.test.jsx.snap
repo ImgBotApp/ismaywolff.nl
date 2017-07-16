@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LayoutFooter /> renders correctly 1`] = `
-.hZNgEM {
+.c0 {
   background: var(--color-gray);
   box-shadow: var(--box-shadow-inset);
   font-size: var(--size-small);
@@ -11,6 +11,6 @@ exports[`<LayoutFooter /> renders correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa hZNgEM"
+  className="c0"
 />
 `;

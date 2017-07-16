@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Wrapper /> renders correctly 1`] = `
-.bBTsYO {
+.c0 {
   margin: 0 auto;
   max-width: calc(var(--wrapper-width) + 2rem);
   padding: 0 1rem;
 }
 
 <div
-  className="sc-bdVaJa bBTsYO"
+  className="c0"
 />
 `;

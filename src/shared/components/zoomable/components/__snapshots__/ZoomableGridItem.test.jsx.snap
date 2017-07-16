@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ZoomableGridItem /> renders correctly 1`] = `
-.jBEeCI {
+.c0 {
   box-shadow: var(--box-shadow);
   grid-column: span 6;
   position: relative;
 }
 
 @media (min-width: 30em) {
-  .jBEeCI {
+  .c0 {
     grid-column: span 3;
   }
 }
 
 @media (min-width: 40em) {
-  .jBEeCI {
+  .c0 {
     grid-column: span 2;
   }
 }
 
 <div
-  className="sc-bdVaJa jBEeCI"
+  className="c0"
 />
 `;

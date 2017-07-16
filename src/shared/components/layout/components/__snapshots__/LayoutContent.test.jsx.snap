@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LayoutContent /> renders correctly 1`] = `
-.fHJRGu {
+.c0 {
   margin-bottom: var(--size-larger);
 }
 
 <div
-  className="sc-bdVaJa fHJRGu"
+  className="c0"
 />
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HeroDetail /> renders correctly 1`] = `
-.ehDiQx {
+.c0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -20,6 +20,6 @@ exports[`<HeroDetail /> renders correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa ehDiQx"
+  className="c0"
 />
 `;

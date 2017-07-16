@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Placeholder /> renders correctly 1`] = `
-.ibAjNA {
+.c0 {
   background: var(--color-gray);
   display: block;
   height: 0;
@@ -10,7 +10,7 @@ exports[`<Placeholder /> renders correctly 1`] = `
   width: 100%;
 }
 
-.ibAjNA img {
+.c0 img {
   height: 100%;
   left: 0;
   position: absolute;
@@ -19,6 +19,6 @@ exports[`<Placeholder /> renders correctly 1`] = `
 }
 
 <picture
-  className="sc-bdVaJa ibAjNA"
+  className="c0"
 />
 `;

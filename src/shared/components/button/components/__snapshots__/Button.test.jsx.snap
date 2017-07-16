@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Button /> accepts a dark bool 1`] = `
-.xnCxw {
+.c0 {
   background: var(--color-transparent-black);
   font-size: var(--size-small);
   padding: var(--size-smaller) var(--size-small);
@@ -9,13 +9,13 @@ exports[`<Button /> accepts a dark bool 1`] = `
 }
 
 <span
-  className="sc-bdVaJa xnCxw"
+  className="c0"
   to="/"
 />
 `;
 
 exports[`<Button /> renders correctly 1`] = `
-.kQRvIH {
+.c0 {
   background: unset;
   font-size: var(--size-small);
   padding: var(--size-smaller) var(--size-small);
@@ -23,7 +23,7 @@ exports[`<Button /> renders correctly 1`] = `
 }
 
 <span
-  className="sc-bdVaJa kQRvIH"
+  className="c0"
   to="/"
 />
 `;
