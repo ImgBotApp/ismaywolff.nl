@@ -14,13 +14,13 @@ exports[`<Thumbnail /> renders correctly 1`] = `
           (min-width: 30em) 15rem,
           100vw
         "
-        src="https://image.com?fit=fill&w=250&h=166&fl=progressive"
+        src="https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80"
         srcSet="
-          https://image.com?fit=fill&w=1000&h=666&fl=progressive 1000w,
-          https://image.com?fit=fill&w=750&h=500&fl=progressive 750w,
-          https://image.com?fit=fill&w=500&h=333&fl=progressive 500w,
-          https://image.com?fit=fill&w=250&h=166&fl=progressive 250w,
-          https://image.com?fit=fill&w=100&h=66&fl=progressive 100w
+          https://image.com?fit=fill&w=1000&h=666&fl=progressive&q=80 1000w,
+          https://image.com?fit=fill&w=750&h=500&fl=progressive&q=80 750w,
+          https://image.com?fit=fill&w=500&h=333&fl=progressive&q=80 500w,
+          https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80 250w,
+          https://image.com?fit=fill&w=100&h=66&fl=progressive&q=80 100w
         "
       />
     </styled.picture>

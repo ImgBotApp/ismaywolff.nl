@@ -8,7 +8,7 @@ export const createUrl = ({ url, width, height, fill }) => {
   const widthParam = width ? `w=${width}` : ''
   const heightParam = height ? `&h=${height}` : ''
 
-  return `${url}?${fillParam}${widthParam}${heightParam}&fl=progressive`
+  return `${url}?${fillParam}${widthParam}${heightParam}&fl=progressive&q=80`
 }
 
 /**
