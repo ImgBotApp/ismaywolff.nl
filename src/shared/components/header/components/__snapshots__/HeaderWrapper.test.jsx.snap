@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HeaderWrapper /> renders correctly 1`] = `
-.hGtOFF {
+.c0 {
   padding: 1rem 0;
 }
 
 @media (min-width: 30em) {
-  .hGtOFF {
+  .c0 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -23,6 +23,6 @@ exports[`<HeaderWrapper /> renders correctly 1`] = `
 }
 
 <header
-  className="sc-bdVaJa hGtOFF"
+  className="c0"
 />
 `;

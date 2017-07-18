@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ThumbnailButtonWrapper /> renders correctly 1`] = `
-.jwkTOU {
+.c0 {
   bottom: 0;
   color: var(--color-white);
   padding: var(--size-small);
@@ -10,6 +10,6 @@ exports[`<ThumbnailButtonWrapper /> renders correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa jwkTOU"
+  className="c0"
 />
 `;

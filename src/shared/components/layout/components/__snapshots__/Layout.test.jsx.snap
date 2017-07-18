@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Layout /> renders correctly 1`] = `
-.XXpxj {
+.c0 {
   display: grid;
   grid-template-rows: 1fr auto;
   min-height: 100vh;
 }
 
 <div
-  className="sc-bdVaJa XXpxj"
+  className="c0"
 />
 `;

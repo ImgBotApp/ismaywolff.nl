@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorWrapper /> accepts an error type 1`] = `
-.dKKZCJ {
+.c0 {
   background: var(--color-red-light);
   color: var(--color-red-dark);
   fill: var(--color-red-dark);
@@ -9,13 +9,13 @@ exports[`<ErrorWrapper /> accepts an error type 1`] = `
 }
 
 <div
-  className="sc-bdVaJa dKKZCJ"
+  className="c0"
   type="error"
 />
 `;
 
 exports[`<ErrorWrapper /> accepts an info type 1`] = `
-.gEOivq {
+.c0 {
   background: var(--color-blue-light);
   color: var(--color-blue-dark);
   fill: var(--color-blue-dark);
@@ -23,7 +23,7 @@ exports[`<ErrorWrapper /> accepts an info type 1`] = `
 }
 
 <div
-  className="sc-bdVaJa gEOivq"
+  className="c0"
   type="info"
 />
 `;

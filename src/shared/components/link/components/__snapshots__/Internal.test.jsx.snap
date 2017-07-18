@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Internal /> renders clean correctly 1`] = `
-.bDAHEO {
+.c0 {
   background-image: unset;
   background-position: 0 1.07em;
   background-repeat: repeat-x;
@@ -12,7 +12,7 @@ exports[`<Internal /> renders clean correctly 1`] = `
 }
 
 <Link
-  className="sc-bdVaJa bDAHEO"
+  className="c0"
   clean={true}
   replace={false}
   size="unset"
@@ -23,7 +23,7 @@ exports[`<Internal /> renders clean correctly 1`] = `
 `;
 
 exports[`<Internal /> renders correctly 1`] = `
-.dENHsZ {
+.c0 {
   background-image: linear-gradient(transparent 50%, currentColor 50%);
   background-position: 0 1.07em;
   background-repeat: repeat-x;
@@ -34,7 +34,7 @@ exports[`<Internal /> renders correctly 1`] = `
 }
 
 <Link
-  className="sc-bdVaJa dENHsZ"
+  className="c0"
   clean={false}
   replace={false}
   size="unset"
@@ -45,7 +45,7 @@ exports[`<Internal /> renders correctly 1`] = `
 `;
 
 exports[`<Internal /> renders size correctly 1`] = `
-.cMVQBC {
+.c0 {
   background-image: linear-gradient(transparent 50%, currentColor 50%);
   background-position: 0 1.07em;
   background-repeat: repeat-x;
@@ -56,7 +56,7 @@ exports[`<Internal /> renders size correctly 1`] = `
 }
 
 <Link
-  className="sc-bdVaJa cMVQBC"
+  className="c0"
   clean={false}
   replace={false}
   size="16px"

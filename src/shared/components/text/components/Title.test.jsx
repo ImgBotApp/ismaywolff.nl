@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
@@ -10,7 +6,7 @@ import Title from './Title'
 describe('<Title />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<Title tag="h2">Title</Title>)
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('accepts a center prop', () => {
@@ -19,7 +15,7 @@ describe('<Title />', () => {
         Title
       </Title>
     )
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('accepts a margin prop', () => {
@@ -28,7 +24,7 @@ describe('<Title />', () => {
         Title
       </Title>
     )
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('accepts a size prop', () => {
@@ -37,6 +33,6 @@ describe('<Title />', () => {
         Title
       </Title>
     )
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

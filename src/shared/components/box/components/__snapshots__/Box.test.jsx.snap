@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Box /> accepts a center prop 1`] = `
-.hFAqso {
+.c0 {
   color: unset;
   font-size: unset;
   margin: unset;
@@ -9,14 +9,14 @@ exports[`<Box /> accepts a center prop 1`] = `
 }
 
 <div
-  className="sc-bdVaJa hFAqso"
+  className="c0"
   color="unset"
   size="unset"
 />
 `;
 
 exports[`<Box /> accepts a margin prop 1`] = `
-.iiuGpn {
+.c0 {
   color: unset;
   font-size: unset;
   margin: 0;
@@ -24,14 +24,14 @@ exports[`<Box /> accepts a margin prop 1`] = `
 }
 
 <div
-  className="sc-bdVaJa iiuGpn"
+  className="c0"
   color="unset"
   size="unset"
 />
 `;
 
 exports[`<Box /> accepts a size prop 1`] = `
-.cIyoJg {
+.c0 {
   color: unset;
   font-size: 12px;
   margin: unset;
@@ -39,14 +39,14 @@ exports[`<Box /> accepts a size prop 1`] = `
 }
 
 <div
-  className="sc-bdVaJa cIyoJg"
+  className="c0"
   color="unset"
   size="12px"
 />
 `;
 
 exports[`<Box /> renders correctly 1`] = `
-.cUSeWp {
+.c0 {
   color: unset;
   font-size: unset;
   margin: unset;
@@ -54,7 +54,7 @@ exports[`<Box /> renders correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa cUSeWp"
+  className="c0"
   color="unset"
   size="unset"
 />

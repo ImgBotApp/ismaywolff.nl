@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NavWrapper /> renders correctly 1`] = `
-.wHCsq {
+.c0 {
   text-align: center;
 }
 
 @media (min-width: 30em) {
-  .wHCsq {
+  .c0 {
     text-align: left;
   }
 }
 
 <nav
-  className="sc-bdVaJa wHCsq"
+  className="c0"
 />
 `;

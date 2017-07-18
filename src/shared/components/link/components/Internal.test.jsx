@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
@@ -10,7 +6,7 @@ import Internal from './Internal'
 describe('<Internal />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<Internal to="/url">Text</Internal>)
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders clean correctly', () => {
@@ -19,7 +15,7 @@ describe('<Internal />', () => {
         Text
       </Internal>
     )
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('renders size correctly', () => {
@@ -28,6 +24,6 @@ describe('<Internal />', () => {
         Text
       </Internal>
     )
-    expect(wrapper).toMatchStyledComponentsSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

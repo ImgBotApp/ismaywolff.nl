@@ -4,8 +4,7 @@ const LayoutFooter = styled.div`
   background: var(--color-gray);
   box-shadow: var(--box-shadow-inset);
   font-size: var(--size-small);
-  grid-row-end: 3;
-  grid-row-start: 2;
+  grid-row: 2 3;
   padding: var(--size-large) 0;
 `
 

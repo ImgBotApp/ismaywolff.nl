@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ThumbnailGridItem /> renders correctly 1`] = `
-.gSaCtu {
+.c0 {
   box-shadow: var(--box-shadow);
   grid-column: span 2;
   position: relative;
 }
 
 @media (min-width: 30em) {
-  .gSaCtu {
+  .c0 {
     grid-column: span 1;
   }
 }
 
 <div
-  className="sc-bdVaJa gSaCtu"
+  className="c0"
 />
 `;
