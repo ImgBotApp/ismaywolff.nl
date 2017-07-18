@@ -2,19 +2,19 @@ import { createUrl, getRatio } from './utils'
 
 describe('createUrl', () => {
   it('accepts a fill parameter', () => {
-    expect(createUrl({ url: 'url', fill: true })).toEqual('url?fit=fill&&fl=progressive')
+    expect(createUrl({ url: 'url', fill: true })).toEqual('url?fit=fill&&fl=progressive&q=80')
   })
 
   it('accepts a width parameter', () => {
-    expect(createUrl({ url: 'url', width: 10 })).toEqual('url?w=10&fl=progressive')
+    expect(createUrl({ url: 'url', width: 10 })).toEqual('url?w=10&fl=progressive&q=80')
   })
 
   it('accepts a height parameter', () => {
-    expect(createUrl({ url: 'url', height: 10 })).toEqual('url?&h=10&fl=progressive')
+    expect(createUrl({ url: 'url', height: 10 })).toEqual('url?&h=10&fl=progressive&q=80')
   })
 
   it('creates a valid url', () => {
-    expect(createUrl({ url: 'url' })).toEqual('url?&fl=progressive')
+    expect(createUrl({ url: 'url' })).toEqual('url?&fl=progressive&q=80')
   })
 })
 
