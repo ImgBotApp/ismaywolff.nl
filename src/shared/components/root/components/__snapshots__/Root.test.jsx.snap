@@ -19,12 +19,12 @@ exports[`<Root /> renders correctly 1`] = `
         Prints and support
       </TitleFactory>
       <p>
-        All my work can be downloaded for free
+        All my work can be downloaded for free from 
          
         <Link
-          href="https://github.com/ismay/images"
+          href="https://keybase.pub/ismay"
         >
-          here
+          Keybase
         </Link>
         . However if you want to support my work you can buy prints I
         '
