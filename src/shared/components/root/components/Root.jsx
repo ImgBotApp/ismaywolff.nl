@@ -18,9 +18,9 @@ const Root = () =>
       <Wrapper>
         <Title tag="h3">Prints and support</Title>
         <p>
-          All my work can be downloaded for free{' '}
-          <Link href="https://github.com/ismay/images">here</Link>. However if you want to support
-          my work you can buy prints I{"'"}ve made and signed from{' '}
+          All my work can be downloaded for free from {' '}
+          <Link href="https://keybase.pub/ismay">Keybase</Link>. However if you want to support my
+          work you can buy prints I{"'"}ve made and signed from{' '}
           <Link href="https://www.saatchiart.com/ismay">Saatchi Art</Link> or support me on{' '}
           <Link href="https://www.patreon.com/ismay">Patreon</Link>.
         </p>
