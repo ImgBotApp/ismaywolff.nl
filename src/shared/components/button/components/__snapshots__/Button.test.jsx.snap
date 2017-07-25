@@ -1,29 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> accepts a dark bool 1`] = `
+exports[`<Button /> accepts a fill bool 1`] = `
 .c0 {
-  background: var(--color-transparent-black);
-  font-size: var(--size-small);
-  padding: var(--size-smaller) var(--size-small);
-  white-space: nowrap;
+  background: var(--color-gray);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: 0;
+  display: block;
+  padding: var(--size-smaller);
+  width: 100%;
 }
 
-<span
+<button
   className="c0"
-  to="/"
+  fill={true}
 />
 `;
 
 exports[`<Button /> renders correctly 1`] = `
 .c0 {
-  background: unset;
-  font-size: var(--size-small);
-  padding: var(--size-smaller) var(--size-small);
-  white-space: nowrap;
+  background: var(--color-gray);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: 0;
+  display: unset;
+  padding: var(--size-smaller);
+  width: unset;
 }
 
-<span
+<button
   className="c0"
-  to="/"
+  fill={false}
 />
 `;

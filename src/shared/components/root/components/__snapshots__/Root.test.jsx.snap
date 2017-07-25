@@ -75,6 +75,18 @@ exports[`<Root /> renders correctly 1`] = `
         </Link>
          and hope to see you again!
       </p>
+      <TitleFactory
+        center={false}
+        margin="unset"
+        size="1rem"
+        tag="h3"
+      >
+        Newsletter
+      </TitleFactory>
+      <p>
+        Subscribe to my newsletter to receive infrequent updates about new work and exhibitions. I won't spam you or share your email with others and you can unsubscribe at any time:
+      </p>
+      <Connect(Component) />
     </styled.div>
   </styled.div>
 </styled.div>

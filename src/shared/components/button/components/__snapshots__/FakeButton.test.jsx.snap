@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FakeButton /> accepts a dark bool 1`] = `
+.c0 {
+  background: var(--color-transparent-black);
+  font-size: var(--size-small);
+  padding: var(--size-smaller) var(--size-small);
+  white-space: nowrap;
+}
+
+<span
+  className="c0"
+/>
+`;
+
+exports[`<FakeButton /> renders correctly 1`] = `
+.c0 {
+  background: unset;
+  font-size: var(--size-small);
+  padding: var(--size-smaller) var(--size-small);
+  white-space: nowrap;
+}
+
+<span
+  className="c0"
+/>
+`;

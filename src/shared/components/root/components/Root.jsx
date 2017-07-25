@@ -5,6 +5,7 @@ import { Wrapper } from '../../wrapper'
 import { Link } from '../../link'
 import { Title } from '../../text'
 import { Layout, LayoutContent, LayoutFooter } from '../../layout'
+import { NewsletterContainer } from '../../newsletter'
 
 const Root = () =>
   <Layout>
@@ -32,6 +33,12 @@ const Root = () =>
           questions at <Link href="mailto:hello@ismaywolff.nl">hello@ismaywolff.nl</Link> and hope
           to see you again!
         </p>
+        <Title tag="h3">Newsletter</Title>
+        <p>
+          Subscribe to my newsletter to receive infrequent updates about new work and exhibitions. I
+          won't spam you or share your email with others and you can unsubscribe at any time:
+        </p>
+        <NewsletterContainer />
       </Wrapper>
     </LayoutFooter>
   </Layout>
