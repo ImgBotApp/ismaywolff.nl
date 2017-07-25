@@ -53,53 +53,6 @@ each commit.
 * [prettier](https://github.com/prettier/prettier) to automatically format my javascript to a
 consistent style.
 
-### bundling
-
-I use [Webpack 2](https://webpack.js.org/) to bundle my app. I split my bundles into several chunks
-and am using deterministic hashes (which isn't enabled by default). Check out [webpack.config.client.prod.js](webpack.config.client.prod.js)
-for more details.
-
-### polyfilling
-
-As far as polyfilling goes: I don't include any polyfills in my bundle, so modern browsers don't
-have to download any unnecessary polyfills. Instead I'm testing for the features I need, and
-downloading polyfills on demand with [Polyfill.io](https://polyfill.io/v2/docs/) and [load-script](https://www.npmjs.com/package/load-script).
-The approach was largely based on this article: [Loading polyfills only when needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/).
-See [the clientside entry point for more details](src/client/index.jsx).
-
-### analytics
-
-I'm using a custom Google Analytics script, which was largely based on this article:
-[The google analytics setup I use on every site I build](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/).
-To track errors I'm using [Sentry.io](https://sentry.io/welcome/) which has great error reporting,
-including stacktraces and sourcemaps.
- 
-### routing & styling
-
-I'm using [React Router 4](https://reacttraining.com/react-router/) as my clientside router. Works
-great, also with serverside rendering.
-
-For styling I've used several approaches and I'm currently using [styled-components v2](https://www.styled-components.com/),
-which is wonderful. It works both on the client and on the server, and when combined with [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components)
-it even allows me to lint my styles with stylelint. It's a great way to make your css truly modular,
-without any scoping issues.
-
-### external testing
-
-I'm using a couple of services to do some manual testing:
-
-* [Loader.io](https://loader.io/) for the occasional load test, just to see how it performs.
-* [Pingdom.com](https://www.pingdom.com/) to monitor performance automatically.
-* [Webpagetest.com](https://www.webpagetest.org/) for in-depth performance testing.
-* [Browserstack](https://www.browserstack.com/) to do cross-browser testing.
-
-### ci
-
-I use [Travis](https://travis-ci.org/) to run my tests and linters for each push. Coverage is
-reported by [Coveralls](https://coveralls.io/) and my npm dependencies are kept up-to-date by
-[Greenkeeper](https://greenkeeper.io/). [Node security platform](https://nodesecurity.io) tests
-whether I'm using any unsafe dependencies.
-
 ### backend
 
 I run this project on a [CoreOS](https://coreos.com/) server with this [Cloud-Config](https://gist.github.com/ismay/da7acd94f07666a5308c4946f4482acb)

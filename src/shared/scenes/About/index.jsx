@@ -16,8 +16,8 @@ const About = () =>
       </p>
       <p>
         I've graduated with a Masters degree in Social Psychology from the University of Groningen,
-        and a Bachelors degree in Fine Art from Academie Minerva of Groningen. Most of my code can
-        be found on <Link href="https://github.com/ismay">github</Link> and my public keys are on{' '}
+        and a Bachelors degree in Fine Art from Academy Minerva of Groningen. Most of my code can be
+        found on <Link href="https://github.com/ismay">github</Link> and my public keys are on{' '}
         <Link href="https://keybase.io/ismay">keybase</Link>.
       </p>
       <p>
