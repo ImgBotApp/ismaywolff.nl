@@ -29,14 +29,13 @@ const Root = () =>
         <p>
           My code, including the code for this website, is open source on{' '}
           <Link href="https://github.com/ismay">Github</Link> and I publish my articles on{' '}
-          <Link href="https://medium.com/@ismay">Medium</Link>. Feel free to send me difficult
-          questions at <Link href="mailto:hello@ismaywolff.nl">hello@ismaywolff.nl</Link> and hope
-          to see you again!
+          <Link href="https://medium.com/@ismay">Medium</Link>. If you want to email me feel free to
+          do so at <Link href="mailto:hello@ismaywolff.nl">hello@ismaywolff.nl</Link>.
         </p>
         <Title tag="h3">Newsletter</Title>
         <p>
-          Subscribe to my newsletter to receive infrequent updates about new work and exhibitions. I
-          won't spam you or share your email with others and you can unsubscribe at any time:
+          Subscribe to my newsletter to receive updates about new work and exhibitions. I won't spam
+          you or share your email address with others and you can unsubscribe at any time:
         </p>
         <NewsletterContainer />
       </Wrapper>
