@@ -1,16 +1,16 @@
 import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
-import Button from './Button'
+import FakeButton from './FakeButton'
 
-describe('<Button />', () => {
+describe('<FakeButton />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<Button />)
+    const wrapper = shallow(<FakeButton />)
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('accepts a fill bool', () => {
-    const wrapper = shallow(<Button fill />)
+  it('accepts a dark bool', () => {
+    const wrapper = shallow(<FakeButton dark />)
     expect(wrapper).toMatchSnapshot()
   })
 })

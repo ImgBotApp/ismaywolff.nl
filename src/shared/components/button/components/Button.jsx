@@ -1,19 +1,21 @@
-import { bool } from 'prop-types'
 import styled from 'styled-components'
+import { bool } from 'prop-types'
 
-const Button = styled.span`
-  background: ${props => (props.dark ? 'var(--color-transparent-black)' : 'unset')};
-  font-size: var(--size-small);
-  padding: var(--size-smaller) var(--size-small);
-  white-space: nowrap;
+const Button = styled.button`
+  background: var(--color-gray);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: 0;
+  display: ${props => (props.fill ? 'block' : 'unset')};
+  padding: var(--size-smaller);
+  width: ${props => (props.fill ? '100%' : 'unset')};
 `
 
 Button.propTypes = {
-  dark: bool
+  fill: bool
 }
 
 Button.defaultProps = {
-  dark: false
+  fill: false
 }
 
 export default Button

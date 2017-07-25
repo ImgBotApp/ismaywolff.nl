@@ -5,7 +5,7 @@ import { utils } from '../../../data/images'
 import { Title, utils as textUtils } from '../../text'
 import { Box } from '../../box'
 import { Placeholder } from '../../placeholder'
-import { Button } from '../../button'
+import { FakeButton } from '../../button'
 import { Link } from '../../link'
 import HeroDetail from './HeroDetail'
 import HeroWrapper from './HeroWrapper'
@@ -89,7 +89,7 @@ const Hero = ({ work, image }) => {
             </Box>
           </div>
           <Box margin="0 0 0 auto">
-            <Button>View work →</Button>
+            <FakeButton>View work →</FakeButton>
           </Box>
         </HeroDetail>
       </Link>

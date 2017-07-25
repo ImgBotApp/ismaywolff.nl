@@ -2,7 +2,7 @@ import React from 'react'
 import { string, number, shape, arrayOf, bool } from 'prop-types'
 import { utils } from '../../../data/images'
 import { Placeholder } from '../../placeholder'
-import { Button } from '../../button'
+import { FakeButton } from '../../button'
 import { Link } from '../../link'
 import ThumbnailGridItem from './ThumbnailGridItem'
 import ThumbnailButtonWrapper from './ThumbnailButtonWrapper'
@@ -77,7 +77,7 @@ const Thumbnail = ({ work, image }) => {
           <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
         </Placeholder>
         <ThumbnailButtonWrapper>
-          <Button dark>View work →</Button>
+          <FakeButton dark>View work →</FakeButton>
         </ThumbnailButtonWrapper>
       </Link>
     </ThumbnailGridItem>

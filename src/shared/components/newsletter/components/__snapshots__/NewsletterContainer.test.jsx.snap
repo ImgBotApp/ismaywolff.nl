@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DumbNewsletterContainer /> renders correctly 1`] = `
+<Newsletter
+  handleEmailChange={[Function]}
+  handleGotchaChange={[Function]}
+  handleReset={[Function]}
+  handleSubmit={[Function]}
+  newsletterState={
+    Object {
+      "_gotcha": "",
+      "didSubmit": false,
+      "email": "",
+      "errorMessage": "",
+      "isSubmitting": false,
+    }
+  }
+/>
+`;
