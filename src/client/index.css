@@ -73,6 +73,12 @@ img {
   max-width: 100%;
 }
 
+/* No image link borders ever */
+
+a img {
+  border: 0;
+}
+
 /* Fonts */
 
 html {

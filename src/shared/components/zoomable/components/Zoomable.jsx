@@ -3,6 +3,7 @@
 import React from 'react'
 import { string, shape, number } from 'prop-types'
 import ImageZoom from 'react-medium-image-zoom'
+import { Link } from '../../link'
 import { utils } from '../../../data/images'
 import { Placeholder } from '../../placeholder'
 import ZoomableGridItem from './ZoomableGridItem'
@@ -29,6 +30,18 @@ const Zoomable = ({ image }) => {
    */
 
   const src = utils.createUrl({ url: image.url, width: 250 })
+
+  /**
+   * Fallback for browsers that aren't running javascript
+   */
+
+  const noJs = utils.createUrl({ url: image.url, width: 1000 })
+
+  /**
+   * Disregard clicks for browsers that are interpreting js
+   */
+
+  const handleClick = event => event.preventDefault()
 
   /**
    * The available image sizes for the browser to choose from
@@ -61,22 +74,24 @@ const Zoomable = ({ image }) => {
 
   return (
     <ZoomableGridItem>
-      <Placeholder ratio={image.height / image.width}>
-        <ImageZoom
-          image={{
-            src,
-            srcSet,
-            sizes,
-            alt: image.title
-          }}
-          zoomImage={{
-            src,
-            srcSet,
-            sizes: `${utils.getRatio({ image, viewport })}vw`,
-            alt: image.title
-          }}
-        />
-      </Placeholder>
+      <Link href={noJs} onClick={handleClick} clean>
+        <Placeholder ratio={image.height / image.width}>
+          <ImageZoom
+            image={{
+              src,
+              srcSet,
+              sizes,
+              alt: image.title
+            }}
+            zoomImage={{
+              src,
+              srcSet,
+              sizes: `${utils.getRatio({ image, viewport })}vw`,
+              alt: image.title
+            }}
+          />
+        </Placeholder>
+      </Link>
     </ZoomableGridItem>
   )
 }
