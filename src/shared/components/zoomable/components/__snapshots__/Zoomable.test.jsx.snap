@@ -22,20 +22,9 @@ exports[`<Zoomable /> renders correctly 1`] = `
         image={
           Object {
             "alt": "title",
-            "sizes": "
-              (min-width: 40em) 10rem,
-              (min-width: 30em) 15rem,
-              100vw
-            ",
+            "sizes": "(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw",
             "src": "https://image.com?w=250&fl=progressive&q=80",
-            "srcSet": "
-              https://image.com?w=1500&fl=progressive&q=80 1500w,
-              https://image.com?w=1250&fl=progressive&q=80 1250w,
-              https://image.com?w=1000&fl=progressive&q=80 1000w,
-              https://image.com?w=750&fl=progressive&q=80 750w,
-              https://image.com?w=500&fl=progressive&q=80 500w,
-              https://image.com?w=250&fl=progressive&q=80 250w
-            ",
+            "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
           }
         }
         isZoomed={false}
@@ -49,14 +38,7 @@ exports[`<Zoomable /> renders correctly 1`] = `
             "alt": "title",
             "sizes": "75vw",
             "src": "https://image.com?w=250&fl=progressive&q=80",
-            "srcSet": "
-              https://image.com?w=1500&fl=progressive&q=80 1500w,
-              https://image.com?w=1250&fl=progressive&q=80 1250w,
-              https://image.com?w=1000&fl=progressive&q=80 1000w,
-              https://image.com?w=750&fl=progressive&q=80 750w,
-              https://image.com?w=500&fl=progressive&q=80 500w,
-              https://image.com?w=250&fl=progressive&q=80 250w
-            ",
+            "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
           }
         }
         zoomMargin={40}

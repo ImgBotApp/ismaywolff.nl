@@ -32,7 +32,8 @@ const renderStatic = (
   return minify(result, {
     removeComments: true,
     collapseWhitespace: true,
-    conservativeCollapse: true
+    conservativeCollapse: true,
+    minifyCSS: true
   })
 }
 

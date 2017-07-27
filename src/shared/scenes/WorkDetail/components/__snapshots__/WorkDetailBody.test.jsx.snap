@@ -4,7 +4,7 @@ exports[`<WorkDetailBody /> renders a loading state for images 1`] = `<styled.di
 
 exports[`<WorkDetailBody /> renders a loading state for works 1`] = `<styled.div />`;
 
-exports[`<WorkDetailBody /> renders a missing page error for missing work 1`] = `<MissingPageError />`;
+exports[`<WorkDetailBody /> renders a missing page error for missing work 1`] = `<Missing />`;
 
 exports[`<WorkDetailBody /> renders correctly 1`] = `
 <div>

@@ -47,14 +47,13 @@ const Zoomable = ({ image }) => {
    * The available image sizes for the browser to choose from
    */
 
-  const srcSet = `
-    ${utils.createUrl({ url: image.url, width: 1500 })} 1500w,
-    ${utils.createUrl({ url: image.url, width: 1250 })} 1250w,
-    ${utils.createUrl({ url: image.url, width: 1000 })} 1000w,
-    ${utils.createUrl({ url: image.url, width: 750 })} 750w,
-    ${utils.createUrl({ url: image.url, width: 500 })} 500w,
-    ${utils.createUrl({ url: image.url, width: 250 })} 250w
-  `
+  const srcSet =
+    `${utils.createUrl({ url: image.url, width: 1500 })} 1500w, ` +
+    `${utils.createUrl({ url: image.url, width: 1250 })} 1250w, ` +
+    `${utils.createUrl({ url: image.url, width: 1000 })} 1000w, ` +
+    `${utils.createUrl({ url: image.url, width: 750 })} 750w, ` +
+    `${utils.createUrl({ url: image.url, width: 500 })} 500w, ` +
+    `${utils.createUrl({ url: image.url, width: 250 })} 250w`
 
   /**
    * The breakpoints that influence how wide the thumbnail images are displayed, from the bottom up
@@ -66,11 +65,11 @@ const Zoomable = ({ image }) => {
    * - From 40em wide the grid snaps to three images per row (so 10rem)
    */
 
-  const sizes = `
-    (min-width: 40em) 10rem,
-    (min-width: 30em) 15rem,
-    100vw
-  `
+  // prettier-ignore
+  const sizes =
+    '(min-width: 40em) 10rem, ' +
+    '(min-width: 30em) 15rem, ' +
+    '100vw'
 
   return (
     <ZoomableGridItem>
