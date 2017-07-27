@@ -7,12 +7,9 @@ const head = `
   <link rel="preload" href="Bitter.woff2" as="font">
   <link rel="preload" href="CrimsonText.woff2" as="font">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="/webAppManifest.json">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1dbf5e">
-  <meta name="apple-mobile-web-app-title" content="Ismay Wolff">
-  <meta name="application-name" content="Ismay Wolff">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#ffffff">
 `
 
