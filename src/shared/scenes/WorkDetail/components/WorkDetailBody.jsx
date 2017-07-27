@@ -5,8 +5,9 @@ import { Helmet } from 'react-helmet'
 import { Title } from '../../../components/text'
 import { Spinner } from '../../../components/spinner'
 import { Box } from '../../../components/box'
-import { AppError, MissingPageError } from '../../../components/errors'
+import { AppError } from '../../../components/errors'
 import { Zoomable, ZoomableGrid } from '../../../components/zoomable'
+import Missing from '../../Missing'
 
 const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
   const fetchingWorks = works.isFetching || !works.didFetch
@@ -26,7 +27,7 @@ const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
 
   // If there's work but not the requested one
   if (works.result.length > 0 && !requestedWork) {
-    return <MissingPageError />
+    return <Missing />
   }
 
   return (

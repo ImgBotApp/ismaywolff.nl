@@ -28,38 +28,37 @@ const Hero = ({ work, image }) => {
    * The available image sizes for the browser to choose from
    */
 
-  const srcSet = `
-    ${utils.createUrl({
+  const srcSet =
+    `${utils.createUrl({
       url: image.url,
       width: 1000,
       height: Math.floor(1000 * ratio),
       fill: true
-    })} 1000w,
-    ${utils.createUrl({
+    })} 1000w, ` +
+    `${utils.createUrl({
       url: image.url,
       width: 750,
       height: Math.floor(750 * ratio),
       fill: true
-    })} 750w,
-    ${utils.createUrl({
+    })} 750w, ` +
+    `${utils.createUrl({
       url: image.url,
       width: 500,
       height: Math.floor(500 * ratio),
       fill: true
-    })} 500w,
-    ${utils.createUrl({
+    })} 500w, ` +
+    `${utils.createUrl({
       url: image.url,
       width: 250,
       height: Math.floor(250 * ratio),
       fill: true
-    })} 250w,
-    ${utils.createUrl({
+    })} 250w, ` +
+    `${utils.createUrl({
       url: image.url,
       width: 100,
       height: Math.floor(100 * ratio),
       fill: true
-    })} 100w
-  `
+    })} 100w`
 
   /**
    * The breakpoints that influence how wide the hero image is displayed, from the bottom up it's:
@@ -68,10 +67,10 @@ const Hero = ({ work, image }) => {
    * - From 30em wide the wrapping container constrains the width to 30rem
    */
 
-  const sizes = `
-    (min-width: 30em) 30rem,
-    100vw
-  `
+  // prettier-ignore
+  const sizes =
+    '(min-width: 30em) 30rem, ' +
+    '100vw'
 
   return (
     <HeroWrapper>
