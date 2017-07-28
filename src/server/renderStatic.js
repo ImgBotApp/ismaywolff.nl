@@ -11,7 +11,7 @@ const renderStatic = (
 ) => {
   const result = `
     <!doctype html>
-    <html>
+    <html lang="en">
       <head>
         ${head}
         ${title}
