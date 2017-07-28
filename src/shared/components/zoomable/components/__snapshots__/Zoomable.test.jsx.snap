@@ -10,39 +10,52 @@ exports[`<Zoomable /> renders correctly 1`] = `
     <styled.picture
       ratio={1}
     >
-      <ImageZoom
-        defaultStyles={
-          Object {
-            "image": Object {},
-            "overlay": Object {},
-            "zoomContainer": Object {},
-            "zoomImage": Object {},
+      <LazyLoad
+        debounce={false}
+        elementType="div"
+        offset={500}
+        offsetBottom={0}
+        offsetHorizontal={0}
+        offsetLeft={0}
+        offsetRight={0}
+        offsetTop={0}
+        offsetVertical={0}
+        throttle={250}
+      >
+        <ImageZoom
+          defaultStyles={
+            Object {
+              "image": Object {},
+              "overlay": Object {},
+              "zoomContainer": Object {},
+              "zoomImage": Object {},
+            }
           }
-        }
-        image={
-          Object {
-            "alt": "title",
-            "sizes": "(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw",
-            "src": "https://image.com?w=250&fl=progressive&q=80",
-            "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
+          image={
+            Object {
+              "alt": "title",
+              "sizes": "(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw",
+              "src": "https://image.com?w=250&fl=progressive&q=80",
+              "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
+            }
           }
-        }
-        isZoomed={false}
-        onUnzoom={[Function]}
-        onZoom={[Function]}
-        shouldHandleZoom={[Function]}
-        shouldReplaceImage={true}
-        shouldRespectMaxDimension={false}
-        zoomImage={
-          Object {
-            "alt": "title",
-            "sizes": "75vw",
-            "src": "https://image.com?w=250&fl=progressive&q=80",
-            "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
+          isZoomed={false}
+          onUnzoom={[Function]}
+          onZoom={[Function]}
+          shouldHandleZoom={[Function]}
+          shouldReplaceImage={true}
+          shouldRespectMaxDimension={false}
+          zoomImage={
+            Object {
+              "alt": "title",
+              "sizes": "75vw",
+              "src": "https://image.com?w=250&fl=progressive&q=80",
+              "srcSet": "https://image.com?w=1500&fl=progressive&q=80 1500w, https://image.com?w=1250&fl=progressive&q=80 1250w, https://image.com?w=1000&fl=progressive&q=80 1000w, https://image.com?w=750&fl=progressive&q=80 750w, https://image.com?w=500&fl=progressive&q=80 500w, https://image.com?w=250&fl=progressive&q=80 250w",
+            }
           }
-        }
-        zoomMargin={40}
-      />
+          zoomMargin={40}
+        />
+      </LazyLoad>
     </styled.picture>
   </Link>
 </styled.div>

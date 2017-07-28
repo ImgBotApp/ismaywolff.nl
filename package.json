@@ -143,6 +143,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-helmet": "^5.0.3",
+    "react-lazy-load": "^3.0.12",
     "react-medium-image-zoom": "^1.0.0",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",

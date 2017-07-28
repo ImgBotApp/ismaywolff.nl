@@ -1,6 +1,7 @@
 /* global window */
 
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import { string, shape, number } from 'prop-types'
 import ImageZoom from 'react-medium-image-zoom'
 import { Link } from '../../link'
@@ -75,20 +76,22 @@ const Zoomable = ({ image }) => {
     <ZoomableGridItem>
       <Link href={noJs} onClick={handleClick} clean>
         <Placeholder ratio={image.height / image.width}>
-          <ImageZoom
-            image={{
-              src,
-              srcSet,
-              sizes,
-              alt: image.title
-            }}
-            zoomImage={{
-              src,
-              srcSet,
-              sizes: `${utils.getRatio({ image, viewport })}vw`,
-              alt: image.title
-            }}
-          />
+          <LazyLoad offset={500} debounce={false}>
+            <ImageZoom
+              image={{
+                src,
+                srcSet,
+                sizes,
+                alt: image.title
+              }}
+              zoomImage={{
+                src,
+                srcSet,
+                sizes: `${utils.getRatio({ image, viewport })}vw`,
+                alt: image.title
+              }}
+            />
+          </LazyLoad>
         </Placeholder>
       </Link>
     </ZoomableGridItem>
