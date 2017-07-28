@@ -1,4 +1,5 @@
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import { string, number, shape, arrayOf, bool } from 'prop-types'
 import { utils } from '../../../data/images'
 import { Placeholder } from '../../placeholder'
@@ -73,7 +74,9 @@ const Thumbnail = ({ work, image }) => {
     <ThumbnailGridItem>
       <Link to={`/work/${work.slug}`}>
         <Placeholder ratio={ratio}>
-          <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
+          <LazyLoad offset={500} debounce={false}>
+            <img src={src} srcSet={srcSet} sizes={sizes} alt={image.title} />
+          </LazyLoad>
         </Placeholder>
         <ThumbnailButtonWrapper>
           <FakeButton dark>View work →</FakeButton>

@@ -8,12 +8,25 @@ exports[`<Thumbnail /> renders correctly 1`] = `
     <styled.picture
       ratio={0.6666666666666666}
     >
-      <img
-        alt="title"
-        sizes="(min-width: 30em) 15rem, 100vw"
-        src="https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80"
-        srcSet="https://image.com?fit=fill&w=1000&h=666&fl=progressive&q=80 1000w, https://image.com?fit=fill&w=750&h=500&fl=progressive&q=80 750w, https://image.com?fit=fill&w=500&h=333&fl=progressive&q=80 500w, https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80 250w, https://image.com?fit=fill&w=100&h=66&fl=progressive&q=80 100w"
-      />
+      <LazyLoad
+        debounce={false}
+        elementType="div"
+        offset={500}
+        offsetBottom={0}
+        offsetHorizontal={0}
+        offsetLeft={0}
+        offsetRight={0}
+        offsetTop={0}
+        offsetVertical={0}
+        throttle={250}
+      >
+        <img
+          alt="title"
+          sizes="(min-width: 30em) 15rem, 100vw"
+          src="https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80"
+          srcSet="https://image.com?fit=fill&w=1000&h=666&fl=progressive&q=80 1000w, https://image.com?fit=fill&w=750&h=500&fl=progressive&q=80 750w, https://image.com?fit=fill&w=500&h=333&fl=progressive&q=80 500w, https://image.com?fit=fill&w=250&h=166&fl=progressive&q=80 250w, https://image.com?fit=fill&w=100&h=66&fl=progressive&q=80 100w"
+        />
+      </LazyLoad>
     </styled.picture>
     <styled.div>
       <styled.span
