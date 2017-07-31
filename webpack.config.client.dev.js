@@ -23,13 +23,6 @@ module.exports = {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          'style-loader?sourceMap',
-          'css-loader?sourceMap&url=false'
-        ]
       }
     ]
   },

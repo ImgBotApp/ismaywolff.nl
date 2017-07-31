@@ -3,7 +3,6 @@ import inlineStore from './templates/inlineStore'
 import preloadDynamic from './templates/preloadDynamic'
 import scripts from './templates/scripts'
 import head from './templates/head'
-import globalCss from './templates/globalCss'
 import catchErrors from './templates/catchErrors'
 
 const renderStatic = (
@@ -18,7 +17,6 @@ const renderStatic = (
         ${meta}
         ${catchErrors}
         ${preloadDynamic}
-        ${globalCss}
         ${criticalCss}
       </head>
       <body>
