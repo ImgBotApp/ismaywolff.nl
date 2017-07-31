@@ -1,7 +1,6 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SentryPlugin = require('webpack-sentry-plugin')
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
 const webpack = require('webpack')
@@ -20,13 +19,12 @@ const ENTRYPOINT = 'main'
 
 const transformStats = stats => {
   const assetsByEntrypoint = stats.entrypoints[ENTRYPOINT].assets
-  const css = assetsByEntrypoint.filter(asset => asset.endsWith('.css'))
   const js = assetsByEntrypoint.filter(asset => asset.endsWith('.js'))
   const dynamic = stats.assets
     .filter(asset => (asset.chunkNames.length === 0 && asset.name.endsWith('.js')))
     .map(asset => asset.name)
 
-  return JSON.stringify({ css, js, dynamic })
+  return JSON.stringify({ js, dynamic })
 }
 
 module.exports = {
@@ -48,13 +46,6 @@ module.exports = {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader?sourceMap',
-          use: 'css-loader?sourceMap&url=false'
-        })
       }
     ]
   },
@@ -69,12 +60,6 @@ module.exports = {
       path.join(__dirname, 'dist', 'public'),
       { verbose: false }
     ),
-
-    /**
-     * Extract required css to a separate file.
-     */
-
-    new ExtractTextPlugin('[name]-[chunkhash].css'),
 
     /**
      * Copy all static assets to dist.

@@ -1,9 +1,5 @@
 /* global Raven */
-/* eslint-disable import/first, no-underscore-dangle, no-mixed-operators */
-
-// Globally scoped css
-import 'normalize.css'
-import './index.css'
+/* eslint-disable no-underscore-dangle, no-mixed-operators */
 
 import load from 'load-script'
 import React from 'react'
