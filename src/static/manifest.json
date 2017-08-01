@@ -1,5 +1,7 @@
 {
     "name": "Ismay Wolff",
+    "short_name": "Ismay Wolff",
+    "description": "Portfolio of Ismay Wolff",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
