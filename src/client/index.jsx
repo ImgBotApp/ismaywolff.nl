@@ -5,6 +5,7 @@ import load from 'load-script'
 import React from 'react'
 import { render } from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import { url, config, logError } from '../shared/services/raven'
 import configureStore from '../shared/store'
 import { App, AppWithErrors } from './components/app'
@@ -27,6 +28,12 @@ if (process.env.NODE_ENV === 'production') {
     }
   })
 }
+
+/**
+ * Initialize offline runtime
+ */
+
+OfflinePluginRuntime.install()
 
 /**
  * Feature tests

@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const SentryPlugin = require('webpack-sentry-plugin')
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
+const OfflinePlugin = require('offline-plugin')
 const webpack = require('webpack')
 
 /**
@@ -147,6 +148,22 @@ module.exports = {
       project: 'ismaywolff-nl',
       apiKey: process.env.SENTRY_API_KEY,
       release: process.env.RELEASE
+    }),
+
+    /**
+     * Make app available offline
+     */
+
+    new OfflinePlugin({
+      publicPath: '/',
+      externals: [
+        '/'
+      ],
+      autoUpdate: true,
+      AppCache: false,
+      ServiceWorker: {
+        navigateFallbackURL: '/',
+      }
     })
   ]
 }
