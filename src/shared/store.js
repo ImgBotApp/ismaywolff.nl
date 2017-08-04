@@ -5,6 +5,7 @@ import { compose, createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
 import logErrors from './data/errors'
+import { persistState } from './services/persist'
 
 // Initialize devtools if on the client
 const devTools =
@@ -19,6 +20,11 @@ const configureStore = preloadedState => {
     preloadedState,
     compose(applyMiddleware(thunk, logErrors), devTools)
   )
+
+  // Attempt to persist store on changes
+  store.subscribe(() => {
+    persistState(store.getState())
+  })
 
   return store
 }

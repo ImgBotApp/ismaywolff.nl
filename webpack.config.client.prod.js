@@ -21,11 +21,8 @@ const ENTRYPOINT = 'main'
 const transformStats = stats => {
   const assetsByEntrypoint = stats.entrypoints[ENTRYPOINT].assets
   const js = assetsByEntrypoint.filter(asset => asset.endsWith('.js'))
-  const dynamic = stats.assets
-    .filter(asset => (asset.chunkNames.length === 0 && asset.name.endsWith('.js')))
-    .map(asset => asset.name)
 
-  return JSON.stringify({ js, dynamic })
+  return JSON.stringify({ js })
 }
 
 module.exports = {

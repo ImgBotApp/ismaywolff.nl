@@ -29,7 +29,9 @@
       "!src/{client,server,shared}/*.{js,jsx}",
       "!src/{client,server,shared}/{components,data,services}/*/index.js",
       "!src/client/services/analytics/**",
+      "!src/client/services/raven/**",
       "!src/shared/services/raven/**",
+      "!src/shared/services/persist/**",
       "!src/server/templates/**",
       "!**/.eslintrc.js"
     ]
@@ -92,7 +94,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.16.0",
     "babel-watch": "^2.0.6",
-    "better-npm-run": "^0.0.15",
+    "better-npm-run": "^0.1.0",
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.1",
     "coveralls": "^2.11.15",
@@ -133,6 +135,7 @@
   },
   "dependencies": {
     "dateformat": "^2.0.0",
+    "debounce": "^1.0.2",
     "history": "^4.6.2",
     "load-script": "^1.0.0",
     "normalizr": "^3.0.0",
