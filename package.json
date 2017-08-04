@@ -29,7 +29,9 @@
       "!src/{client,server,shared}/*.{js,jsx}",
       "!src/{client,server,shared}/{components,data,services}/*/index.js",
       "!src/client/services/analytics/**",
+      "!src/client/services/raven/**",
       "!src/shared/services/raven/**",
+      "!src/shared/services/persist/**",
       "!src/server/templates/**",
       "!**/.eslintrc.js"
     ]
@@ -133,6 +135,7 @@
   },
   "dependencies": {
     "dateformat": "^2.0.0",
+    "debounce": "^1.0.2",
     "history": "^4.6.2",
     "load-script": "^1.0.0",
     "normalizr": "^3.0.0",
