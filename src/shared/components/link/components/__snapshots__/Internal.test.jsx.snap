@@ -24,7 +24,7 @@ exports[`<Internal /> renders clean correctly 1`] = `
 
 exports[`<Internal /> renders correctly 1`] = `
 .c0 {
-  background-image: linear-gradient(transparent 50%, currentColor 50%);
+  background-image: linear-gradient(transparent 50%,currentColor 50%);
   background-position: 0 1.07em;
   background-repeat: repeat-x;
   background-size: 2px 0.1em;
@@ -46,7 +46,7 @@ exports[`<Internal /> renders correctly 1`] = `
 
 exports[`<Internal /> renders size correctly 1`] = `
 .c0 {
-  background-image: linear-gradient(transparent 50%, currentColor 50%);
+  background-image: linear-gradient(transparent 50%,currentColor 50%);
   background-position: 0 1.07em;
   background-repeat: repeat-x;
   background-size: 2px 0.1em;

@@ -5,7 +5,7 @@ exports[`<NavWrapper /> renders correctly 1`] = `
   text-align: center;
 }
 
-@media (min-width: 30em) {
+@media (min-width:30em) {
   .c0 {
     text-align: left;
   }

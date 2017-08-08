@@ -30,7 +30,8 @@ const Root = () =>
           My code, including the code for this website, is open source on{' '}
           <Link href="https://github.com/ismay">Github</Link> and I publish my articles on{' '}
           <Link href="https://medium.com/@ismay">Medium</Link>. If you want to email me feel free to
-          do so at <Link href="mailto:hello@ismaywolff.nl">hello@ismaywolff.nl</Link>.
+          do so at{' '}
+          <Link href="mailto:hello+website@ismaywolff.nl">hello+website@ismaywolff.nl</Link>.
         </p>
         <Title tag="h3">Newsletter</Title>
         <p>

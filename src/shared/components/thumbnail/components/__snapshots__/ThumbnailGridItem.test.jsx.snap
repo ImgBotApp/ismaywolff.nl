@@ -7,7 +7,7 @@ exports[`<ThumbnailGridItem /> renders correctly 1`] = `
   position: relative;
 }
 
-@media (min-width: 30em) {
+@media (min-width:30em) {
   .c0 {
     grid-column: span 1;
   }
