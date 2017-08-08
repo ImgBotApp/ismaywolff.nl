@@ -20,10 +20,21 @@ if (process.env.NODE_ENV === 'production') {
 
 const server = express()
 
+const setCustomCacheControl = (res, path) => {
+  if (path.includes('sw.js')) {
+    // Service worker should not be cached
+    res.setHeader('Cache-Control', 'public, max-age=0')
+  } else {
+    // Everything else should be cached for a year
+    res.setHeader('Cache-Control', 'public, max-age=31536000')
+  }
+}
+
 server.disable('x-powered-by')
+
 server.use(
   express.static(PUBLIC_PATH, {
-    maxAge: '1y'
+    setHeaders: setCustomCacheControl
   })
 )
 

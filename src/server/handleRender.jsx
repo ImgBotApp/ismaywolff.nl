@@ -1,3 +1,4 @@
+import url from 'url'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { renderToString } from 'react-dom/server'
@@ -11,7 +12,7 @@ import getNeeds from './getNeeds'
 
 const handleRender = (req, res) => {
   const store = configureStore({})
-  const needs = getNeeds(routes, req.url, store)
+  const needs = getNeeds(routes, url.parse(req.url).pathname, store)
 
   Promise.all(needs)
     .then(() => {

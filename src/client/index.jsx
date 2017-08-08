@@ -18,10 +18,20 @@ import { init } from './services/raven'
 init()
 
 /**
- * Initialize offline runtime
+ * Initialize offline runtime and update when ready
  */
 
-OfflinePluginRuntime.install()
+OfflinePluginRuntime.install({
+  onInstalled: () => {
+    OfflinePluginRuntime.update()
+  },
+  onUpdateReady: () => {
+    OfflinePluginRuntime.applyUpdate()
+  },
+  onUpdated: () => {
+    window.location.reload()
+  }
+})
 
 /**
  * Boots the app, shows errors if there were any

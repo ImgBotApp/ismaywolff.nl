@@ -152,14 +152,16 @@ module.exports = {
      */
 
     new OfflinePlugin({
-      publicPath: '/',
-      externals: [
-        '/'
-      ],
       autoUpdate: true,
+      output: 'sw.js',
+      version: process.env.RELEASE,
+      updateStrategy: 'all',
+      caches: 'all',
+      externals: ['/index.html'],
       AppCache: false,
       ServiceWorker: {
-        navigateFallbackURL: '/',
+        events: true,
+        navigateFallbackURL: '/'
       }
     })
   ]
