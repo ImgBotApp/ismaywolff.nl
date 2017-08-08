@@ -20,7 +20,7 @@ const Newsletter = ({
       <div>
         <form
           onSubmit={handleSubmit}
-          action="https://formspree.io/hello@ismaywolff.nl"
+          action="https://formspree.io/hello+form@ismaywolff.nl"
           method="POST"
         >
           <Input
@@ -82,7 +82,7 @@ const Newsletter = ({
         </Box>
         <form
           onSubmit={handleSubmit}
-          action="https://formspree.io/hello@ismaywolff.nl"
+          action="https://formspree.io/hello+form@ismaywolff.nl"
           method="POST"
         >
           <Input
@@ -115,7 +115,11 @@ const Newsletter = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} action="https://formspree.io/hello@ismaywolff.nl" method="POST">
+    <form
+      onSubmit={handleSubmit}
+      action="https://formspree.io/hello+form@ismaywolff.nl"
+      method="POST"
+    >
       <Input
         autoComplete="email"
         onChange={handleEmailChange}
