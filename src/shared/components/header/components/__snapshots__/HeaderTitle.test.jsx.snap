@@ -9,7 +9,7 @@ exports[`<HeaderTitle /> renders correctly 1`] = `
   white-space: nowrap;
 }
 
-@media (min-width: 30em) {
+@media (min-width:30em) {
   .c0 {
     margin-bottom: 0;
     text-align: left;

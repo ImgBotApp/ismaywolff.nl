@@ -67,11 +67,12 @@ exports[`<Root /> renders correctly 1`] = `
         >
           Medium
         </Link>
-        . If you want to email me feel free to do so at 
+        . If you want to email me feel free to do so at
+         
         <Link
-          href="mailto:hello@ismaywolff.nl"
+          href="mailto:hello+website@ismaywolff.nl"
         >
-          hello@ismaywolff.nl
+          hello+website@ismaywolff.nl
         </Link>
         .
       </p>

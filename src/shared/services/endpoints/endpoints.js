@@ -5,4 +5,4 @@ const BASE = `https://${DOMAIN}.contentful.com/spaces/${process.env.SPACE_ID}`
 
 export const IMAGES = `${BASE}/assets?mimetype_group=image`
 export const WORKS = `${BASE}/entries?content_type=works&order=-fields.published`
-export const NEWSLETTER = 'https://formspree.io/hello@ismaywolff.nl'
+export const NEWSLETTER = 'https://formspree.io/hello+form@ismaywolff.nl'
