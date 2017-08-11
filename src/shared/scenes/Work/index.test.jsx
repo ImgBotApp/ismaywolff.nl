@@ -3,17 +3,18 @@ import { shallow, mount } from 'enzyme'
 import { DumbWork } from './index'
 
 jest.mock('./components/WorkBody', () => () => <div />)
+Date.now = jest.fn(() => 1)
 
 describe('<DumbWork />', () => {
   it('renders correctly', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -40,13 +41,13 @@ describe('<DumbWork />', () => {
     const spyImages = jest.fn()
     const spyWorks = jest.fn()
     const images = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []
     }
     const works = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []

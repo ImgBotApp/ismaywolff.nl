@@ -1,5 +1,5 @@
 import React from 'react'
-import { shape, string, arrayOf, objectOf, object, bool } from 'prop-types'
+import { number, shape, string, arrayOf, objectOf, object, bool } from 'prop-types'
 import dateformat from 'dateformat'
 import { Helmet } from 'react-helmet'
 import { Title } from '../../../components/text'
@@ -10,8 +10,8 @@ import { Zoomable, ZoomableGrid } from '../../../components/zoomable'
 import Missing from '../../Missing'
 
 const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
-  const fetchingWorks = works.isFetching || !works.didFetch
-  const fetchingImages = images.isFetching || !images.didFetch
+  const fetchingWorks = works.isFetching || !works.lastUpdated
+  const fetchingImages = images.isFetching || !images.lastUpdated
   const worksError = works.errorMessage
   const imagesError = images.errorMessage
 
@@ -70,13 +70,13 @@ WorkDetailBody.propTypes = {
   workEntities: objectOf(object).isRequired,
   imageEntities: objectOf(object).isRequired,
   works: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
   }).isRequired,
   images: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired

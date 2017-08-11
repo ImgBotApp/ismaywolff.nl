@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, objectOf, shape, bool, string, arrayOf } from 'prop-types'
+import { number, object, objectOf, shape, bool, string, arrayOf } from 'prop-types'
 import { Thumbnail, ThumbnailGrid } from '../../../components/thumbnail'
 import { Title, TitleWithLine } from '../../../components/text'
 import { AppError } from '../../../components/errors'
@@ -9,8 +9,8 @@ import { Hero } from '../../../components/hero'
 import { Box } from '../../../components/box'
 
 const HomeBody = ({ works, images, workEntities, imageEntities, featured, hero }) => {
-  const fetchingWorks = works.isFetching || !works.didFetch
-  const fetchingImages = images.isFetching || !images.didFetch
+  const fetchingWorks = works.isFetching || !works.lastUpdated
+  const fetchingImages = images.isFetching || !images.lastUpdated
   const worksError = works.errorMessage
   const imagesError = images.errorMessage
 
@@ -72,13 +72,13 @@ HomeBody.propTypes = {
   workEntities: objectOf(object).isRequired,
   imageEntities: objectOf(object).isRequired,
   works: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
   }).isRequired,
   images: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired

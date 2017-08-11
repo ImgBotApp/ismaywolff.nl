@@ -4,10 +4,17 @@ import thunk from 'redux-thunk'
 import nock from 'nock'
 import * as types from './actionTypes'
 import * as actions from './actions'
+import * as selectors from './selectors'
 
 /**
  * Mocks
  */
+
+// Return consistent date for testing
+Date.now = jest.fn(() => 1)
+
+// Allow shouldFetchImages to be mocked
+selectors.shouldFetchImages = jest.fn()
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -53,6 +60,7 @@ describe('fetchImagesSuccess', () => {
     const actual = actions.fetchImagesSuccess('payload')
     const expected = {
       type: types.FETCH_IMAGES_SUCCESS,
+      receivedAt: 1,
       payload: 'payload'
     }
 
@@ -65,6 +73,7 @@ describe('fetchImagesFail', () => {
     const actual = actions.fetchImagesFail('payload')
     const expected = {
       type: types.FETCH_IMAGES_FAIL,
+      receivedAt: 1,
       payload: 'payload'
     }
 
@@ -83,7 +92,7 @@ describe('fetchImages', () => {
     const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_IMAGES },
-      { type: types.FETCH_IMAGES_SUCCESS, payload: mockNormalized }
+      { type: types.FETCH_IMAGES_SUCCESS, receivedAt: 1, payload: mockNormalized }
     ]
 
     return store
@@ -98,7 +107,7 @@ describe('fetchImages', () => {
     const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_IMAGES },
-      { type: types.FETCH_IMAGES_FAIL, payload: error }
+      { type: types.FETCH_IMAGES_FAIL, receivedAt: 1, payload: error }
     ]
 
     return store
@@ -114,11 +123,12 @@ describe('fetchImagesIfNeeded', () => {
 
   it('should fetch images if needed', () => {
     nock(/contentful\.com/).get(/image/).reply(200, mockResponse)
+    selectors.shouldFetchImages.mockReturnValueOnce(true)
 
-    const store = mockStore({ images: { isFetching: false, result: [] } })
+    const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_IMAGES },
-      { type: types.FETCH_IMAGES_SUCCESS, payload: mockNormalized }
+      { type: types.FETCH_IMAGES_SUCCESS, receivedAt: 1, payload: mockNormalized }
     ]
 
     return store
@@ -126,16 +136,9 @@ describe('fetchImagesIfNeeded', () => {
       .then(() => expect(store.getActions()).toEqual(expectedActions))
   })
 
-  it('should not fetch images if already fetching', () => {
-    const store = mockStore({ images: { isFetching: true, result: [] } })
-
-    return store
-      .dispatch(actions.fetchImagesIfNeeded())
-      .then(() => expect(store.getActions()).toEqual([]))
-  })
-
-  it('should not fetch images if there are already images', () => {
-    const store = mockStore({ images: { isFetching: false, result: ['image'] } })
+  it('should not fetch images if not needed', () => {
+    selectors.shouldFetchImages.mockReturnValueOnce(false)
+    const store = mockStore({})
 
     return store
       .dispatch(actions.fetchImagesIfNeeded())

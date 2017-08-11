@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
   const initialState = {
-    didFetch: false,
+    lastUpdated: 0,
     errorMessage: '',
     isFetching: false,
     result: []
@@ -28,10 +28,11 @@ describe('reducer', () => {
   it('should handle FETCH_IMAGES_SUCCESS', () => {
     const actual = reducer(fetchingState, {
       type: types.FETCH_IMAGES_SUCCESS,
+      receivedAt: 1,
       payload
     })
     const expected = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: '',
       isFetching: false,
       result: payload.result
@@ -43,10 +44,11 @@ describe('reducer', () => {
   it('should handle FETCH_IMAGES_FAIL with an errormessage', () => {
     const actual = reducer(fetchingState, {
       type: types.FETCH_IMAGES_FAIL,
+      receivedAt: 1,
       payload: new Error('error')
     })
     const expected = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: 'error',
       isFetching: false,
       result: []
@@ -58,10 +60,11 @@ describe('reducer', () => {
   it('should handle FETCH_IMAGES_FAIL without an errormessage', () => {
     const actual = reducer(fetchingState, {
       type: types.FETCH_IMAGES_FAIL,
+      receivedAt: 1,
       payload: {}
     })
     const expected = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: 'Something went wrong, but no errormessage was provided.',
       isFetching: false,
       result: []

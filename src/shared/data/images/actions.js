@@ -7,11 +7,13 @@ import * as selectors from './selectors'
 
 export const fetchImagesSuccess = payload => ({
   type: types.FETCH_IMAGES_SUCCESS,
+  receivedAt: Date.now(),
   payload
 })
 
 export const fetchImagesFail = payload => ({
   type: types.FETCH_IMAGES_FAIL,
+  receivedAt: Date.now(),
   payload
 })
 

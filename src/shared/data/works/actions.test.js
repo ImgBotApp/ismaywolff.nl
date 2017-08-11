@@ -4,10 +4,17 @@ import thunk from 'redux-thunk'
 import nock from 'nock'
 import * as types from './actionTypes'
 import * as actions from './actions'
+import * as selectors from './selectors'
 
 /**
  * Mocks
  */
+
+// Return consistent date for testing
+Date.now = jest.fn(() => 1)
+
+// Allow shouldFetchWorks to be mocked
+selectors.shouldFetchWorks = jest.fn()
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -38,6 +45,7 @@ describe('fetchWorksSuccess', () => {
     const actual = actions.fetchWorksSuccess('payload')
     const expected = {
       type: types.FETCH_WORKS_SUCCESS,
+      receivedAt: 1,
       payload: 'payload'
     }
 
@@ -50,6 +58,7 @@ describe('fetchWorksFail', () => {
     const actual = actions.fetchWorksFail('payload')
     const expected = {
       type: types.FETCH_WORKS_FAIL,
+      receivedAt: 1,
       payload: 'payload'
     }
 
@@ -68,7 +77,7 @@ describe('fetchWorks', () => {
     const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_WORKS },
-      { type: types.FETCH_WORKS_SUCCESS, payload: mockNormalized }
+      { type: types.FETCH_WORKS_SUCCESS, receivedAt: 1, payload: mockNormalized }
     ]
 
     return store
@@ -83,7 +92,7 @@ describe('fetchWorks', () => {
     const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_WORKS },
-      { type: types.FETCH_WORKS_FAIL, payload: error }
+      { type: types.FETCH_WORKS_FAIL, receivedAt: 1, payload: error }
     ]
 
     return store
@@ -99,11 +108,12 @@ describe('fetchWorksIfNeeded', () => {
 
   it('should fetch works if needed', () => {
     nock(/contentful\.com/).get(/works/).reply(200, mockResponse)
+    selectors.shouldFetchWorks.mockReturnValueOnce(true)
 
-    const store = mockStore({ works: { isFetching: false, result: [] } })
+    const store = mockStore({})
     const expectedActions = [
       { type: types.FETCH_WORKS },
-      { type: types.FETCH_WORKS_SUCCESS, payload: mockNormalized }
+      { type: types.FETCH_WORKS_SUCCESS, receivedAt: 1, payload: mockNormalized }
     ]
 
     return store
@@ -111,16 +121,9 @@ describe('fetchWorksIfNeeded', () => {
       .then(() => expect(store.getActions()).toEqual(expectedActions))
   })
 
-  it('should not fetch works if already fetching', () => {
-    const store = mockStore({ works: { isFetching: true, result: [] } })
-
-    return store
-      .dispatch(actions.fetchWorksIfNeeded())
-      .then(() => expect(store.getActions()).toEqual([]))
-  })
-
-  it('should not fetch works if there are already works', () => {
-    const store = mockStore({ works: { isFetching: false, result: ['work'] } })
+  it('should not fetch works if not needed', () => {
+    selectors.shouldFetchWorks.mockReturnValueOnce(false)
+    const store = mockStore({})
 
     return store
       .dispatch(actions.fetchWorksIfNeeded())

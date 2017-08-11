@@ -2,7 +2,7 @@ import * as types from './actionTypes'
 
 const fallbackMessage = 'Something went wrong, but no errormessage was provided.'
 const initialState = {
-  didFetch: false,
+  lastUpdated: 0,
   errorMessage: '',
   isFetching: false,
   result: []
@@ -14,14 +14,14 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, { isFetching: true })
     case types.FETCH_WORKS_SUCCESS:
       return {
-        didFetch: true,
+        lastUpdated: action.receivedAt,
         errorMessage: '',
         isFetching: false,
         result: action.payload.result
       }
     case types.FETCH_WORKS_FAIL:
       return Object.assign({}, state, {
-        didFetch: true,
+        lastUpdated: action.receivedAt,
         errorMessage: action.payload.message || fallbackMessage,
         isFetching: false
       })

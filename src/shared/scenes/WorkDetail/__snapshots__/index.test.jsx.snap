@@ -14,9 +14,9 @@ exports[`<DumbWorkDetail /> renders correctly 1`] = `
     imageEntities={Object {}}
     images={
       Object {
-        "didFetch": true,
         "errorMessage": "",
         "isFetching": false,
+        "lastUpdated": 1,
         "result": Array [
           "imageId",
         ],
@@ -25,9 +25,9 @@ exports[`<DumbWorkDetail /> renders correctly 1`] = `
     workEntities={Object {}}
     works={
       Object {
-        "didFetch": true,
         "errorMessage": "",
         "isFetching": false,
+        "lastUpdated": 1,
         "result": Array [
           "workId",
         ],
