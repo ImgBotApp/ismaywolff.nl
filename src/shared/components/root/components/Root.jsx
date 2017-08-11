@@ -17,25 +17,18 @@ const Root = () =>
     </LayoutContent>
     <LayoutFooter>
       <Wrapper>
-        <Title tag="h3">Prints and support</Title>
+        <Title tag="h3">Download my work</Title>
         <p>
-          All my work can be downloaded for free from {' '}
-          <Link href="https://keybase.pub/ismay">Keybase</Link>. However if you want to support my
-          work you can buy prints I{"'"}ve made and signed from{' '}
-          <Link href="https://www.saatchiart.com/ismay">Saatchi Art</Link> or support me on{' '}
-          <Link href="https://www.patreon.com/ismay">Patreon</Link>.
+          My work can be downloaded for free from {' '}
+          <Link href="https://keybase.pub/ismay">Keybase</Link> and my code, including the code for
+          this website, is open source on <Link href="https://github.com/ismay">Github</Link>. Feel
+          free to use it for your own projects!
         </p>
-        <Title tag="h3">Get in touch</Title>
+        <Title tag="h3">Contact</Title>
         <p>
-          My code, including the code for this website, is open source on{' '}
-          <Link href="https://github.com/ismay">Github</Link> and I publish my articles on{' '}
-          <Link href="https://medium.com/@ismay">Medium</Link>. If you want to email me feel free to
-          do so at{' '}
-          <Link href="mailto:hello+website@ismaywolff.nl">hello+website@ismaywolff.nl</Link>.
-        </p>
-        <Title tag="h3">Newsletter</Title>
-        <p>
-          Subscribe to my newsletter to receive updates about new work and exhibitions. I won't spam
+          If you want to email me feel free to do so at{' '}
+          <Link href="mailto:hello+website@ismaywolff.nl">hello+website@ismaywolff.nl</Link>, or
+          subscribe to my newsletter to receive updates about new work and exhibitions. I won't spam
           you or share your email address with others and you can unsubscribe at any time:
         </p>
         <NewsletterContainer />
