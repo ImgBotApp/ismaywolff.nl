@@ -2,7 +2,6 @@
 
 exports[`<HeroWrapper /> renders correctly 1`] = `
 .c0 {
-  box-shadow: var(--box-shadow);
   position: relative;
 }
 

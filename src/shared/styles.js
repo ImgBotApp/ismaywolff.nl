@@ -267,8 +267,6 @@ export const globalCss = `
 
     /* interface */
     --border-size: 2px;
-    --box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
-    --box-shadow-inset: inset 0 4px 20px -2px rgba(0, 0, 0, 0.1);
     --wrapper-width: 30rem;
     --grid-gutter: var(--size-small);
 

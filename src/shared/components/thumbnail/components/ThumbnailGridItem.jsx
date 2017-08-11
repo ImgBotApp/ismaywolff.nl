@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const ThumbnailGridItem = styled.div`
-  box-shadow: var(--box-shadow);
   grid-column: span 2;
   position: relative;
 
