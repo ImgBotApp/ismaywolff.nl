@@ -240,11 +240,13 @@ export const globalCss = `
   @font-face {
     font-family: 'Crimson Text';
     src: url('/CrimsonText.woff2') format('woff2'), url('/CrimsonText.woff') format('woff');
+    font-display: swap;
   }
 
   @font-face {
     font-family: Bitter;
     src: url('/Bitter.woff2') format('woff2'), url('/Bitter.woff') format('woff');
+    font-display: swap;
   }
 
   /**

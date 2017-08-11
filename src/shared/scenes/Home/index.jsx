@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { func, shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
+import { number, func, shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { actions as workActions, selectors as workSelectors } from '../../data/works'
@@ -44,13 +44,13 @@ DumbHome.propTypes = {
   workEntities: objectOf(object).isRequired,
   imageEntities: objectOf(object).isRequired,
   works: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
   }).isRequired,
   images: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired

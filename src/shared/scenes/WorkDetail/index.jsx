@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { object, objectOf, bool, func, shape, string, arrayOf } from 'prop-types'
+import { number, object, objectOf, bool, func, shape, string, arrayOf } from 'prop-types'
 import { connect } from 'react-redux'
 import { actions as workActions, selectors as workSelectors } from '../../data/works'
 import { actions as imageActions, selectors as imageSelectors } from '../../data/images'
@@ -36,13 +36,13 @@ DumbWorkDetail.propTypes = {
   workEntities: objectOf(object).isRequired,
   imageEntities: objectOf(object).isRequired,
   works: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
   }).isRequired,
   images: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired

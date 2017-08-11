@@ -1,3 +1,4 @@
+import online from '../../services/online'
 import {
   getWorkEntities,
   getWorkState,
@@ -6,6 +7,8 @@ import {
   getHero,
   getFeatured
 } from './selectors'
+
+jest.mock('../../services/online')
 
 describe('getWorkEntities', () => {
   it('should return work entities', () => {
@@ -44,15 +47,33 @@ describe('shouldFetchWorks', () => {
     expect(actual).toEqual(false)
   })
 
-  it('should return true if not fetching and it has no works', () => {
+  it('should return false when offline', () => {
+    online.mockReturnValueOnce(false)
     const state = { works: { isFetching: false, result: [] } }
+    const actual = shouldFetchWorks(state)
+
+    expect(actual).toEqual(false)
+  })
+
+  it('should return true if not fetching, online and it has no works', () => {
+    online.mockReturnValueOnce(true)
+    const state = { works: { isFetching: false, lastUpdated: 0 } }
     const actual = shouldFetchWorks(state)
 
     expect(actual).toEqual(true)
   })
 
-  it('should return false if not fetching and it has works', () => {
-    const state = { works: { isFetching: false, result: ['work'] } }
+  it('should return true if not fetching, online and is stale', () => {
+    online.mockReturnValueOnce(true)
+    const state = { works: { isFetching: false, lastUpdated: 1 } }
+    const actual = shouldFetchWorks(state)
+
+    expect(actual).toEqual(true)
+  })
+
+  it('should return false if not fetching, online and it has fresh works', () => {
+    online.mockReturnValueOnce(true)
+    const state = { works: { isFetching: false, lastUpdated: Date.now() } }
     const actual = shouldFetchWorks(state)
 
     expect(actual).toEqual(false)

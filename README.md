@@ -10,7 +10,7 @@
 > Source for [https://ismaywolff.nl](https://ismaywolff.nl)
 
 I use this project to test anything I might find interesting as a developer. It is a
-[universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) [progressive web app](https://developers.google.com/web/progressive-web-apps/)
+[universally rendered](https://medium.com/@mjackson/universal-javascript-4761051b7ae9), [progressive web app](https://developers.google.com/web/progressive-web-apps/)
 based on [React](https://facebook.github.io/react/). A quick rundown of the most interesting parts:
 
 ### structure

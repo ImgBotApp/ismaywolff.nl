@@ -2,17 +2,19 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DumbWorkDetail } from './index'
 
+Date.now = jest.fn(() => 1)
+
 describe('<DumbWorkDetail />', () => {
   it('renders correctly', () => {
     const match = { params: { id: 'workId' } }
     const images = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: 1,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -42,13 +44,13 @@ describe('<DumbWorkDetail />', () => {
     const spyWorks = jest.fn()
     const match = { params: { id: 'one' } }
     const images = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []
     }
     const works = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []

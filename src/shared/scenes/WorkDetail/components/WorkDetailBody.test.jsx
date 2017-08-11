@@ -2,17 +2,20 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import WorkDetailBody from './WorkDetailBody'
 
+const recentFetch = 1
+Date.now = jest.fn(() => recentFetch + 1)
+
 describe('<WorkDetailBody />', () => {
   it('renders correctly', () => {
     const id = 'workId'
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -54,13 +57,13 @@ describe('<WorkDetailBody />', () => {
   it('renders a loading state for works', () => {
     const id = 'workId'
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: true,
       result: []
@@ -90,13 +93,13 @@ describe('<WorkDetailBody />', () => {
   it('renders a loading state for images', () => {
     const id = 'workId'
     const images = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: true,
       result: []
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -132,13 +135,13 @@ describe('<WorkDetailBody />', () => {
   it('renders work errors', () => {
     const id = 'workId'
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: 'Error while fetching works',
       isFetching: false,
       result: []
@@ -168,13 +171,13 @@ describe('<WorkDetailBody />', () => {
   it('renders image errors', () => {
     const id = 'workId'
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: 'Error while fetching images',
       isFetching: false,
       result: []
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -209,13 +212,13 @@ describe('<WorkDetailBody />', () => {
   it('renders a missing page error for missing work', () => {
     const id = 'doesNotExist'
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']

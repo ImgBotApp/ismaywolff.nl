@@ -38,9 +38,9 @@ exports[`<DumbHome /> renders correctly 1`] = `
     }
     images={
       Object {
-        "didFetch": true,
         "errorMessage": "",
         "isFetching": false,
+        "lastUpdated": 1,
         "result": Array [
           "imageId",
         ],
@@ -53,9 +53,9 @@ exports[`<DumbHome /> renders correctly 1`] = `
     }
     works={
       Object {
-        "didFetch": true,
         "errorMessage": "",
         "isFetching": false,
+        "lastUpdated": 1,
         "result": Array [
           "workId",
         ],

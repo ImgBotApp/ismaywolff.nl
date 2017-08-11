@@ -2,16 +2,19 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import WorkBody from './WorkBody'
 
+const recentFetch = 1
+Date.now = jest.fn(() => recentFetch + 1)
+
 describe('<WorkBody />', () => {
   it('renders correctly', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -51,13 +54,13 @@ describe('<WorkBody />', () => {
 
   it('renders a loading state for works', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: true,
       result: []
@@ -85,13 +88,13 @@ describe('<WorkBody />', () => {
 
   it('renders a loading state for images', () => {
     const images = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: true,
       result: []
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -124,13 +127,13 @@ describe('<WorkBody />', () => {
 
   it('renders work errors', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: 'Error while fetching works',
       isFetching: false,
       result: []
@@ -158,13 +161,13 @@ describe('<WorkBody />', () => {
 
   it('renders image errors', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: 'Error while fetching images',
       isFetching: false,
       result: []
     }
     const works = {
-      didFetch: true,
+      lastUpdated: recentFetch,
       errorMessage: '',
       isFetching: false,
       result: ['workId']

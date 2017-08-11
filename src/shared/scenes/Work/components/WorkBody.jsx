@@ -1,12 +1,12 @@
 import React from 'react'
-import { shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
+import { number, shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
 import { Spinner } from '../../../components/spinner'
 import { AppError } from '../../../components/errors'
 import { Thumbnail, ThumbnailGrid } from '../../../components/thumbnail'
 
 const WorkBody = ({ images, works, imageEntities, workEntities }) => {
-  const fetchingWorks = works.isFetching || !works.didFetch
-  const fetchingImages = images.isFetching || !images.didFetch
+  const fetchingWorks = works.isFetching || !works.lastUpdated
+  const fetchingImages = images.isFetching || !images.lastUpdated
   const worksError = works.errorMessage
   const imagesError = images.errorMessage
 
@@ -35,13 +35,13 @@ WorkBody.propTypes = {
   workEntities: objectOf(object).isRequired,
   imageEntities: objectOf(object).isRequired,
   works: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired
   }).isRequired,
   images: shape({
-    didFetch: bool.isRequired,
+    lastUpdated: number.isRequired,
     errorMessage: string.isRequired,
     isFetching: bool.isRequired,
     result: arrayOf(string).isRequired

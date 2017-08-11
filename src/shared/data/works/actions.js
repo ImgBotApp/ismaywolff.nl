@@ -7,11 +7,13 @@ import * as selectors from './selectors'
 
 export const fetchWorksSuccess = payload => ({
   type: types.FETCH_WORKS_SUCCESS,
+  receivedAt: Date.now(),
   payload
 })
 
 export const fetchWorksFail = payload => ({
   type: types.FETCH_WORKS_FAIL,
+  receivedAt: Date.now(),
   payload
 })
 

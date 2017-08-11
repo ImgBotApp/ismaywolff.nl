@@ -13,13 +13,12 @@ import { LOCAL_STORAGE_KEY } from './constants'
 
 const persistState = storeState => {
   if (typeof localStorage !== 'undefined') {
-    const hasImageEntities = imageSelectors.checkHasImages(storeState)
-    const hasWorkEntities = workSelectors.checkHasWorks(storeState)
-
+    const hasImages = imageSelectors.checkHasImages(storeState)
+    const hasWorks = workSelectors.checkHasWorks(storeState)
     const worksError = storeState.works && storeState.works.errorMessage
     const imagesError = storeState.images && storeState.images.errorMessage
 
-    if (hasImageEntities && hasWorkEntities && !worksError && !imagesError) {
+    if (hasImages && hasWorks && !worksError && !imagesError) {
       try {
         const { entities, images, works } = storeState
         const persistedState = { entities, images, works }

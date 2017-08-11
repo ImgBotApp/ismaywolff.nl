@@ -10,9 +10,9 @@ const About = () =>
     </Helmet>
     <div>
       <p>
-        I'm an artist, a social scientist and a front-end engineer. My work is a combination of
-        these fields and an exploration of the most inspiring parts of each discipline. I was born
-        1983 in Heerde and live and work in Groningen in the Netherlands.
+        I'm an artist, a social scientist and a software engineer. My work is a combination of these
+        fields and an exploration of the most inspiring parts of each discipline. I was born 1983 in
+        Heerde and live and work in Groningen in the Netherlands.
       </p>
       <p>
         I've graduated with a Masters degree in Social Psychology from the University of Groningen,

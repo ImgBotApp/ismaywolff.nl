@@ -28,10 +28,8 @@
       "src/**/*.{js,jsx}",
       "!src/{client,server,shared}/*.{js,jsx}",
       "!src/{client,server,shared}/{components,data,services}/*/index.js",
-      "!src/client/services/analytics/**",
-      "!src/client/services/raven/**",
-      "!src/shared/services/raven/**",
-      "!src/shared/services/persist/**",
+      "!src/client/services/{raven,analytics}/**",
+      "!src/shared/services/{online,raven,persist}/**",
       "!src/server/templates/**",
       "!**/.eslintrc.js"
     ]

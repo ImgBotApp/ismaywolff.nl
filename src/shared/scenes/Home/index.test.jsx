@@ -3,17 +3,18 @@ import { shallow, mount } from 'enzyme'
 import { DumbHome } from './index'
 
 jest.mock('./components/HomeBody', () => () => <div />)
+Date.now = jest.fn(() => 1)
 
 describe('<DumbHome />', () => {
   it('renders correctly', () => {
     const images = {
-      didFetch: true,
+      lastUpdated: Date.now(),
       errorMessage: '',
       isFetching: false,
       result: ['imageId']
     }
     const works = {
-      didFetch: true,
+      lastUpdated: Date.now(),
       errorMessage: '',
       isFetching: false,
       result: ['workId']
@@ -42,13 +43,13 @@ describe('<DumbHome />', () => {
     const spyImages = jest.fn()
     const spyWorks = jest.fn()
     const images = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []
     }
     const works = {
-      didFetch: false,
+      lastUpdated: 0,
       errorMessage: '',
       isFetching: false,
       result: []
