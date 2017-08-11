@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const ZoomableGridItem = styled.div`
-  box-shadow: var(--box-shadow);
   grid-column: span 6;
   position: relative;
 

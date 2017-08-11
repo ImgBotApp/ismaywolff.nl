@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+// prettier-ignore
 const HeroWrapper = styled.div`
-  box-shadow: var(--box-shadow);
   position: relative;
 `
 

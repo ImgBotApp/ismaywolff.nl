@@ -2,7 +2,6 @@
 
 exports[`<ZoomableGridItem /> renders correctly 1`] = `
 .c0 {
-  box-shadow: var(--box-shadow);
   grid-column: span 6;
   position: relative;
 }
