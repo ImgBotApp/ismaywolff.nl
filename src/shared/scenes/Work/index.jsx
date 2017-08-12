@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { number, func, objectOf, object, shape, bool, string, arrayOf } from 'prop-types'
+import { func, objectOf, object, bool, string, arrayOf } from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { actions as workActions, selectors as workSelectors } from '../../data/works'
@@ -24,10 +24,17 @@ export class DumbWork extends Component {
           <meta name="description" content="An overview of my work" />
         </Helmet>
         <WorkBody
-          images={this.props.images}
-          works={this.props.works}
-          workEntities={this.props.workEntities}
+          fetchingImages={this.props.fetchingImages}
+          hasValidImages={this.props.hasValidImages}
+          imagesError={this.props.imagesError}
+          imagesHasError={this.props.imagesHasError}
           imageEntities={this.props.imageEntities}
+          fetchingWorks={this.props.fetchingWorks}
+          hasValidWorks={this.props.hasValidWorks}
+          worksError={this.props.worksError}
+          workResults={this.props.workResults}
+          worksHasError={this.props.worksHasError}
+          workEntities={this.props.workEntities}
         />
       </div>
     )
@@ -37,27 +44,31 @@ export class DumbWork extends Component {
 DumbWork.propTypes = {
   fetchImagesIfNeeded: func.isRequired,
   fetchWorksIfNeeded: func.isRequired,
-  workEntities: objectOf(object).isRequired,
+  fetchingImages: bool.isRequired,
+  hasValidImages: bool.isRequired,
   imageEntities: objectOf(object).isRequired,
-  works: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
-  images: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired
+  imagesError: string.isRequired,
+  imagesHasError: bool.isRequired,
+  fetchingWorks: bool.isRequired,
+  hasValidWorks: bool.isRequired,
+  workEntities: objectOf(object).isRequired,
+  worksError: string.isRequired,
+  workResults: arrayOf(string).isRequired,
+  worksHasError: bool.isRequired
 }
 
 const mapStateToProps = state => ({
   imageEntities: imageSelectors.getImageEntities(state),
-  images: imageSelectors.getImageState(state),
+  fetchingImages: imageSelectors.getIsFetching(state),
+  imagesError: imageSelectors.getError(state),
+  imagesHasError: imageSelectors.getHasError(state),
+  hasValidImages: imageSelectors.getHasValidResults(state),
   workEntities: workSelectors.getWorkEntities(state),
-  works: workSelectors.getWorkState(state)
+  fetchingWorks: workSelectors.getIsFetching(state),
+  worksError: workSelectors.getError(state),
+  workResults: workSelectors.getResults(state),
+  worksHasError: workSelectors.getHasError(state),
+  hasValidWorks: workSelectors.getHasValidResults(state)
 })
 
 const actions = {

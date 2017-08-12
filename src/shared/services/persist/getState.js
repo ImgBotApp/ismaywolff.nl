@@ -24,7 +24,9 @@ const getState = () => {
     const imagesIsValid = imageSelectors.getIsValid(persistedState)
     const workIsValid = workSelectors.getIsValid(persistedState)
 
-    if (imagesIsValid && workIsValid) return persistedState
+    if (imagesIsValid && workIsValid) {
+      return persistedState
+    }
   }
 
   if (preloadedState) {

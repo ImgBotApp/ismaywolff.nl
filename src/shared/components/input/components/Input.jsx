@@ -2,8 +2,14 @@ import styled from 'styled-components'
 import { bool } from 'prop-types'
 
 const setDisplay = props => {
-  if (props.hidden) return 'none'
-  if (props.fill) return 'block'
+  if (props.hidden) {
+    return 'none'
+  }
+
+  if (props.fill) {
+    return 'block'
+  }
+
   return 'inline'
 }
 

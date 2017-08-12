@@ -2,33 +2,25 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DumbWorkDetail } from './index'
 
-Date.now = jest.fn(() => 1)
-
 describe('<DumbWorkDetail />', () => {
   it('renders correctly', () => {
     const match = { params: { id: 'workId' } }
-    const images = {
-      lastUpdated: 1,
-      errorMessage: '',
-      isFetching: false,
-      result: ['imageId']
-    }
-    const works = {
-      lastUpdated: 1,
-      errorMessage: '',
-      isFetching: false,
-      result: ['workId']
-    }
 
     const wrapper = shallow(
       <DumbWorkDetail
         match={match}
-        workEntities={{}}
-        imageEntities={{}}
-        works={works}
-        images={images}
         fetchWorksIfNeeded={() => {}}
         fetchImagesIfNeeded={() => {}}
+        fetchingImages={false}
+        hasValidImages
+        imageEntities={{ imageId: {} }}
+        imagesError={''}
+        imagesHasError={false}
+        fetchingWorks={false}
+        hasValidWorks
+        workEntities={{ workId: {} }}
+        worksError={''}
+        worksHasError={false}
       />
     )
 
@@ -43,26 +35,20 @@ describe('<DumbWorkDetail />', () => {
     const spyImages = jest.fn()
     const spyWorks = jest.fn()
     const match = { params: { id: 'one' } }
-    const images = {
-      lastUpdated: 0,
-      errorMessage: '',
-      isFetching: false,
-      result: []
-    }
-    const works = {
-      lastUpdated: 0,
-      errorMessage: '',
-      isFetching: false,
-      result: []
-    }
 
     mount(
       <DumbWorkDetail
         match={match}
-        workEntities={{}}
+        fetchingImages={false}
+        hasValidImages={false}
         imageEntities={{}}
-        works={works}
-        images={images}
+        imagesError={''}
+        imagesHasError={false}
+        fetchingWorks={false}
+        hasValidWorks={false}
+        workEntities={{}}
+        worksError={''}
+        worksHasError={false}
         fetchWorksIfNeeded={spyWorks}
         fetchImagesIfNeeded={spyImages}
       />

@@ -1,10 +1,11 @@
 import online from '../../services/online'
 import {
+  getError,
   getIsValid,
   getIsStaleOrUnfetched,
   getHasValidResults,
   getHasError,
-  getResult,
+  getResults,
   getIsFetching,
   getWorkEntities,
   getWorkState,
@@ -45,11 +46,11 @@ describe('getIsFetching', () => {
   })
 })
 
-describe('getResult', () => {
+describe('getResults', () => {
   it('should return the result', () => {
     const state = { works: { result: ['work'] } }
     const expected = ['work']
-    const actual = getResult(state)
+    const actual = getResults(state)
 
     expect(actual).toEqual(expected)
   })
@@ -64,6 +65,16 @@ describe('getHasError', () => {
   })
 })
 
+describe('getHasError', () => {
+  it('should return an error-message if there is one', () => {
+    const state = { works: { errorMessage: 'error' } }
+    const expected = 'error'
+    const actual = getError(state)
+
+    expect(actual).toEqual(expected)
+  })
+})
+
 describe('getHasValidResults', () => {
   it('should return true when the results are valid', () => {
     const state = {
@@ -75,6 +86,30 @@ describe('getHasValidResults', () => {
     const actual = getHasValidResults(state)
 
     expect(actual).toEqual(true)
+  })
+
+  it('should return false when there are no results', () => {
+    const state = {
+      works: { result: [] },
+      entities: {
+        works: { work: {} }
+      }
+    }
+    const actual = getHasValidResults(state)
+
+    expect(actual).toEqual(false)
+  })
+
+  it('should return false when there are no entities', () => {
+    const state = {
+      works: { result: ['work'] },
+      entities: {
+        works: {}
+      }
+    }
+    const actual = getHasValidResults(state)
+
+    expect(actual).toEqual(false)
   })
 })
 
@@ -236,15 +271,38 @@ describe('getIsValid', () => {
 
 describe('getShouldFetchWorks', () => {
   it('should return false when fetching', () => {
-    const state = { works: { isFetching: true, result: [] } }
+    Date.now.mockReturnValueOnce(3600000 + 2)
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        works: {}
+      },
+      works: {
+        errorMessage: '',
+        isFetching: true,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchWorks(state)
 
     expect(actual).toEqual(false)
   })
 
   it('should return false when offline', () => {
+    Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(false)
-    const state = { works: { isFetching: false, result: [] } }
+    const state = {
+      entities: {
+        works: {}
+      },
+      works: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchWorks(state)
 
     expect(actual).toEqual(false)
@@ -253,7 +311,17 @@ describe('getShouldFetchWorks', () => {
   it('should return true if not fetching, online and it has no works', () => {
     Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(true)
-    const state = { works: { isFetching: false, lastUpdated: 0 } }
+    const state = {
+      entities: {
+        works: {}
+      },
+      works: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchWorks(state)
 
     expect(actual).toEqual(true)
@@ -262,7 +330,19 @@ describe('getShouldFetchWorks', () => {
   it('should return true if not fetching, online and is stale', () => {
     Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(true)
-    const state = { works: { isFetching: false, lastUpdated: 1 } }
+    const state = {
+      entities: {
+        works: {
+          id: {}
+        }
+      },
+      works: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 1,
+        result: ['id']
+      }
+    }
     const actual = getShouldFetchWorks(state)
 
     expect(actual).toEqual(true)
@@ -270,10 +350,60 @@ describe('getShouldFetchWorks', () => {
 
   it('should return false if not fetching, online and it has fresh works', () => {
     online.mockReturnValueOnce(true)
-    const state = { works: { isFetching: false, lastUpdated: Date.now() } }
+    const state = {
+      entities: {
+        works: {
+          id: {}
+        }
+      },
+      works: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
     const actual = getShouldFetchWorks(state)
 
     expect(actual).toEqual(false)
+  })
+
+  it('should return true if not fetching, online, has fresh works and an error', () => {
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        works: {
+          id: {}
+        }
+      },
+      works: {
+        errorMessage: 'Error',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
+    const actual = getShouldFetchWorks(state)
+
+    expect(actual).toEqual(true)
+  })
+
+  it('should return true if not fetching, online, has fresh works, no error and invalid results', () => {
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        works: {}
+      },
+      works: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
+    const actual = getShouldFetchWorks(state)
+
+    expect(actual).toEqual(true)
   })
 })
 

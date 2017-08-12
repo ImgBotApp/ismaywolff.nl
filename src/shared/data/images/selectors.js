@@ -7,18 +7,23 @@ import online from '../../services/online'
 export const getImageEntities = state => state.entities.images
 export const getImageState = state => state.images
 export const getIsFetching = state => getImageState(state).isFetching
-export const getResult = state => getImageState(state).result
+export const getResults = state => getImageState(state).result
 export const getHasError = state => !!getImageState(state).errorMessage
+export const getError = state => getImageState(state).errorMessage
 
 /**
  * Checks whether the retrieved images are valid
  */
 
 export const getHasValidResults = state => {
-  const amountOfResults = getResult(state).length
-  const amountOfEntities = Object.keys(getImageEntities(state)).length
+  const results = getResults(state)
+  const entities = getImageEntities(state)
 
-  return amountOfResults > 0 && amountOfEntities > 0 && amountOfResults === amountOfEntities
+  if (results.length === 0 || Object.keys(entities).length === 0) {
+    return false
+  }
+
+  return results.every(key => key in entities)
 }
 
 /**
@@ -52,12 +57,14 @@ export const getShouldFetchImages = state => {
   const isOnline = online()
   const isFetching = getIsFetching(state)
   const isStaleOrUnfetched = getIsStaleOrUnfetched(state)
+  const hasError = getHasError(state)
+  const hasValidResults = getHasValidResults(state)
 
   if (isFetching || !isOnline) {
     // Don't attempt to fetch if already fetching or offline
     return false
   }
 
-  // Fetch if there are no images or they're stale
-  return isStaleOrUnfetched
+  // Fetch if there are no images, if they're stale, if there's an error or the results are invalid
+  return isStaleOrUnfetched || hasError || !hasValidResults
 }

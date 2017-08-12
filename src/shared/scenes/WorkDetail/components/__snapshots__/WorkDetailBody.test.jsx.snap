@@ -79,3 +79,7 @@ exports[`<WorkDetailBody /> renders work errors 1`] = `
   errorMessage="Error while fetching works"
 />
 `;
+
+exports[`<WorkDetailBody /> returns null when there are no valid images 1`] = `null`;
+
+exports[`<WorkDetailBody /> returns null when there are no valid works 1`] = `null`;

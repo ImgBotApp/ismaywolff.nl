@@ -21,36 +21,29 @@ exports[`<DumbWork /> renders correctly 1`] = `
     />
   </HelmetWrapper>
   <Component
+    fetchingImages={false}
+    fetchingWorks={false}
+    hasValidImages={true}
+    hasValidWorks={true}
     imageEntities={
       Object {
         "imageId": Object {},
       }
     }
-    images={
-      Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "imageId",
-        ],
-      }
-    }
+    imagesError=""
+    imagesHasError={false}
     workEntities={
       Object {
         "workId": Object {},
       }
     }
-    works={
-      Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "workId",
-        ],
-      }
+    workResults={
+      Array [
+        "workId",
+      ]
     }
+    worksError=""
+    worksHasError={false}
   />
 </div>
 `;

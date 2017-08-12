@@ -1,26 +1,37 @@
 import React from 'react'
-import { number, shape, bool, string, arrayOf, objectOf, object } from 'prop-types'
+import { arrayOf, bool, string, objectOf, object } from 'prop-types'
 import { Spinner } from '../../../components/spinner'
 import { AppError } from '../../../components/errors'
 import { Thumbnail, ThumbnailGrid } from '../../../components/thumbnail'
 
-const WorkBody = ({ images, works, imageEntities, workEntities }) => {
-  const fetchingWorks = works.isFetching || !works.lastUpdated
-  const fetchingImages = images.isFetching || !images.lastUpdated
-  const worksError = works.errorMessage
-  const imagesError = images.errorMessage
-
+const WorkBody = ({
+  workEntities,
+  imageEntities,
+  fetchingImages,
+  fetchingWorks,
+  hasValidImages,
+  hasValidWorks,
+  imagesError,
+  worksError,
+  workResults,
+  imagesHasError,
+  worksHasError
+}) => {
   if (fetchingWorks || fetchingImages) {
     return <Spinner />
   }
 
-  if (worksError || imagesError) {
+  if (worksHasError || imagesHasError) {
     return <AppError errorMessage={worksError || imagesError} />
+  }
+
+  if (!hasValidWorks || !hasValidImages) {
+    return null
   }
 
   return (
     <ThumbnailGrid>
-      {works.result.map(id =>
+      {workResults.map(id =>
         <Thumbnail
           work={workEntities[id]}
           image={imageEntities[workEntities[id].thumbnail]}
@@ -32,20 +43,17 @@ const WorkBody = ({ images, works, imageEntities, workEntities }) => {
 }
 
 WorkBody.propTypes = {
-  workEntities: objectOf(object).isRequired,
+  fetchingImages: bool.isRequired,
+  hasValidImages: bool.isRequired,
   imageEntities: objectOf(object).isRequired,
-  works: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
-  images: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired
+  imagesError: string.isRequired,
+  imagesHasError: bool.isRequired,
+  fetchingWorks: bool.isRequired,
+  hasValidWorks: bool.isRequired,
+  workEntities: objectOf(object).isRequired,
+  worksError: string.isRequired,
+  workResults: arrayOf(string).isRequired,
+  worksHasError: bool.isRequired
 }
 
 export default WorkBody
