@@ -293,7 +293,7 @@ describe('getHero', () => {
     expect(actual).toEqual(['work'])
   })
 
-  it('should return undefined if there is no work', () => {
+  it('should return an empty array if there is no work', () => {
     const state = {
       works: { result: [] },
       entities: { works: {} }
@@ -303,7 +303,7 @@ describe('getHero', () => {
     expect(actual).toEqual([])
   })
 
-  it('should return undefined if there is work but no hero entities', () => {
+  it('should return an empty array if there is work but no hero entities', () => {
     const state = { works: { result: ['work'] }, entities: { works: { work: { hero: false } } } }
     const actual = getHero(state)
 
