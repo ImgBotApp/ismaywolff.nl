@@ -28,7 +28,7 @@ export const fetchWorks = () => dispatch => {
 }
 
 export const fetchWorksIfNeeded = () => (dispatch, getState) => {
-  if (selectors.shouldFetchWorks(getState())) {
+  if (selectors.getShouldFetchWorks(getState())) {
     return dispatch(fetchWorks())
   }
 

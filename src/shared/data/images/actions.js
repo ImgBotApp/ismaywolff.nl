@@ -28,7 +28,7 @@ export const fetchImages = () => dispatch => {
 }
 
 export const fetchImagesIfNeeded = () => (dispatch, getState) => {
-  if (selectors.shouldFetchImages(getState())) {
+  if (selectors.getShouldFetchImages(getState())) {
     return dispatch(fetchImages())
   }
 
