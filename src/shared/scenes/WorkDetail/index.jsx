@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { number, object, objectOf, bool, func, shape, string, arrayOf } from 'prop-types'
+import { object, objectOf, bool, func, shape, string } from 'prop-types'
 import { connect } from 'react-redux'
 import { actions as workActions, selectors as workSelectors } from '../../data/works'
 import { actions as imageActions, selectors as imageSelectors } from '../../data/images'
@@ -20,10 +20,16 @@ export class DumbWorkDetail extends Component {
       <div>
         <WorkDetailBody
           id={this.props.match.params.id}
-          images={this.props.images}
-          works={this.props.works}
-          workEntities={this.props.workEntities}
+          fetchingImages={this.props.fetchingImages}
+          hasValidImages={this.props.hasValidImages}
+          imagesError={this.props.imagesError}
+          imagesHasError={this.props.imagesHasError}
           imageEntities={this.props.imageEntities}
+          fetchingWorks={this.props.fetchingWorks}
+          hasValidWorks={this.props.hasValidWorks}
+          worksError={this.props.worksError}
+          worksHasError={this.props.worksHasError}
+          workEntities={this.props.workEntities}
         />
       </div>
     )
@@ -33,20 +39,16 @@ export class DumbWorkDetail extends Component {
 DumbWorkDetail.propTypes = {
   fetchImagesIfNeeded: func.isRequired,
   fetchWorksIfNeeded: func.isRequired,
-  workEntities: objectOf(object).isRequired,
+  fetchingImages: bool.isRequired,
+  hasValidImages: bool.isRequired,
   imageEntities: objectOf(object).isRequired,
-  works: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
-  images: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
+  imagesError: string.isRequired,
+  imagesHasError: bool.isRequired,
+  fetchingWorks: bool.isRequired,
+  hasValidWorks: bool.isRequired,
+  workEntities: objectOf(object).isRequired,
+  worksError: string.isRequired,
+  worksHasError: bool.isRequired,
   match: shape({
     params: object.isRequired
   }).isRequired
@@ -54,9 +56,15 @@ DumbWorkDetail.propTypes = {
 
 const mapStateToProps = state => ({
   imageEntities: imageSelectors.getImageEntities(state),
-  images: imageSelectors.getImageState(state),
+  fetchingImages: imageSelectors.getIsFetching(state),
+  imagesError: imageSelectors.getError(state),
+  imagesHasError: imageSelectors.getHasError(state),
+  hasValidImages: imageSelectors.getHasValidResults(state),
   workEntities: workSelectors.getWorkEntities(state),
-  works: workSelectors.getWorkState(state)
+  fetchingWorks: workSelectors.getIsFetching(state),
+  worksError: workSelectors.getError(state),
+  worksHasError: workSelectors.getHasError(state),
+  hasValidWorks: workSelectors.getHasValidResults(state)
 })
 
 const actions = {

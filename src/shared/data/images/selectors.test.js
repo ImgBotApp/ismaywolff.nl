@@ -1,5 +1,6 @@
 import online from '../../services/online'
 import {
+  getError,
   getIsValid,
   getIsStaleOrUnfetched,
   getHasValidResults,
@@ -7,7 +8,7 @@ import {
   getIsFetching,
   getImageEntities,
   getImageState,
-  getResult,
+  getResults,
   getShouldFetchImages
 } from './selectors'
 
@@ -43,11 +44,11 @@ describe('getIsFetching', () => {
   })
 })
 
-describe('getResult', () => {
+describe('getResults', () => {
   it('should return the result', () => {
     const state = { images: { result: ['image'] } }
     const expected = ['image']
-    const actual = getResult(state)
+    const actual = getResults(state)
 
     expect(actual).toEqual(expected)
   })
@@ -62,6 +63,16 @@ describe('getHasError', () => {
   })
 })
 
+describe('getError', () => {
+  it('should return an error-message if there is one', () => {
+    const state = { images: { errorMessage: 'error' } }
+    const expected = 'error'
+    const actual = getError(state)
+
+    expect(actual).toEqual(expected)
+  })
+})
+
 describe('getHasValidResults', () => {
   it('should return true when the results are valid', () => {
     const state = {
@@ -73,6 +84,30 @@ describe('getHasValidResults', () => {
     const actual = getHasValidResults(state)
 
     expect(actual).toEqual(true)
+  })
+
+  it('should return false when there are no results', () => {
+    const state = {
+      images: { result: [] },
+      entities: {
+        images: { image: {} }
+      }
+    }
+    const actual = getHasValidResults(state)
+
+    expect(actual).toEqual(false)
+  })
+
+  it('should return false when there are no entities', () => {
+    const state = {
+      images: { result: ['image'] },
+      entities: {
+        images: {}
+      }
+    }
+    const actual = getHasValidResults(state)
+
+    expect(actual).toEqual(false)
   })
 })
 
@@ -234,15 +269,38 @@ describe('getIsValid', () => {
 
 describe('getShouldFetchImages', () => {
   it('should return false when fetching', () => {
-    const state = { images: { isFetching: true, result: [] } }
+    Date.now.mockReturnValueOnce(3600000 + 2)
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        images: {}
+      },
+      images: {
+        errorMessage: '',
+        isFetching: true,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchImages(state)
 
     expect(actual).toEqual(false)
   })
 
   it('should return false when offline', () => {
+    Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(false)
-    const state = { images: { isFetching: false, result: [] } }
+    const state = {
+      entities: {
+        images: {}
+      },
+      images: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchImages(state)
 
     expect(actual).toEqual(false)
@@ -251,7 +309,17 @@ describe('getShouldFetchImages', () => {
   it('should return true if not fetching, online and it has no images', () => {
     Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(true)
-    const state = { images: { isFetching: false, lastUpdated: 0 } }
+    const state = {
+      entities: {
+        images: {}
+      },
+      images: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 0,
+        result: []
+      }
+    }
     const actual = getShouldFetchImages(state)
 
     expect(actual).toEqual(true)
@@ -260,7 +328,19 @@ describe('getShouldFetchImages', () => {
   it('should return true if not fetching, online and is stale', () => {
     Date.now.mockReturnValueOnce(3600000 + 2)
     online.mockReturnValueOnce(true)
-    const state = { images: { isFetching: false, lastUpdated: 1 } }
+    const state = {
+      entities: {
+        images: {
+          id: {}
+        }
+      },
+      images: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: 1,
+        result: ['id']
+      }
+    }
     const actual = getShouldFetchImages(state)
 
     expect(actual).toEqual(true)
@@ -268,9 +348,59 @@ describe('getShouldFetchImages', () => {
 
   it('should return false if not fetching, online and it has fresh images', () => {
     online.mockReturnValueOnce(true)
-    const state = { images: { isFetching: false, lastUpdated: Date.now() } }
+    const state = {
+      entities: {
+        images: {
+          id: {}
+        }
+      },
+      images: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
     const actual = getShouldFetchImages(state)
 
     expect(actual).toEqual(false)
+  })
+
+  it('should return true if not fetching, online, has fresh images and an error', () => {
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        images: {
+          id: {}
+        }
+      },
+      images: {
+        errorMessage: 'Error',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
+    const actual = getShouldFetchImages(state)
+
+    expect(actual).toEqual(true)
+  })
+
+  it('should return true if not fetching, online, has fresh images, no error and invalid results', () => {
+    online.mockReturnValueOnce(true)
+    const state = {
+      entities: {
+        images: {}
+      },
+      images: {
+        errorMessage: '',
+        isFetching: false,
+        lastUpdated: Date.now(),
+        result: ['id']
+      }
+    }
+    const actual = getShouldFetchImages(state)
+
+    expect(actual).toEqual(true)
   })
 })

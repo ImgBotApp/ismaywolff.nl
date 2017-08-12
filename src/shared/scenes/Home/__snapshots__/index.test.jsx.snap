@@ -26,6 +26,10 @@ exports[`<DumbHome /> renders correctly 1`] = `
         "workId",
       ]
     }
+    fetchingImages={false}
+    fetchingWorks={false}
+    hasValidImages={true}
+    hasValidWorks={true}
     hero={
       Array [
         "workId",
@@ -36,31 +40,15 @@ exports[`<DumbHome /> renders correctly 1`] = `
         "imageId": Object {},
       }
     }
-    images={
-      Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "imageId",
-        ],
-      }
-    }
+    imagesError=""
+    imagesHasError={false}
     workEntities={
       Object {
         "workId": Object {},
       }
     }
-    works={
-      Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "workId",
-        ],
-      }
-    }
+    worksError=""
+    worksHasError={false}
   />
 </div>
 `;

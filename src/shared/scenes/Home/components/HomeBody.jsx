@@ -1,5 +1,5 @@
 import React from 'react'
-import { number, object, objectOf, shape, bool, string, arrayOf } from 'prop-types'
+import { object, objectOf, bool, string, arrayOf } from 'prop-types'
 import { Thumbnail, ThumbnailGrid } from '../../../components/thumbnail'
 import { Title, TitleWithLine } from '../../../components/text'
 import { AppError } from '../../../components/errors'
@@ -8,18 +8,30 @@ import { Link } from '../../../components/link'
 import { Hero } from '../../../components/hero'
 import { Box } from '../../../components/box'
 
-const HomeBody = ({ works, images, workEntities, imageEntities, featured, hero }) => {
-  const fetchingWorks = works.isFetching || !works.lastUpdated
-  const fetchingImages = images.isFetching || !images.lastUpdated
-  const worksError = works.errorMessage
-  const imagesError = images.errorMessage
-
+const HomeBody = ({
+  workEntities,
+  imageEntities,
+  featured,
+  hero,
+  fetchingImages,
+  fetchingWorks,
+  hasValidImages,
+  hasValidWorks,
+  imagesError,
+  worksError,
+  imagesHasError,
+  worksHasError
+}) => {
   if (fetchingWorks || fetchingImages) {
     return <Spinner />
   }
 
-  if (worksError || imagesError) {
+  if (worksHasError || imagesHasError) {
     return <AppError errorMessage={worksError || imagesError} />
+  }
+
+  if (!hasValidWorks || !hasValidImages) {
+    return null
   }
 
   // For multiple heros an item is picked randomly
@@ -67,22 +79,18 @@ const HomeBody = ({ works, images, workEntities, imageEntities, featured, hero }
 }
 
 HomeBody.propTypes = {
-  hero: arrayOf(string).isRequired,
   featured: arrayOf(string).isRequired,
-  workEntities: objectOf(object).isRequired,
+  hero: arrayOf(string).isRequired,
+  fetchingImages: bool.isRequired,
+  hasValidImages: bool.isRequired,
   imageEntities: objectOf(object).isRequired,
-  works: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
-  images: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired
+  imagesError: string.isRequired,
+  imagesHasError: bool.isRequired,
+  fetchingWorks: bool.isRequired,
+  hasValidWorks: bool.isRequired,
+  workEntities: objectOf(object).isRequired,
+  worksError: string.isRequired,
+  worksHasError: bool.isRequired
 }
 
 export default HomeBody

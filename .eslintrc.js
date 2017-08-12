@@ -11,6 +11,9 @@ module.exports = {
     "react/jsx-wrap-multilines": 0,
     "react/no-unescaped-entities": 0,
 
+    // Enforce the consistent use of if statements
+    "curly": ["error", "all"],
+
     // Enforce the consistent use of functions
     "func-style": ["error", "expression"],
     "prefer-arrow-callback": "error",

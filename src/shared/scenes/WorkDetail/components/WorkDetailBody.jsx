@@ -1,5 +1,5 @@
 import React from 'react'
-import { number, shape, string, arrayOf, objectOf, object, bool } from 'prop-types'
+import { string, objectOf, object, bool } from 'prop-types'
 import dateformat from 'dateformat'
 import { Helmet } from 'react-helmet'
 import { Title } from '../../../components/text'
@@ -9,24 +9,35 @@ import { AppError } from '../../../components/errors'
 import { Zoomable, ZoomableGrid } from '../../../components/zoomable'
 import Missing from '../../Missing'
 
-const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
-  const fetchingWorks = works.isFetching || !works.lastUpdated
-  const fetchingImages = images.isFetching || !images.lastUpdated
-  const worksError = works.errorMessage
-  const imagesError = images.errorMessage
-
+const WorkDetailBody = ({
+  id,
+  workEntities,
+  imageEntities,
+  fetchingImages,
+  fetchingWorks,
+  hasValidImages,
+  hasValidWorks,
+  imagesError,
+  worksError,
+  imagesHasError,
+  worksHasError
+}) => {
   if (fetchingWorks || fetchingImages) {
     return <Spinner />
   }
 
-  if (worksError || imagesError) {
+  if (worksHasError || imagesHasError) {
     return <AppError errorMessage={worksError || imagesError} />
+  }
+
+  if (!hasValidWorks || !hasValidImages) {
+    return null
   }
 
   const requestedWork = workEntities[id]
 
   // If there's work but not the requested one
-  if (works.result.length > 0 && !requestedWork) {
+  if (!requestedWork) {
     return <Missing />
   }
 
@@ -67,20 +78,16 @@ const WorkDetailBody = ({ id, images, works, workEntities, imageEntities }) => {
 
 WorkDetailBody.propTypes = {
   id: string.isRequired,
-  workEntities: objectOf(object).isRequired,
+  fetchingImages: bool.isRequired,
+  hasValidImages: bool.isRequired,
   imageEntities: objectOf(object).isRequired,
-  works: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired,
-  images: shape({
-    lastUpdated: number.isRequired,
-    errorMessage: string.isRequired,
-    isFetching: bool.isRequired,
-    result: arrayOf(string).isRequired
-  }).isRequired
+  imagesError: string.isRequired,
+  imagesHasError: bool.isRequired,
+  fetchingWorks: bool.isRequired,
+  hasValidWorks: bool.isRequired,
+  workEntities: objectOf(object).isRequired,
+  worksError: string.isRequired,
+  worksHasError: bool.isRequired
 }
 
 export default WorkDetailBody

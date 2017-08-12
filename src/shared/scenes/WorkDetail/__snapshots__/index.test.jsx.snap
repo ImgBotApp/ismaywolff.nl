@@ -10,29 +10,25 @@ Array [
 exports[`<DumbWorkDetail /> renders correctly 1`] = `
 <div>
   <WorkDetailBody
+    fetchingImages={false}
+    fetchingWorks={false}
+    hasValidImages={true}
+    hasValidWorks={true}
     id="workId"
-    imageEntities={Object {}}
-    images={
+    imageEntities={
       Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "imageId",
-        ],
+        "imageId": Object {},
       }
     }
-    workEntities={Object {}}
-    works={
+    imagesError=""
+    imagesHasError={false}
+    workEntities={
       Object {
-        "errorMessage": "",
-        "isFetching": false,
-        "lastUpdated": 1,
-        "result": Array [
-          "workId",
-        ],
+        "workId": Object {},
       }
     }
+    worksError=""
+    worksHasError={false}
   />
 </div>
 `;

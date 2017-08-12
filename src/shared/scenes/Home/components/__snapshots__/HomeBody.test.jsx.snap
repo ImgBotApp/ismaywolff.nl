@@ -138,3 +138,7 @@ exports[`<HomeBody /> renders work errors 1`] = `
   errorMessage="Error while fetching works"
 />
 `;
+
+exports[`<HomeBody /> returns null when there are no valid images 1`] = `null`;
+
+exports[`<HomeBody /> returns null when there are no valid works 1`] = `null`;
