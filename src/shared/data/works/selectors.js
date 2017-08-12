@@ -6,34 +6,60 @@ import online from '../../services/online'
 
 export const getWorkEntities = state => state.entities.works
 export const getWorkState = state => state.works
-export const checkHasWorks = state => state.works.result.length > 0
+export const getIsFetching = state => getWorkState(state).isFetching
+export const getResult = state => getWorkState(state).result
+export const getHasError = state => !!getWorkState(state).errorMessage
+
+/**
+ * Checks whether the retrieved works are valid
+ */
+
+export const getHasValidResults = state => {
+  const amountOfResults = getResult(state).length
+  const amountOfEntities = Object.keys(getWorkEntities(state)).length
+
+  return amountOfResults > 0 && amountOfEntities > 0 && amountOfResults === amountOfEntities
+}
 
 /**
  * Checks if work is stale (older than an hour). Also considers work stale if work hasn't been
  * fetched yet
  */
 
-export const checkIfStale = state => {
+export const getIsStaleOrUnfetched = state => {
   const hourInMs = 1000 * 60 * 60
   return Date.now() - state.works.lastUpdated > hourInMs
+}
+
+/**
+ * Checks if state is valid (i.e. worth persisting or reusing and not corrupted)
+ */
+
+export const getIsValid = state => {
+  const hasValidResults = getHasValidResults(state)
+  const isFetching = getIsFetching(state)
+  const isStaleOrUnfetched = getIsStaleOrUnfetched(state)
+  const hasError = getHasError(state)
+
+  return hasValidResults && !isFetching && !isStaleOrUnfetched && !hasError
 }
 
 /**
  * Checks whether works should be fetched based on the current state
  */
 
-export const shouldFetchWorks = state => {
+export const getShouldFetchWorks = state => {
   const isOnline = online()
-  const workState = getWorkState(state)
-  const isStale = checkIfStale(state)
+  const isFetching = getIsFetching(state)
+  const isStaleOrUnfetched = getIsStaleOrUnfetched(state)
 
-  if (workState.isFetching || !isOnline) {
+  if (isFetching || !isOnline) {
     // Don't attempt to fetch if already fetching or offline
     return false
   }
 
   // Fetch if there's no work or it's stale
-  return isStale
+  return isStaleOrUnfetched
 }
 
 /**
@@ -41,10 +67,10 @@ export const shouldFetchWorks = state => {
  */
 
 const getByProperty = property => state => {
-  const hasWorks = checkHasWorks(state)
+  const hasValidResults = getHasValidResults(state)
 
   // Return early if there is no work
-  if (!hasWorks) return []
+  if (!hasValidResults) return []
 
   const entities = getWorkEntities(state)
   return Object.keys(entities).filter(entity => entities[entity][property])

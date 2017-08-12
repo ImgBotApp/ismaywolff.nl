@@ -13,8 +13,8 @@ import * as selectors from './selectors'
 // Return consistent date for testing
 Date.now = jest.fn(() => 1)
 
-// Allow shouldFetchImages to be mocked
-selectors.shouldFetchImages = jest.fn()
+// Allow getShouldFetchImages to be mocked
+selectors.getShouldFetchImages = jest.fn()
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -123,7 +123,7 @@ describe('fetchImagesIfNeeded', () => {
 
   it('should fetch images if needed', () => {
     nock(/contentful\.com/).get(/image/).reply(200, mockResponse)
-    selectors.shouldFetchImages.mockReturnValueOnce(true)
+    selectors.getShouldFetchImages.mockReturnValueOnce(true)
 
     const store = mockStore({})
     const expectedActions = [
@@ -137,7 +137,7 @@ describe('fetchImagesIfNeeded', () => {
   })
 
   it('should not fetch images if not needed', () => {
-    selectors.shouldFetchImages.mockReturnValueOnce(false)
+    selectors.getShouldFetchImages.mockReturnValueOnce(false)
     const store = mockStore({})
 
     return store

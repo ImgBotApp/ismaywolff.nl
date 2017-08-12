@@ -13,8 +13,8 @@ import * as selectors from './selectors'
 // Return consistent date for testing
 Date.now = jest.fn(() => 1)
 
-// Allow shouldFetchWorks to be mocked
-selectors.shouldFetchWorks = jest.fn()
+// Allow getShouldFetchWorks to be mocked
+selectors.getShouldFetchWorks = jest.fn()
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -108,7 +108,7 @@ describe('fetchWorksIfNeeded', () => {
 
   it('should fetch works if needed', () => {
     nock(/contentful\.com/).get(/works/).reply(200, mockResponse)
-    selectors.shouldFetchWorks.mockReturnValueOnce(true)
+    selectors.getShouldFetchWorks.mockReturnValueOnce(true)
 
     const store = mockStore({})
     const expectedActions = [
@@ -122,7 +122,7 @@ describe('fetchWorksIfNeeded', () => {
   })
 
   it('should not fetch works if not needed', () => {
-    selectors.shouldFetchWorks.mockReturnValueOnce(false)
+    selectors.getShouldFetchWorks.mockReturnValueOnce(false)
     const store = mockStore({})
 
     return store

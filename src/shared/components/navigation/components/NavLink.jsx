@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { NavLink as ReactRouterNavlink } from 'react-router-dom'
 
@@ -21,6 +20,4 @@ const StyledNavLink = styled(ReactRouterNavlink)`
   }
 `
 
-const NavLink = props => <StyledNavLink {...props} />
-
-export default NavLink
+export default StyledNavLink

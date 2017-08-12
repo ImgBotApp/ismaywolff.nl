@@ -2,21 +2,21 @@
 
 exports[`<Navigation /> renders correctly 1`] = `
 <styled.nav>
-  <NavLink
+  <Styled(NavLink)
     exact={true}
     to="/"
   >
     Home
-  </NavLink>
-  <NavLink
+  </Styled(NavLink)>
+  <Styled(NavLink)
     to="/work"
   >
     Work
-  </NavLink>
-  <NavLink
+  </Styled(NavLink)>
+  <Styled(NavLink)
     to="/about"
   >
     About
-  </NavLink>
+  </Styled(NavLink)>
 </styled.nav>
 `;

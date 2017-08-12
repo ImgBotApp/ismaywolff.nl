@@ -1,6 +1,8 @@
 /* global window, localStorage */
 /* eslint-disable no-underscore-dangle */
 
+import { selectors as imageSelectors } from '../../data/images'
+import { selectors as workSelectors } from '../../data/works'
 import { LOCAL_STORAGE_KEY } from './constants'
 import persistState from './persistState'
 
@@ -19,7 +21,10 @@ const getState = () => {
   const preloadedState = typeof window !== 'undefined' ? window.__PRELOADEDSTATE__ : false
 
   if (persistedState) {
-    return persistedState
+    const imagesIsValid = imageSelectors.getIsValid(persistedState)
+    const workIsValid = workSelectors.getIsValid(persistedState)
+
+    if (imagesIsValid && workIsValid) return persistedState
   }
 
   if (preloadedState) {
