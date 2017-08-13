@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders correctly 1`] = `
+<div>
+  <TitleFactory
+    center={false}
+    margin="unset"
+    size="1rem"
+    tag="h3"
+  >
+    Links
+  </TitleFactory>
+  <styled.ul>
+    <styled.li>
+      Download my work: 
+      <Link
+        href="https://keybase.pub/ismay"
+      >
+        Keybase
+      </Link>
+    </styled.li>
+    <styled.li>
+      Check out my code: 
+      <Link
+        href="https://github.com/ismay"
+      >
+        Github
+      </Link>
+    </styled.li>
+    <styled.li>
+      Email me: 
+      <Link
+        href="mailto:hello+website@ismaywolff.nl"
+      >
+        hello+website@ismaywolff.nl
+      </Link>
+    </styled.li>
+  </styled.ul>
+  <TitleFactory
+    center={false}
+    margin="unset"
+    size="1rem"
+    tag="h3"
+  >
+    Newsletter
+  </TitleFactory>
+  <p>
+    Subscribe to my newsletter to receive updates about new work and exhibitions. I won't spam you or share your email address with others and you can unsubscribe at any time:
+  </p>
+  <Connect(Component) />
+</div>
+`;
