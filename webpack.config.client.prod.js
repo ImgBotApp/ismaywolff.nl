@@ -156,7 +156,20 @@ module.exports = {
       output: 'sw.js',
       version: process.env.RELEASE,
       updateStrategy: 'all',
-      caches: 'all',
+      caches: {
+        main: [
+          ':externals:',
+          'manifest.json',
+          '*.js',
+          '*.woff',
+          '*.woff2',
+          '*.png',
+          '*.xml',
+          '*.ico'
+        ],
+        additional: [],
+        optional: []
+      },
       externals: ['/index.html'],
       AppCache: false,
       ServiceWorker: {
