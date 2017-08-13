@@ -10,32 +10,46 @@ exports[`<Footer /> renders correctly 1`] = `
   >
     Links
   </TitleFactory>
-  <styled.ul>
-    <styled.li>
-      Download my work: 
-      <Link
-        href="https://keybase.pub/ismay"
-      >
-        Keybase
-      </Link>
-    </styled.li>
-    <styled.li>
-      Check out my code: 
-      <Link
-        href="https://github.com/ismay"
-      >
-        Github
-      </Link>
-    </styled.li>
-    <styled.li>
-      Email me: 
-      <Link
-        href="mailto:hello+website@ismaywolff.nl"
-      >
-        hello+website@ismaywolff.nl
-      </Link>
-    </styled.li>
-  </styled.ul>
+  <styled.table>
+    <tbody>
+      <tr>
+        <styled.td>
+          Download my work
+        </styled.td>
+        <styled.td>
+          <Link
+            href="https://keybase.pub/ismay"
+          >
+            Keybase
+          </Link>
+        </styled.td>
+      </tr>
+      <tr>
+        <styled.td>
+          Check out my code
+        </styled.td>
+        <styled.td>
+          <Link
+            href="https://github.com/ismay"
+          >
+            Github
+          </Link>
+        </styled.td>
+      </tr>
+      <tr>
+        <styled.td>
+          Email me
+        </styled.td>
+        <styled.td>
+          <Link
+            href="mailto:hello+website@ismaywolff.nl"
+          >
+            hello+website@ismaywolff.nl
+          </Link>
+        </styled.td>
+      </tr>
+    </tbody>
+  </styled.table>
   <TitleFactory
     center={false}
     margin="unset"

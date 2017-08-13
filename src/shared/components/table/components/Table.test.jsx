@@ -1,11 +1,11 @@
 import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
-import List from './List'
+import Table from './Table'
 
-describe('<List />', () => {
+describe('<Table />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<List />)
+    const wrapper = shallow(<Table />)
     expect(wrapper).toMatchSnapshot()
   })
 })
