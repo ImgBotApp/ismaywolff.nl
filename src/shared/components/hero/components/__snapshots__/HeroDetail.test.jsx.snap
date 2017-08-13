@@ -6,7 +6,7 @@ exports[`<HeroDetail /> renders correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: var(--color-transparent-black);
+  background: linear-gradient(to bottom,rgba(0,0,0,0) 0%,var(--color-transparent-black) 100%);
   bottom: 0;
   color: var(--color-white);
   display: -webkit-box;

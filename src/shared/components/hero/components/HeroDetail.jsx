@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const HeroDetail = styled.div`
   align-items: center;
-  background: var(--color-transparent-black);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--color-transparent-black) 100%);
   bottom: 0;
   color: var(--color-white);
   display: flex;
