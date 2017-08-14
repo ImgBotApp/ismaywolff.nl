@@ -15,7 +15,7 @@ import persistState from './persistState'
 
 const getState = () => {
   const persistedState =
-    typeof localStorage !== 'undefined'
+    typeof localStorage !== 'undefined' && 'getItem' in localStorage
       ? JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
       : false
   const preloadedState = typeof window !== 'undefined' ? window.__PRELOADEDSTATE__ : false
