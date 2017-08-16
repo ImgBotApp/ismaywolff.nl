@@ -19,6 +19,7 @@ const renderStatic = (
       </head>
       <body>
         <div id="app">${html}</div>
+        <script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
         ${inlineStore(preloadedState)}
         ${scripts}
       </body>
