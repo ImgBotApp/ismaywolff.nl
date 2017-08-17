@@ -170,7 +170,10 @@ module.exports = {
         additional: [],
         optional: []
       },
-      externals: ['/index.html'],
+      externals: [
+        '/index.html',
+        'https://cdn.polyfill.io/v2/polyfill.min.js'
+      ],
       AppCache: false,
       ServiceWorker: {
         events: true,
