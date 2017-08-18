@@ -155,7 +155,7 @@ module.exports = {
       autoUpdate: true,
       output: 'sw.js',
       version: process.env.RELEASE,
-      updateStrategy: 'all',
+      updateStrategy: 'changed',
       caches: {
         main: [
           ':externals:',
