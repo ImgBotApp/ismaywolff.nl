@@ -12,7 +12,7 @@ import { LOCAL_STORAGE_KEY } from './constants'
  */
 
 const persistState = storeState => {
-  if (typeof localStorage !== 'undefined' && 'setItem' in localStorage) {
+  if (typeof localStorage === 'object' && localStorage !== null && 'setItem' in localStorage) {
     const imagesIsValid = imageSelectors.getIsValid(storeState)
     const workIsValid = workSelectors.getIsValid(storeState)
 
