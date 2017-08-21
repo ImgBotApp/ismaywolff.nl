@@ -3,6 +3,9 @@ module.exports = {
     "airbnb"
   ],
   "rules": {
+    // Underscore dangling is fine
+    "no-underscore-dangle": 0,
+
     // Ignored because prettier takes care of this
     "arrow-parens": 0,
     "comma-dangle": 0,

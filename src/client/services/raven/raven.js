@@ -1,7 +1,7 @@
 /* global Raven */
-/* eslint-disable no-underscore-dangle */
 
 import load from 'load-script'
+import { __ERROR_EVENTS__ } from '../../../constants'
 import { url, config, logError } from '../../../shared/services/raven'
 
 /**
@@ -15,11 +15,11 @@ const init = () => {
         Raven.config(url, config).install()
       }
 
-      if ('__ERROR_EVENTS__' in window) {
-        const errorEvents = window.__ERROR_EVENTS__.q || []
+      if (__ERROR_EVENTS__ in window) {
+        const errorEvents = window[__ERROR_EVENTS__].q || []
         errorEvents.map(event => logError(event.error))
-        removeEventListener('error', window.__ERROR_EVENTS__)
-        delete window.__ERROR_EVENTS__
+        removeEventListener('error', window[__ERROR_EVENTS__])
+        delete window[__ERROR_EVENTS__]
       }
     })
   }

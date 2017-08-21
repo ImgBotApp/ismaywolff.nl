@@ -1,6 +1,6 @@
 /* global window, localStorage */
-/* eslint-disable no-underscore-dangle */
 
+import { __PRELOADEDSTATE__ } from '../../../constants'
 import { selectors as imageSelectors } from '../../data/images'
 import { selectors as workSelectors } from '../../data/works'
 import { LOCAL_STORAGE_KEY } from './constants'
@@ -18,7 +18,7 @@ const getState = () => {
     typeof localStorage === 'object' && localStorage !== null && 'getItem' in localStorage
       ? JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
       : false
-  const preloadedState = typeof window !== 'undefined' ? window.__PRELOADEDSTATE__ : false
+  const preloadedState = typeof window !== 'undefined' ? window[__PRELOADEDSTATE__] : false
 
   if (persistedState) {
     const imagesIsValid = imageSelectors.getIsValid(persistedState)
