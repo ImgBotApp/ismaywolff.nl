@@ -171,13 +171,13 @@ module.exports = {
         optional: []
       },
       externals: [
-        '/index.html',
+        '/app-shell',
         'https://cdn.polyfill.io/v2/polyfill.min.js'
       ],
       AppCache: false,
       ServiceWorker: {
         events: true,
-        navigateFallbackURL: '/'
+        navigateFallbackURL: '/app-shell'
       }
     })
   ]

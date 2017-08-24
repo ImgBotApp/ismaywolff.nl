@@ -23,6 +23,11 @@ exports[`<Routes /> renders correctly 1`] = `
   />
   <Route
     component={[Function]}
+    exact={true}
+    path="/app-shell"
+  />
+  <Route
+    component={[Function]}
   />
 </Switch>
 `;
