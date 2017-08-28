@@ -1,3 +1,2 @@
-export const __ERROR_EVENTS__ = '__ERROR_EVENTS__'
 export const __PRELOADEDSTATE__ = '__PRELOADEDSTATE__'
 export const __REDUX_DEVTOOLS_EXTENSION__ = '__REDUX_DEVTOOLS_EXTENSION__'

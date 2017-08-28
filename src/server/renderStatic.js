@@ -2,7 +2,6 @@ import { minify } from 'html-minifier'
 import inlineStore from './templates/inlineStore'
 import scripts from './templates/scripts'
 import head from './templates/head'
-import catchErrors from './templates/catchErrors'
 
 const renderStatic = (
   { html = '', title = '', meta = '', criticalCss = '', preloadedState = {} } = {}
@@ -14,7 +13,6 @@ const renderStatic = (
         ${head}
         ${title}
         ${meta}
-        ${catchErrors}
         ${criticalCss}
       </head>
       <body>
