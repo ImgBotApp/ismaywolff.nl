@@ -1,6 +1,6 @@
 /* global window, localStorage */
 
-import { __PRELOADEDSTATE__ } from '../../../constants'
+import { __PRELOADEDSTATE__ } from '../../constants'
 import { selectors as imageSelectors } from '../../data/images'
 import { selectors as workSelectors } from '../../data/works'
 import { LOCAL_STORAGE_KEY } from './constants'

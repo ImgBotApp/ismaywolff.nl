@@ -1,7 +1,7 @@
 /* global Raven */
 
 import load from 'load-script'
-import { __ERROR_EVENTS__ } from '../../../constants'
+import { __ERROR_EVENTS__ } from '../../../shared/constants'
 import { url, config, logError } from '../../../shared/services/raven'
 
 /**

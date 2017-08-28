@@ -1,4 +1,4 @@
-import { __ERROR_EVENTS__ } from '../../constants'
+import { __ERROR_EVENTS__ } from '../../shared/constants'
 
 const catchErrors = `
   <script>

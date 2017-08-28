@@ -1,4 +1,4 @@
-import { __PRELOADEDSTATE__ } from '../../constants'
+import { __PRELOADEDSTATE__ } from '../../shared/constants'
 
 const inlineStore = preloadedState => `
   <script>

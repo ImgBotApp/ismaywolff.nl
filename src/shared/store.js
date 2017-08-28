@@ -2,7 +2,7 @@
 
 import { compose, createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { __REDUX_DEVTOOLS_EXTENSION__ } from '../constants'
+import { __REDUX_DEVTOOLS_EXTENSION__ } from './constants'
 import rootReducer from './rootReducer'
 import logErrors from './data/errors'
 import { persistState } from './services/persist'

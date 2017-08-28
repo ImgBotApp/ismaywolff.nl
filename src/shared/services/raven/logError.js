@@ -1,6 +1,6 @@
 /* global Raven, window */
 
-import { __ERROR_EVENTS__ } from '../../../constants'
+import { __ERROR_EVENTS__ } from '../../constants'
 
 /**
  * Logs any errors passed to it to Sentry. Accepts additional data (see docs below).
