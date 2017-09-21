@@ -129,7 +129,7 @@
     "webpack-stats-plugin": "^0.1.5"
   },
   "dependencies": {
-    "dateformat": "^2.0.0",
+    "dateformat": "^3.0.2",
     "debounce": "^1.0.2",
     "history": "^4.6.2",
     "load-script": "^1.0.0",
