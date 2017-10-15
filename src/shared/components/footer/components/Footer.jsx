@@ -24,7 +24,7 @@ const Footer = () =>
         <tr>
           <Td>Email me</Td>
           <Td>
-            <Link href="mailto:hello+website@ismaywolff.nl">hello+website@ismaywolff.nl</Link>
+            <Link href="mailto:ismay@ismaywolff.nl">ismay@ismaywolff.nl</Link>
           </Td>
         </tr>
       </tbody>

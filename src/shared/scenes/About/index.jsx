@@ -22,8 +22,8 @@ const About = () =>
       </p>
       <p>
         If you'd like to get in touch feel free to email me at{' '}
-        <Link href="mailto:hello+website@ismaywolff.nl">hello+website@ismaywolff.nl</Link> and I'll
-        get back to you as soon as possible.
+        <Link href="mailto:ismay@ismaywolff.nl">ismay@ismaywolff.nl</Link> and I'll get back to you
+        as soon as possible.
       </p>
     </div>
   </div>
