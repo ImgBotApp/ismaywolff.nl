@@ -42,9 +42,9 @@ exports[`<Footer /> renders correctly 1`] = `
         </styled.td>
         <styled.td>
           <Link
-            href="mailto:hello+website@ismaywolff.nl"
+            href="mailto:ismay@ismaywolff.nl"
           >
-            hello+website@ismaywolff.nl
+            ismay@ismaywolff.nl
           </Link>
         </styled.td>
       </tr>
