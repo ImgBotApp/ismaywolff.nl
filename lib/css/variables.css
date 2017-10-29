@@ -1,0 +1,34 @@
+/**
+ * Variables
+ */
+
+:root {
+  /* fonts */
+  --font-regular: 'Crimson Text', serif;
+  --font-emphasis: 'Bitter', serif;
+
+  /* sizes */
+  --size-smaller: calc(1 / 3 * 1rem);
+  --size-small: calc(2 / 3 * 1rem);
+  --size-regular: 1rem;
+  --size-large: 2rem;
+  --size-larger: 5rem;
+
+  /* interface */
+  --border-size: 2px;
+  --wrapper-width: 30rem;
+  --grid-gutter: var(--size-small);
+
+  /* colors */
+  --color-transparent-black: rgba(0, 0, 0, 0.25);
+  --color-black: rgb(0, 0, 0);
+  --color-gray: rgb(230, 230, 230);
+  --color-gray-dark: rgb(155, 155, 155);
+  --color-white: rgb(255, 255, 255);
+  --color-green-light: rgb(123, 215, 132);
+  --color-green-dark: rgb(23, 140, 45);
+  --color-red-light: rgb(239, 141, 141);
+  --color-red-dark: rgb(195, 35, 35);
+  --color-blue-light: rgb(141, 171, 239);
+  --color-blue-dark: rgb(35, 67, 195);
+}

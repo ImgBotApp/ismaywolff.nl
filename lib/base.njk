@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Crimson+Text" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    {{ seoMetaTags | join | safe }}
+    {{ faviconMetaTags | join | safe }}
+  </head>
+  <body>
+    <div class="Site">
+      <div class="Site-header">
+        <div class="Wrapper">
+          {% include "./partials/header.njk" %}
+        </div>
+      </div>
+      <div class="Site-content">
+        <div class="Wrapper">
+          {% block body %}{% endblock %}
+        </div>
+      </div>
+      <div class="Site-footer">
+        {% include "./partials/footer.njk" %}
+      </div>
+    </div>
+  </body>
+</html>

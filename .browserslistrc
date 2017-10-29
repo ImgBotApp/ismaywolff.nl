@@ -1,12 +1,3 @@
 # The browsers I support
 > 5%
 last 2 versions
-
-# The browsers I'm not supporting
-not IE 10-11
-not OperaMini all
-not UCAndroid 11.4
-not ExplorerMobile 10
-not BlackBerry 7
-not OperaMobile 12.1
-not Android 4.4.3-4.4.4

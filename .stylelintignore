@@ -1,4 +1,2 @@
-.git/**
-coverage/**
-dist/**
-node_modules/**
+/build
+/src/css/index.css
