@@ -1,0 +1,21 @@
+{% extends '../base.njk' %}
+
+{% block body %}
+  <header class="u-marginVerticalLarge">
+    <h2 class="u-fontLarge u-textCenter u-marginVerticalNone">{{ title }}</h2>
+    <div class="u-textCenter">{{ medium }} - {{ published }}</div>
+  </header>
+  <p>{{ text }}</p>
+  <div class="Gallery">
+    {% for image in images %}
+    <div class="Gallery-item">
+      <img
+        src="{{ image.src | safe }}"
+        srcSet="{{ image.srcSet | safe }}"
+        sizes="(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw"
+      />
+    </div>
+    {% endfor %}
+  </div>
+  <div class="u-grayDark u-fontSmall u-textCenter u-marginVerticalRegular">Click the images to zoom</div>
+{% endblock %}

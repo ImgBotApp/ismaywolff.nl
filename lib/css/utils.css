@@ -1,0 +1,60 @@
+/**
+ * Padding
+ */
+
+.u-paddingVerticalRegular {
+  padding-top: var(--size-regular);
+  padding-bottom: var(--size-regular);
+}
+
+/**
+ * Margins
+ */
+
+.u-marginVerticalNone {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-marginVerticalRegular {
+  margin-top: var(--size-regular);
+  margin-bottom: var(--size-regular);
+}
+
+.u-marginVerticalLarge {
+  margin-top: var(--size-large);
+  margin-bottom: var(--size-large);
+}
+
+.u-marginVerticalLarger {
+  margin-top: var(--size-larger);
+  margin-bottom: var(--size-larger);
+}
+
+/**
+ * Alignment
+ */
+
+.u-textCenter {
+  text-align: center;
+}
+
+/**
+ * Fonts
+ */
+
+.u-fontSmall {
+  font-size: var(--size-small);
+}
+
+.u-fontLarge {
+  font-size: var(--size-large);
+}
+
+/**
+ * Colors
+ */
+
+.u-grayDark {
+  color: var(--color-gray-dark);
+}

@@ -1,0 +1,271 @@
+/**
+ * Site
+ */
+
+.Site {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.Site-header,
+.Site-footer {
+  flex: none;
+}
+
+.Site-content {
+  flex: 1 0 auto;
+  width: 100%;
+  margin-bottom: var(--size-larger);
+}
+
+/**
+ * Wrapper
+ */
+
+.Wrapper {
+  margin: 0 auto;
+  max-width: calc(var(--wrapper-width) + 2rem);
+  padding: 0 1rem;
+}
+
+/**
+ * Header
+ */
+
+.Header {
+  padding: 1rem 0;
+}
+
+@media (min-width: 30em) {
+  .Header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.Header-link {
+  text-decoration: none;
+}
+
+.Header-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 30em) {
+  .Header-title {
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+/**
+ * Navigation
+ */
+
+.Navigation {
+  text-align: center;
+}
+
+@media (min-width: 30em) {
+  .Navigation {
+    text-align: left;
+  }
+}
+
+.Navigation-link {
+  border-bottom: var(--border-size) solid var(--color-gray);
+  color: currentColor;
+  font-family: var(--font-emphasis);
+  font-size: var(--size-small);
+  margin-right: 1.5rem;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.Navigation-link:hover,
+.Navigation-link.is-active {
+  border-bottom: var(--border-size) solid var(--color-black);
+}
+
+.Navigation-link:last-of-type {
+  margin-right: 0;
+}
+
+/**
+ * Banner
+ */
+
+.Banner {
+  position: relative;
+}
+
+.Banner-overlay {
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--color-transparent-black) 100%);
+  bottom: 0;
+  color: var(--color-white);
+  display: flex;
+  left: 0;
+  padding: var(--size-small);
+  position: absolute;
+  right: 0;
+}
+
+.Banner-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.Banner-details {
+  font-size: var(--size-small);
+}
+
+.Banner-link {
+  margin-left: auto;
+  font-size: var(--size-small);
+  padding: var(--size-smaller) var(--size-small);
+  white-space: nowrap;
+}
+
+/**
+ * Thumbnails
+ */
+
+.Thumbnails {
+  display: flex;
+  flex-flow: row wrap;
+  margin: calc(-0.5 * var(--grid-gutter));
+}
+
+.Thumbnails-item {
+  width: 100%;
+  min-width: 0;
+  padding: calc(0.5 * var(--grid-gutter));
+  position: relative;
+}
+
+@media (min-width: 30em) {
+  .Thumbnails-item {
+    width: 50%;
+  }
+}
+
+.Thumbnails-item-overlay {
+  bottom: calc(0.5 * var(--grid-gutter));
+  color: var(--color-white);
+  padding: var(--size-small);
+  position: absolute;
+  right: calc(0.5 * var(--grid-gutter));
+}
+
+.Thumbnails-item-link {
+  background: var(--color-transparent-black);
+  font-size: var(--size-small);
+  padding: var(--size-smaller) var(--size-small);
+  white-space: nowrap;
+}
+
+/**
+ * Gallery
+ */
+
+.Gallery {
+  display: flex;
+  flex-flow: row wrap;
+  margin: calc(-0.5 * var(--grid-gutter));
+}
+
+.Gallery-item {
+  width: 100%;
+  min-width: 0;
+  padding: calc(0.5 * var(--grid-gutter));
+  position: relative;
+}
+
+@media (min-width: 30em) {
+  .Gallery-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 40em) {
+  .Gallery-item {
+    width: calc(1 / 3 * 100%);
+  }
+}
+
+.Gallery-item img {
+  width: 100%;
+}
+
+/**
+ * Placeholder
+ */
+
+.Placeholder {
+  background: var(--color-gray);
+  display: block;
+  height: 0;
+  position: relative;
+  width: 100%;
+}
+
+.Placeholder img {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.Placeholder--4x7 {
+  padding-top: calc(4 / 7 * 100%);
+}
+
+.Placeholder--2x3 {
+  padding-top: calc(2 / 3 * 100%);
+}
+
+/**
+ * Footer
+ */
+
+.Footer {
+  background: var(--color-gray);
+  font-size: var(--size-small);
+  padding: var(--size-large) 0;
+}
+
+/**
+ * FancyTitle
+ */
+
+.FancyTitle {
+  position: relative;
+  text-align: center;
+}
+
+.FancyTitle::after {
+  border-bottom: var(--border-size) solid var(--color-gray);
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.FancyTitle-text {
+  background: var(--color-white);
+  display: inline;
+  font-size: var(--size-small);
+  padding: 0 1rem;
+}

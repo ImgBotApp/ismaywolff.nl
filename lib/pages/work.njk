@@ -1,0 +1,22 @@
+{% extends '../base.njk' %}
+
+{% block body %}
+  <div class="Thumbnails">
+    {% for work in works %}
+    <div class="Thumbnails-item">
+       <a href="/work/{{ work.slug }}.html">
+         <div class="Placeholder Placeholder--2x3">
+           <img
+            src="{{ work.src | safe }}"
+            srcSet="{{ work.srcSet | safe }}"
+            sizes="(min-width: 30em) 15rem, 100vw"
+          />
+        </div>
+         <div class="Thumbnails-item-overlay">
+           <span class="Thumbnails-item-link">View work →</span>
+         </div>
+       </a>
+     </div>
+    {% endfor %}
+  </div>
+{% endblock %}

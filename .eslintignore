@@ -1,4 +1,1 @@
-.git/**
-coverage/**
-dist/**
-node_modules/**
+postcss.config.js

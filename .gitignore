@@ -1,19 +1,14 @@
-# Node
-npm-debug.log
-yarn-error.log
+# Dependencies
 /node_modules
 
-# OSX
+# System files
 .DS_Store
 
-# Coverage reports
-/coverage
+# Generated files
+/metadata.json
+/build
+/src/**/*.njk
+/src/css/index.css
 
-# Build results
-/dist
-
-# Build statistics
-stats.json
-
-# Environment specific settings
-.env
+# Env specific settings
+/.env

@@ -1,0 +1,56 @@
+{% extends '../base.njk' %}
+
+{% block body %}
+  <div class="Banner">
+    <a href="/work/{{ banner.slug }}.html">
+      <div class="Placeholder Placeholder--4x7">
+        <img
+          src="{{ banner.src | safe }}"
+          srcSet="{{ banner.srcSet | safe }}"
+          sizes="(min-width: 30em) 30rem, 100vw"
+        />
+      </div>
+      <div class="Banner-overlay">
+        <div>
+          <h2 class="Banner-title">{{ banner.title }}</h2>
+          <div class="Banner-details">{{ banner.medium }} - {{ banner.published }}</div>
+        </div>
+        <span class="Banner-link">View work →</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="u-marginVerticalLarger">
+    <div id="HomePageText">
+      {{ homePageText | safe }}
+    </div>
+    <div class="u-textCenter">
+      <a class="u-fontSmall" href="/about.html">Learn more</a>
+    </div>
+  </div>
+
+  <div class="FancyTitle">
+    <h2 class="FancyTitle-text">Featured work</h2>
+  </div>
+  <div class="Thumbnails u-paddingVerticalRegular">
+    {% for work in featured %}
+    <div class="Thumbnails-item">
+       <a href="/work/{{ work.slug }}.html">
+         <div class="Placeholder Placeholder--2x3">
+           <img
+            src="{{ work.src | safe }}"
+            srcSet="{{ work.srcSet | safe }}"
+            sizes="(min-width: 30em) 15rem, 100vw"
+          />
+        </div>
+         <div class="Thumbnails-item-overlay">
+           <span class="Thumbnails-item-link">View work →</span>
+         </div>
+       </a>
+     </div>
+    {% endfor %}
+  </div>
+  <div class="u-textCenter">
+    <a class="u-fontSmall" href="/work.html">See all work</a>
+  </div>
+{% endblock %}
