@@ -36,6 +36,7 @@ const imageToSrcSet = (image, ratio) => {
 
 module.exports = (dato, root) => {
   root.createDataFile("metadata.json", "json", {
+    hostname: "https://www.ismaywolff.nl",
     faviconMetaTags: dato.site.faviconMetaTags.map(renderTag),
     footerLinks: marked(dato.footer.text)
   });
