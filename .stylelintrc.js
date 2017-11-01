@@ -1,9 +1,7 @@
 module.exports = {
-  "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-no-unsupported-browser-features"
-  ],
-  "rules": {
+  extends: ["stylelint-config-standard", "stylelint-config-prettier"],
+  plugins: ["stylelint-no-unsupported-browser-features"],
+  rules: {
     "at-rule-empty-line-before": "always",
     "font-family-name-quotes": "always-where-recommended",
     "at-rule-no-vendor-prefix": true,
@@ -14,9 +12,12 @@ module.exports = {
     "color-named": "never",
     "declaration-no-important": true,
     "font-weight-notation": "numeric",
-    "plugin/no-unsupported-browser-features": [true, {
-      "ignore": ["calc", "rem"],
-      "severity": "warning"
-    }]
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        ignore: ["calc", "rem"],
+        severity: "warning"
+      }
+    ]
   }
-}
+};

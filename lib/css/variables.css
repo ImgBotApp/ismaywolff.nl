@@ -4,8 +4,8 @@
 
 :root {
   /* fonts */
-  --font-regular: 'Crimson Text', serif;
-  --font-emphasis: 'Bitter', serif;
+  --font-regular: "Crimson Text", serif;
+  --font-emphasis: "Bitter", serif;
 
   /* sizes */
   --size-smaller: calc(1 / 3 * 1rem);

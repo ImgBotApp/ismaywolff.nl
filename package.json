@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "precommit": "lint-staged",
     "build": "dato dump && npm run build:css && npm run build:metal",
     "build:metal": "node build.js",
     "build:css": "postcss 'lib/css/index.css' -o 'src/css/index.css'",
@@ -7,7 +8,8 @@
     "watch:serve": "browser-sync start --server 'build' --files 'build/**' --no-notify",
     "watch:metal": "nodemon --watch lib --watch src --watch metadata.json -e njk,json,css --delay 1 build.js",
     "watch:css": "postcss 'lib/css/index.css' -o 'src/css/index.css' --watch",
-    "lint": "npm run lint:css && npm run lint:js",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:whitespace",
+    "lint:whitespace": "lintspaces -e ./.editorconfig -i 'js-comments' './*' 'lib/**'",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js'"
   },
@@ -19,9 +21,14 @@
     "datocms-client": "^0.3.32",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.3.1",
     "html-tag": "^1.0.0",
+    "husky": "^0.14.3",
     "jstransformer-nunjucks": "^0.5.0",
+    "lint-staged": "^4.3.0",
+    "lintspaces-cli": "^0.6.0",
     "marked": "^0.3.6",
     "metalsmith": "^2.3.0",
     "metalsmith-html-minifier": "^2.4.3",
@@ -32,7 +39,9 @@
     "postcss-cli": "^4.1.1",
     "postcss-custom-properties": "^6.2.0",
     "postcss-import": "^11.0.0",
+    "prettier": "^1.7.4",
     "stylelint": "^8.2.0",
+    "stylelint-config-prettier": "^1.0.2",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.1"
   }
