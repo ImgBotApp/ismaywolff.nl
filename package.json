@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "dump": "dato dump",
     "build": "dato dump && npm run build:css && npm run build:metal",
     "build:metal": "node build.js",
     "build:css": "postcss 'lib/css/index.css' -o 'src/css/index.css'",
-    "serve": "browser-sync start --server 'build' --files 'build/**' --reload-delay 500 --reload-debounce 500 --no-notify",
+    "watch": "npm run watch:serve & npm run watch:css & npm run watch:metal",
+    "watch:serve": "browser-sync start --server 'build' --files 'build/**' --no-notify",
     "watch:metal": "nodemon --watch lib --watch src --watch metadata.json -e njk,json,css --delay 1 build.js",
     "watch:css": "postcss 'lib/css/index.css' -o 'src/css/index.css' --watch",
+    "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js'"
   },
@@ -23,6 +24,7 @@
     "jstransformer-nunjucks": "^0.5.0",
     "marked": "^0.3.6",
     "metalsmith": "^2.3.0",
+    "metalsmith-html-minifier": "^2.4.3",
     "metalsmith-in-place": "^4.0.0-alpha.2",
     "nodemon": "^1.12.1",
     "postcss": "^6.0.13",
