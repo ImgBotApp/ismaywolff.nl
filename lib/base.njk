@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Crimson+Text" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
+    {% if canonical %}
+    <link rel="canonical" href="{{ canonical }}" />
+    {% endif %}
     {{ seoMetaTags | join | safe }}
     {{ faviconMetaTags | join | safe }}
   </head>
