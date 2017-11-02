@@ -12,7 +12,7 @@ metalsmith(__dirname)
   .use(htmlMinifier())
   .use(
     sitemap({
-      hostname: metadata.hostname,
+      hostname: metadata.productionFrontendUrl,
       omitIndex: true,
       omitExtension: true,
       lastmod: new Date()
