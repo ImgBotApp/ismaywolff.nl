@@ -1,6 +1,7 @@
 const marked = require("marked");
 const htmlTag = require("html-tag");
 const dateformat = require("dateformat");
+const urlJoin = require("url-join");
 
 /**
  * Helpers
@@ -44,6 +45,7 @@ module.exports = (dato, root) => {
   root.createPost("src/index.njk", "yaml", {
     frontmatter: {
       active: "home",
+      canonical: dato.site.entity.productionFrontendUrl,
       banner: {
         src: imageToSrc(dato.homePage.banner.thumbnail, 250, 4 / 7),
         srcSet: imageToSrcSet(dato.homePage.banner.thumbnail, 4 / 7),
@@ -66,6 +68,7 @@ module.exports = (dato, root) => {
   root.createPost("src/work.njk", "yaml", {
     frontmatter: {
       active: "work",
+      canonical: urlJoin(dato.site.entity.productionFrontendUrl, "work"),
       seoMetaTags: dato.workPage.seoMetaTags.map(renderTag),
       works: dato.works.sort((a, b) => b.published - a.published).map(work => ({
         src: imageToSrc(work.thumbnail, 250, 2 / 3),
@@ -79,6 +82,7 @@ module.exports = (dato, root) => {
   root.createPost("src/about.njk", "yaml", {
     frontmatter: {
       active: "about",
+      canonical: urlJoin(dato.site.entity.productionFrontendUrl, "about"),
       aboutPageText: marked(dato.aboutPage.text),
       seoMetaTags: dato.aboutPage.seoMetaTags.map(renderTag)
     },
@@ -90,6 +94,11 @@ module.exports = (dato, root) => {
       workDir.createPost(`${work.slug}.njk`, "yaml", {
         frontmatter: {
           active: "work",
+          canonical: urlJoin(
+            dato.site.entity.productionFrontendUrl,
+            "/work/",
+            work.slug
+          ),
           title: work.title,
           medium: work.medium,
           published: dateformat(work.published, "mmmm yyyy"),

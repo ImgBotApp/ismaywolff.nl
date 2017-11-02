@@ -44,6 +44,7 @@
     "stylelint": "^8.2.0",
     "stylelint-config-prettier": "^1.0.2",
     "stylelint-config-standard": "^17.0.0",
-    "stylelint-no-unsupported-browser-features": "^1.0.1"
+    "stylelint-no-unsupported-browser-features": "^1.0.1",
+    "url-join": "^2.0.2"
   }
 }
