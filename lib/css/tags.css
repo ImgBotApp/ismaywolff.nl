@@ -87,15 +87,3 @@ h6 {
 #HomePageText h2 {
   font-size: var(--size-regular);
 }
-
-#FooterLinks thead {
-  display: none;
-}
-
-#FooterLinks table {
-  margin: 1em 0;
-}
-
-#FooterLinks td:first-of-type {
-  padding-right: 1em;
-}
