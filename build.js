@@ -9,7 +9,7 @@ const metadata = require("./metadata");
 metalsmith(__dirname)
   .metadata(metadata)
   .use(inPlace())
-  .use(htmlMinifier("**/*.html"))
+  .use(htmlMinifier())
   .use(
     sitemap({
       hostname: metadata.productionFrontendUrl,

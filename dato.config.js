@@ -38,8 +38,7 @@ const imageToSrcSet = (image, ratio) => {
 module.exports = (dato, root) => {
   root.createDataFile("metadata.json", "json", {
     productionFrontendUrl: dato.site.entity.productionFrontendUrl,
-    faviconMetaTags: dato.site.faviconMetaTags.map(renderTag),
-    footerLinks: marked(dato.footer.text)
+    faviconMetaTags: dato.site.faviconMetaTags.map(renderTag)
   });
 
   root.createPost("src/index.njk", "yaml", {

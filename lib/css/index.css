@@ -1,5 +1,6 @@
 /* stylelint-disable at-rule-empty-line-before */
 
+@import "normalize.css";
 @import "./variables.css";
 @import "./tags.css";
 @import "./components.css";

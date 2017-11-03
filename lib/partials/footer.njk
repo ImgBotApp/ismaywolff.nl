@@ -1,5 +1,56 @@
 <footer class="Footer">
-  <div id="FooterLinks" class="Wrapper">
-    {{ footerLinks | safe }}
+  <div class="Wrapper">
+    <h3>Links</h3>
+    <table class="Table">
+      <tbody>
+        <tr>
+          <td>Download my work</td>
+          <td>
+            <a href="https://keybase.pub/ismay">Keybase</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Check out my code</td>
+          <td>
+            <a href="https://github.com/ismay">Github</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Email me</td>
+          <td>
+            <a href="mailto:ismay@ismaywolff.nl">ismay@ismaywolff.nl</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Newsletter</h3>
+    <p>
+      Subscribe to my newsletter to receive updates about new work and exhibitions. I won't spam you
+      or share your email address with others and you can unsubscribe at any time:
+    </p>
+    <form
+      netlify
+      name="Newsletter"
+      action="thank-you"
+      netlify-honeypot="honeypot"
+      class="Newsletter"
+    >
+      <input
+        class="Newsletter-input"
+        autocomplete="email"
+        type="email"
+        placeholder="Your email"
+        name="email"
+        required
+      />
+      <input
+        class="Newsletter-honeypot"
+        type="text"
+        name="honeypot"
+        tabIndex="-1"
+        autoComplete="off"
+      />
+      <button class="Newsletter-button" type="submit">Subscribe</button>
+    </form>
   </div>
 </footer>

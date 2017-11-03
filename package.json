@@ -31,7 +31,7 @@
     "lintspaces-cli": "^0.6.0",
     "marked": "^0.3.6",
     "metalsmith": "^2.3.0",
-    "metalsmith-html-minifier": "^2.4.3",
+    "metalsmith-html-minifier": "^2.4.4",
     "metalsmith-in-place": "^4.0.0-alpha.2",
     "metalsmith-sitemap": "^1.2.0",
     "nodemon": "^1.12.1",
@@ -46,5 +46,8 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.1",
     "url-join": "^2.0.2"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
   }
 }

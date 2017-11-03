@@ -246,6 +246,22 @@
   padding: var(--size-large) 0;
 }
 
+.Footer h3:first-of-type {
+  margin-top: 0;
+}
+
+/**
+ * Table
+ */
+
+.Table {
+  margin: var(--size-regular) 0;
+}
+
+.Table td:first-of-type {
+  padding-right: var(--size-regular);
+}
+
 /**
  * FancyTitle
  */
@@ -272,4 +288,30 @@
   display: inline;
   font-size: var(--size-small);
   padding: 0 1rem;
+}
+
+/**
+ * Newsletter
+ */
+
+.Newsletter-input {
+  border: none;
+  border-radius: 0;
+  display: block;
+  padding: var(--size-smaller);
+  width: 100%;
+}
+
+.Newsletter-honeypot {
+  display: none;
+}
+
+.Newsletter-button {
+  margin-top: var(--size-smaller);
+  background: var(--color-gray);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: 0;
+  display: block;
+  padding: var(--size-smaller);
+  width: 100%;
 }
