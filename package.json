@@ -46,5 +46,8 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.1",
     "url-join": "^2.0.2"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
   }
 }
