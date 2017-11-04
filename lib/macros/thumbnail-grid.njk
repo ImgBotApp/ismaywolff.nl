@@ -1,0 +1,20 @@
+{% macro render(images) %}
+  <div class="Thumbnails">
+    {% for image in images %}
+    <div class="Thumbnails-item">
+      <a href="/work/{{ image.slug }}.html">
+        <div class="Placeholder Placeholder--2x3">
+          <img
+            src="{{ image.src | safe }}"
+            srcset="{{ image.srcSet | safe }}"
+            sizes="(min-width: 30em) 15rem, 100vw"
+          />
+        </div>
+        <div class="Thumbnails-item-overlay">
+          <span class="Thumbnails-item-link">View work →</span>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+{% endmacro %}

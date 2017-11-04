@@ -5,11 +5,7 @@
     "build:metal": "node build.js",
     "build:css": "postcss 'lib/css/index.css' -o 'src/css/index.css'",
     "build:js": "mkdirp src/js && browserify lib/js/index.js -o src/js/index.js",
-    "watch": "npm run watch:serve & npm run watch:css & npm run watch:js & npm run watch:metal",
-    "watch:serve": "browser-sync start --server 'build' --files 'build/**' --no-notify",
-    "watch:metal": "nodemon --watch lib --watch src --watch metadata.json -e njk,json,css --delay 1 build.js",
-    "watch:js": "mkdirp src/js && watchify 'lib/js/index.js' -o 'src/js/index.js'",
-    "watch:css": "postcss 'lib/css/index.css' -o 'src/css/index.css' --watch",
+    "serve": "browser-sync start --server 'build' --files 'build/**' --no-notify",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:whitespace",
     "lint:whitespace": "lintspaces -e ./.editorconfig -i 'js-comments' './*' 'lib/**'",
     "lint:css": "stylelint '**/*.css'",
@@ -39,7 +35,6 @@
     "metalsmith-sitemap": "^1.2.0",
     "metalsmith-uglify": "^2.0.1",
     "mkdirp": "^0.5.1",
-    "nodemon": "^1.12.1",
     "postcss": "^6.0.13",
     "postcss-calc": "^6.0.1",
     "postcss-cli": "^4.1.1",
@@ -50,8 +45,7 @@
     "stylelint-config-prettier": "^1.0.2",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.1",
-    "url-join": "^2.0.2",
-    "watchify": "^3.9.0"
+    "url-join": "^2.0.2"
   },
   "dependencies": {
     "normalize.css": "^7.0.0"

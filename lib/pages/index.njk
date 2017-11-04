@@ -1,4 +1,5 @@
-{% extends '../base.njk' %}
+{% import "../macros/thumbnail-grid.njk" as grid %}
+{% extends "../base.njk" %}
 
 {% block body %}
   <div class="Banner">
@@ -32,23 +33,8 @@
   <div class="FancyTitle">
     <h2 class="FancyTitle-text">Featured work</h2>
   </div>
-  <div class="Thumbnails u-paddingVerticalRegular">
-    {% for work in featured %}
-    <div class="Thumbnails-item">
-      <a href="/work/{{ work.slug }}.html">
-        <div class="Placeholder Placeholder--2x3">
-          <img
-            src="{{ work.src | safe }}"
-            srcset="{{ work.srcSet | safe }}"
-            sizes="(min-width: 30em) 15rem, 100vw"
-          />
-        </div>
-        <div class="Thumbnails-item-overlay">
-          <span class="Thumbnails-item-link">View work →</span>
-        </div>
-      </a>
-    </div>
-    {% endfor %}
+  <div class="u-paddingVerticalRegular">
+    {{ grid.render(featured) }}
   </div>
   <div class="u-textCenter">
     <a class="u-fontSmall" href="/work.html">See all work</a>
