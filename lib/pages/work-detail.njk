@@ -1,4 +1,4 @@
-{% extends '../base.njk' %}
+{% extends "../base.njk" %}
 
 {% block body %}
   <header class="u-marginVerticalLarge">
@@ -10,12 +10,15 @@
     {% for image in images %}
     <div class="Gallery-item">
       <img
+        data-zoom
+        data-width="{{ image.width }}"
+        data-height="{{ image.height }}"
+        data-url="{{ image.url }}"
         src="{{ image.src | safe }}"
-        srcSet="{{ image.srcSet | safe }}"
+        srcset="{{ image.srcSet | safe }}"
         sizes="(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw"
       />
     </div>
     {% endfor %}
   </div>
-  <div class="u-grayDark u-fontSmall u-textCenter u-marginVerticalRegular">Click the images to zoom</div>
 {% endblock %}
