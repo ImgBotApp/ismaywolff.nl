@@ -1,45 +1,64 @@
 const marked = require("marked");
-const htmlTag = require("html-tag");
 const dateformat = require("dateformat");
 const urlJoin = require("url-join");
+const mime = require("mime-types");
+const { renderTag, imageToSrc, imageToSrcSet } = require("./dato.helpers");
 
 /**
- * Helpers
+ * Used by metalsmith-rss
  */
 
-// Renders tag info supplied by dato to actual html
-const renderTag = ({ tagName, attributes = {}, content = "" }) =>
-  htmlTag(tagName, attributes, content);
-
-// Returns a src for an image
-const imageToSrc = (image, width, ratio) =>
-  image.url({
-    w: width,
-    h: Math.floor(width * ratio),
-    fit: "crop"
-  });
-
-// Returns a srcSet for an image, according to a ratio and a predefined set of widths
-const imageToSrcSet = (image, ratio) => {
-  const widths = [100, 250, 500, 750, 1000];
-
-  const srcSetParts = widths.map(width => {
-    const src = imageToSrc(image, width, ratio);
-    return `${src} ${width}w`;
-  });
-
-  return srcSetParts.join(", ");
-};
+const rssFilename = "rss.xml";
 
 /**
  * Dato config
  */
 
 module.exports = (dato, root) => {
+  /**
+   * Make sure that there is a single language
+   */
+
+  if (dato.site.entity.locales.length !== 1) {
+    throw Error("Check dato language settings, multiple languages or no language set.");
+  }
+
+  /**
+   * Global metadata
+   */
+
   root.createDataFile("metadata.json", "json", {
-    productionFrontendUrl: dato.site.entity.productionFrontendUrl,
-    faviconMetaTags: dato.site.faviconMetaTags.map(renderTag)
+    title: dato.site.globalSeo.siteName,
+    description: dato.site.globalSeo.fallbackSeo.description,
+    host: dato.site.entity.productionFrontendUrl,
+    language: dato.site.entity.locales[0],
+    faviconMetaTags: dato.site.faviconMetaTags.map(renderTag),
+
+    /**
+     * Used by metalsmith-rss
+     */
+
+    rssFilename,
+    rssAbsoluteUrl: urlJoin(dato.site.entity.productionFrontendUrl, rssFilename),
+    rssRelativeUrl: `/${rssFilename}`,
+    banner: dato.homePage.banner.thumbnail.url({ w: 500 }),
+    collections: {
+      rss: dato.works.sort((a, b) => b.published - a.published).map(work => ({
+        title: work.title,
+        date: work.published,
+        description: work.text,
+        url: urlJoin(dato.site.entity.productionFrontendUrl, "/work/", work.slug),
+        enclosure: {
+          url: work.thumbnail.url({ w: 500 }).replace(/^https:\/\//i, "http://"),
+          type: mime.lookup(work.thumbnail.format)
+        }
+      }))
+    }
   });
+
+  /**
+   * Home
+   */
 
   root.createPost("src/index.njk", "yaml", {
     frontmatter: {
@@ -64,6 +83,10 @@ module.exports = (dato, root) => {
     content: '{% extends "./lib/pages/index.njk" %}'
   });
 
+  /**
+   * Work index
+   */
+
   root.createPost("src/work.njk", "yaml", {
     frontmatter: {
       active: "work",
@@ -78,6 +101,10 @@ module.exports = (dato, root) => {
     content: '{% extends "./lib/pages/work.njk" %}'
   });
 
+  /**
+   * About
+   */
+
   root.createPost("src/about.njk", "yaml", {
     frontmatter: {
       active: "about",
@@ -88,16 +115,16 @@ module.exports = (dato, root) => {
     content: '{% extends "./lib/pages/about.njk" %}'
   });
 
+  /**
+   * Work detail
+   */
+
   root.directory("src/work", workDir => {
     dato.works.forEach(work => {
       workDir.createPost(`${work.slug}.njk`, "yaml", {
         frontmatter: {
           active: "work",
-          canonical: urlJoin(
-            dato.site.entity.productionFrontendUrl,
-            "/work/",
-            work.slug
-          ),
+          canonical: urlJoin(dato.site.entity.productionFrontendUrl, "/work/", work.slug),
           title: work.title,
           medium: work.medium,
           published: dateformat(work.published, "mmmm yyyy"),
