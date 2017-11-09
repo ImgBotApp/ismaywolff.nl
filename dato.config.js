@@ -69,6 +69,8 @@ module.exports = (dato, root) => {
       banner: {
         src: imageToSrc(dato.homePage.banner.thumbnail, 250, 4 / 7),
         srcSet: imageToSrcSet(dato.homePage.banner.thumbnail, 4 / 7),
+        imgAlt: dato.homePage.banner.thumbnail.alt,
+        imgTitle: dato.homePage.banner.thumbnail.title,
         slug: dato.homePage.banner.slug,
         title: dato.homePage.banner.title,
         published: dateformat(dato.homePage.banner.published, "mmmm yyyy"),
@@ -79,7 +81,9 @@ module.exports = (dato, root) => {
       featured: dato.homePage.featured.map(work => ({
         src: imageToSrc(work.thumbnail, 250, 2 / 3),
         srcSet: imageToSrcSet(work.thumbnail, 2 / 3),
-        slug: work.slug
+        slug: work.slug,
+        imgAlt: work.thumbnail.alt,
+        imgTitle: work.thumbnail.title
       }))
     },
     content: '{% extends "./lib/pages/index.njk" %}'
@@ -97,7 +101,9 @@ module.exports = (dato, root) => {
       works: dato.works.sort((a, b) => b.published - a.published).map(work => ({
         src: imageToSrc(work.thumbnail, 250, 2 / 3),
         srcSet: imageToSrcSet(work.thumbnail, 2 / 3),
-        slug: work.slug
+        slug: work.slug,
+        imgAlt: work.thumbnail.alt,
+        imgTitle: work.thumbnail.title
       }))
     },
     content: '{% extends "./lib/pages/work.njk" %}'
@@ -135,7 +141,9 @@ module.exports = (dato, root) => {
             src: image.url({ w: 250, auto: "format", q: 80 }),
             srcSet: [100, 250, 500, 750, 1000, 1250, 1500]
               .map(width => `${image.url({ w: width, auto: "format", q: 80 })} ${width}w`)
-              .join(", ")
+              .join(", "),
+            imgAlt: image.alt,
+            imgTitle: image.title
           })),
           seoMetaTags: work.seoMetaTags.map(renderTag)
         },

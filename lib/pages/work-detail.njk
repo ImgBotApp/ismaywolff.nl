@@ -14,6 +14,8 @@
         src="{{ image.src | safe }}"
         srcset="{{ image.srcSet | safe }}"
         sizes="(min-width: 40em) 10rem, (min-width: 30em) 15rem, 100vw"
+        alt="{{ image.imgAlt }}"
+        title="{{ image.imgTitle }}"
       />
     </div>
     {% endfor %}
