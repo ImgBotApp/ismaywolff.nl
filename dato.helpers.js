@@ -15,7 +15,9 @@ const imageToSrc = (image, width, ratio) =>
   image.url({
     w: width,
     h: Math.floor(width * ratio),
-    fit: "crop"
+    fit: "crop",
+    auto: "format",
+    q: 80
   });
 
 /**

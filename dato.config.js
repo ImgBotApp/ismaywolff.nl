@@ -41,7 +41,7 @@ module.exports = (dato, root) => {
     rssFilename,
     rssAbsoluteUrl: urlJoin(dato.site.entity.productionFrontendUrl, rssFilename),
     rssRelativeUrl: `/${rssFilename}`,
-    banner: dato.homePage.banner.thumbnail.url({ w: 500 }),
+    banner: dato.homePage.banner.thumbnail.url({ w: 500, auto: "format", q: 80 }),
     collections: {
       rss: dato.works.sort((a, b) => b.published - a.published).map(work => ({
         title: work.title,
@@ -49,7 +49,9 @@ module.exports = (dato, root) => {
         description: work.text,
         url: urlJoin(dato.site.entity.productionFrontendUrl, "/work/", work.slug),
         enclosure: {
-          url: work.thumbnail.url({ w: 500 }).replace(/^https:\/\//i, "http://"),
+          url: work.thumbnail
+            .url({ w: 500, auto: "format", q: 80 })
+            .replace(/^https:\/\//i, "http://"),
           type: mime.lookup(work.thumbnail.format)
         }
       }))
@@ -130,9 +132,9 @@ module.exports = (dato, root) => {
           published: dateformat(work.published, "mmmm yyyy"),
           text: work.text,
           images: work.images.map(image => ({
-            src: image.url({ w: 250 }),
+            src: image.url({ w: 250, auto: "format", q: 80 }),
             srcSet: [100, 250, 500, 750, 1000, 1250, 1500]
-              .map(width => `${image.url({ w: width })} ${width}w`)
+              .map(width => `${image.url({ w: width, auto: "format", q: 80 })} ${width}w`)
               .join(", ")
           })),
           seoMetaTags: work.seoMetaTags.map(renderTag)
