@@ -133,10 +133,7 @@ module.exports = (dato, root) => {
             src: image.url({ w: 250 }),
             srcSet: [100, 250, 500, 750, 1000, 1250, 1500]
               .map(width => `${image.url({ w: width })} ${width}w`)
-              .join(", "),
-            width: image.width,
-            height: image.height,
-            url: image.url()
+              .join(", ")
           })),
           seoMetaTags: work.seoMetaTags.map(renderTag)
         },
