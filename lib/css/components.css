@@ -107,11 +107,7 @@
 
 .Banner-overlay {
   align-items: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    var(--color-transparent-black) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--color-transparent-black) 100%);
   bottom: 0;
   color: var(--color-white);
   display: flex;
@@ -314,4 +310,53 @@
   display: block;
   padding: var(--size-smaller);
   width: 100%;
+}
+
+/**
+ * Zoom
+ */
+
+.Zoom-img,
+.Zoom-wrap {
+  position: relative;
+  z-index: 666;
+  transition: all var(--transition-time);
+}
+
+.Zoom-overlay {
+  z-index: 420;
+  background: var(--color-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-time) ease-in-out;
+}
+
+.Zoom.isZoomed .Zoom-overlay {
+  opacity: 1;
+}
+
+.Zoom.isUnzooming .Zoom-overlay {
+  opacity: 0;
+}
+
+.Zoom.isZoomed,
+.Zoom.isUnzooming {
+  cursor: default;
+}
+
+/**
+ * Zoomable
+ */
+
+.Zoomable {
+  cursor: zoom-in;
+}
+
+.Zoomable.isZoomed {
+  cursor: zoom-out;
 }

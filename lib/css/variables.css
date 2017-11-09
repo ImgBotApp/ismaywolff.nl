@@ -3,6 +3,9 @@
  */
 
 :root {
+  /* default transition time */
+  --transition-time: 300ms;
+
   /* fonts */
   --font-regular: "Crimson Text", serif;
   --font-emphasis: "Bitter", serif;
