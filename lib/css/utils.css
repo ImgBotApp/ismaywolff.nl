@@ -45,3 +45,17 @@
 .u-fontLarge {
   font-size: var(--size-large);
 }
+
+/**
+ * Text
+ */
+
+.u-textTruncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.u-textTruncateFlexFix {
+  min-width: 0;
+}
