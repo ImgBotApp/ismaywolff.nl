@@ -7,7 +7,7 @@
 
 My personal portfolio, with content fetched from [DatoCMS](https://www.datocms.com/), built and
 hosted by [Netlify](https://www.netlify.com/). By far the best, most enjoyable and simple setup I've
-used to host my portfolio so far.
+used to host my portfolio so far. The previous iterations were a [static site](https://github.com/ismay/ismaywolff.nl/tree/cb13db16c0912976f992846421b4bd966006a0ef) and a [react application](https://github.com/ismay/ismaywolff.nl/tree/6b95401a8e41e4feb5466a3d48cfc0a906dc1ad5).
 
 ## install
 
