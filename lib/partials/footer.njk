@@ -24,7 +24,7 @@
         <tr>
           <td>Email me</td>
           <td>
-            <a href="mailto:ismay@ismaywolff.nl">ismay@ismaywolff.nl</a>
+            <a href="{{ email.href | safe }}">{{ email.text | safe }}</a>
           </td>
         </tr>
       </tbody>

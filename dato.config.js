@@ -33,6 +33,12 @@ module.exports = (dato, root) => {
     host: dato.site.entity.productionFrontendUrl,
     language: dato.site.entity.locales[0],
     faviconMetaTags: dato.site.faviconMetaTags.map(renderTag),
+    email: {
+      href:
+        "&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#105;&#115;&#109;&#x61;&#x79;&#x40;&#x69;&#x73;&#x6d;&#97;&#x79;&#x77;&#x6f;&#x6c;&#102;&#102;&#46;&#x6e;&#108;",
+      text:
+        "&#105;&#115;&#109;&#x61;&#x79;&#x40;&#x69;&#x73;&#x6d;&#97;&#x79;&#x77;&#x6f;&#x6c;&#102;&#102;&#46;&#x6e;&#108;"
+    },
 
     /**
      * Used by metalsmith-rss
