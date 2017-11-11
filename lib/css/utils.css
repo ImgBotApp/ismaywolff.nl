@@ -59,3 +59,11 @@
 .u-textTruncateFlexFix {
   min-width: 0;
 }
+
+/**
+ * Size
+ */
+
+.u-fullWidth {
+  width: 100%;
+}

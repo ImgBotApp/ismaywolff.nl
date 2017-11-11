@@ -123,6 +123,16 @@ module.exports = (dato, root) => {
     frontmatter: {
       active: "about",
       canonical: urlJoin(dato.site.entity.productionFrontendUrl, "about"),
+      aboutPagePhoto: {
+        src: dato.aboutPage.portrait.url({ w: 250, auto: "format", q: 80 }),
+        srcSet: [100, 250, 500, 750, 1000, 1250, 1500]
+          .map(
+            width => `${dato.aboutPage.portrait.url({ w: width, auto: "format", q: 80 })} ${width}w`
+          )
+          .join(", "),
+        imgAlt: dato.aboutPage.portrait.alt,
+        imgTitle: dato.aboutPage.portrait.title
+      },
       aboutPageText: marked(dato.aboutPage.text),
       seoMetaTags: dato.aboutPage.seoMetaTags.map(renderTag)
     },
