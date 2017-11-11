@@ -1,3 +1,12 @@
 # The browsers I support
 > 5%
 last 2 versions
+
+# Browsers I don't support
+not ie <= 11
+not ie_mob <= 11
+not edge <= 15
+not bb 7
+not and_uc 11.4
+not op_mini all
+not op_mob 12.1
