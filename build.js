@@ -4,6 +4,7 @@ const htmlMinifier = require("metalsmith-html-minifier");
 const uglify = require("metalsmith-uglify");
 const sitemap = require("metalsmith-sitemap");
 const rss = require("metalsmith-rss");
+const assets = require("metalsmith-assets");
 
 // eslint-disable-next-line import/no-unresolved
 const metadata = require("./metadata");
@@ -46,6 +47,12 @@ metalsmith(__dirname)
   .use(
     uglify({
       sameName: true
+    })
+  )
+  .use(
+    assets({
+      source: "./lib/static",
+      destination: "./"
     })
   )
   .build(err => {
