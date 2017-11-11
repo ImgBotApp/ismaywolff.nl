@@ -1,5 +1,13 @@
 {% extends "../base.njk" %}
 
 {% block body %}
+  <img
+    src="{{ aboutPagePhoto.src }}"
+    srcset="{{ aboutPagePhoto.srcSet }}"
+    sizes="(min-width: 30em) 30rem, 100vw"
+    title="{{ aboutPagePhoto.imgTitle }}"
+    alt="{{ aboutPagePhoto.imgAlt }}"
+    class="u-fullWidth"
+  >
   {{ aboutPageText | safe }}
 {% endblock %}
